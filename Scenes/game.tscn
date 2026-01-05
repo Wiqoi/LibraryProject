@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://dy57mk7q2iv7m"]
+[gd_scene load_steps=6 format=4 uid="uid://dy57mk7q2iv7m"]
 
-[ext_resource type="PackedScene" uid="uid://bv23usck8l400" path="res://Scenes/player.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="2_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/Placeholders.png" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://coreyppevxw7s" path="res://Scenes/book_on_ground_event.tscn" id="3_wrm1d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dryh"]
 texture = ExtResource("2_wrm1d")
@@ -67,3 +68,5 @@ tile_set = SubResource("TileSet_ebmjs")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
+
+[node name="BookOnGroundEvent" parent="." instance=ExtResource("3_wrm1d")]
