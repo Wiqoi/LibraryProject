@@ -8,7 +8,6 @@ extends CharacterBody2D
 
 var movement_dir: Vector2 = Vector2.ZERO
 
-
 func _physics_process(_delta: float) -> void:
 	# 1. Get input from your input maps
 	movement_dir = Vector2(
@@ -20,7 +19,6 @@ func _physics_process(_delta: float) -> void:
 	# 2. Apply movement (handles collision)
 	velocity = movement_dir * move_speed
 	move_and_slide()
-
 
 	# 3. Update animation on AnimatedSprite2D
 	update_animation()
