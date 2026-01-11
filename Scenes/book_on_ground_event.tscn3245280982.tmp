@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://coreyppevxw7s"]
+[gd_scene load_steps=19 format=3 uid="uid://coreyppevxw7s"]
 
 [ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/Placeholders.png" id="1_aq7ag"]
 [ext_resource type="Script" uid="uid://5gjdr174oicg" path="res://Scripts/BookOnGroundEvent.gd" id="1_rprs8"]
@@ -109,7 +109,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kmp1x")
 }],
-"loop": false,
+"loop": true,
 "name": &"BookOrganize",
 "speed": 5.0
 }]
@@ -117,11 +117,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq7ag"]
 size = Vector2(30, 30)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rprs8"]
-size = Vector2(32, 32)
-
 [node name="BookOnGroundEvent" type="CharacterBody2D"]
 script = ExtResource("1_rprs8")
+interaction_range = null
+map_min = null
+map_max = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e8ol2")
@@ -129,8 +129,3 @@ animation = &"BookOrganize"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_aq7ag")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_rprs8")

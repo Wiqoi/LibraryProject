@@ -109,7 +109,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kmp1x")
 }],
-"loop": false,
+"loop": true,
 "name": &"BookOrganize",
 "speed": 5.0
 }]
@@ -120,8 +120,9 @@ size = Vector2(30, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rprs8"]
 size = Vector2(32, 32)
 
-[node name="BookOnGroundEvent" type="CharacterBody2D"]
+[node name="BookOnGroundEvent" type="CharacterBody2D" node_paths=PackedStringArray("player_node")]
 script = ExtResource("1_rprs8")
+player_node = NodePath(".")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e8ol2")
