@@ -49,7 +49,7 @@ func play_book_organize_animation() -> void:
 # --------------------------
 # Interaction Detection (Player Input + Proximity + Mouse Hover)
 # --------------------------
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Skip processing if already organizing (prevent duplicate triggers)
 	if is_organizing:
 		return
