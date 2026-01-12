@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var player_node: CharacterBody2D = null  # Assign your Player's CharacterBody2D in the inspector
-@export var interaction_range: float = 50.0  # Max distance between book and player for interaction (adjust as needed)
+@export var interaction_range: float = 100.0  # Max distance between book and player for interaction (adjust as needed)
 @export var map_min: Vector2 = Vector2(-800, -800)  # Min X/Y of your game map (spawn area)
 @export var map_max: Vector2 = Vector2(800, 800)  # Max X/Y of your game map (spawn area)
 var is_organizing: bool = false  # Flag to prevent multiple interactions
