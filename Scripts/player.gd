@@ -45,4 +45,5 @@ func update_animation() -> void:
 
 func _ready() -> void:
 	# Start with Idle animation
+	Global.player_node = self
 	animations.animation = "Idle"
