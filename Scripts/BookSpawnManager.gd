@@ -1,8 +1,8 @@
 extends Node
 
 @export var book_scene: PackedScene
-@export var min_spawn_delay: float = 1.0
-@export var max_spawn_delay: float = 2.0
+@export var min_spawn_delay: float = 5.0
+@export var max_spawn_delay: float = 15.0
 
 func _ready() -> void:
 	spawn_book_after_random_delay()
