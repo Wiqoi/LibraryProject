@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsbp7nmgsjuit"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_entsu"]
+bg_color = Color(0.37866554, 0.6437313, 0.7333264, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Score_count" type="Label" parent="."]
+layout_mode = 0
+offset_left = 925.0
+offset_top = 22.0
+offset_right = 1138.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_entsu")
+text = "  Score: "
