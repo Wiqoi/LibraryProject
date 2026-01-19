@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://28vujj2q88w7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjqrp"]
+bg_color = Color(0.8678517, 0.78176385, 0.82689023, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dujba"]
+bg_color = Color(0.36884326, 0.6555796, 0.67064965, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+shadow_color = Color(0.42476243, 0.60678846, 1, 0.6)
+shadow_size = 4
+
+[node name="StartingPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bjqrp")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 382.0
+offset_top = 216.0
+offset_right = 741.0
+offset_bottom = 289.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dujba")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 316.0
+offset_right = 740.0
+offset_bottom = 394.0
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 419.0
+offset_right = 740.0
+offset_bottom = 502.0

@@ -4,7 +4,7 @@ var player_node: CharacterBody2D = null  # Assign your Player's CharacterBody2D 
 @export var interaction_range: float = 100.0  # Max distance between book and player for interaction (adjust as needed)
 @export var map_min: Vector2 = Vector2(-800, -800)  # Min X/Y of your game map (spawn area)
 @export var map_max: Vector2 = Vector2(800, 800)  # Max X/Y of your game map (spawn area)
-var is_organizing: bool = false  # Flag to prevent multiple interactions
+var is_checking: bool = false  # Flag to prevent multiple interactions
 var animated_sprite: AnimatedSprite2D  # Reference to the AnimatedSprite2D node
 var is_mouse_hovering = false
 
@@ -25,7 +25,7 @@ func _ready() -> void:
 	randomize_spawn_position()
 	
 	if animated_sprite:
-		play_player_idle_animation()
+		animated_sprite.play("StudentIdle")
 		# Connect animation finished signal (to detect when BookOrganize ends)
 		animated_sprite.animation_finished.connect(_on_animation_finished)
 
@@ -34,15 +34,11 @@ func randomize_spawn_position() -> void:
 	var random_y = randf_range(map_min.y, map_max.y)
 	global_position = Vector2(random_x, random_y)
 
-# Play the looping BookIdle animation
-func play_player_idle_animation() -> void:
-	if animated_sprite.animation != "StudentIdle":
-		animated_sprite.play("StudentIdle")
 
 # Play the one-shot BookOrganize animation (non-looping)
 func play_book_organize_animation() -> void:
-	if not is_organizing and animated_sprite.animation != "StudentChecked":
-		is_organizing = true
+	if not is_checking and animated_sprite.animation != "StudentChecked":
+		is_checking = true
 		animated_sprite.stop()  # Stop idle animation first
 		animated_sprite.play("StudentChecked")
 
@@ -51,7 +47,7 @@ func play_book_organize_animation() -> void:
 # --------------------------
 func _process(_delta: float) -> void:
 	# Skip processing if already organizing (prevent duplicate triggers)
-	if is_organizing:
+	if is_checking:
 		return
 	
 	# 1. Check if book is near the player (within interaction range)

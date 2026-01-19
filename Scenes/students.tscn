@@ -7,13 +7,13 @@
 atlas = ExtResource("2_oclyw")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dfr0p"]
-atlas = ExtResource("2_oclyw")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jos5j"]
 atlas = ExtResource("2_oclyw")
 region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfr0p"]
+atlas = ExtResource("2_oclyw")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lo8rv"]
 animations = [{
@@ -27,10 +27,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dfr0p")
+"texture": SubResource("AtlasTexture_jos5j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jos5j")
+"texture": SubResource("AtlasTexture_dfr0p")
 }],
 "loop": true,
 "name": &"StudentIdle",
@@ -38,25 +38,23 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jos5j"]
-size = Vector2(32, 32)
+size = Vector2(15, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oclyw"]
-size = Vector2(30, 30)
+size = Vector2(16, 16)
 
 [node name="Students" type="CharacterBody2D"]
 script = ExtResource("1_jos5j")
 
 [node name="StudentSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 1)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_lo8rv")
 animation = &"StudentIdle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_jos5j")
 
 [node name="StudentArea2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StudentArea2D"]
-position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_oclyw")
