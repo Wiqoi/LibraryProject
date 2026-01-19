@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://qv6wklffk6mr"]
+[gd_scene load_steps=9 format=3 uid="uid://qv6wklffk6mr"]
 
 [ext_resource type="Script" uid="uid://dqfo2n46ehsid" path="res://Scripts/students.gd" id="1_jos5j"]
 [ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/Placeholders.png" id="2_oclyw"]
@@ -6,6 +6,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_yi4b2"]
 atlas = ExtResource("2_oclyw")
 region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jos5j"]
+atlas = ExtResource("2_oclyw")
+region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dfr0p"]
 atlas = ExtResource("2_oclyw")
@@ -22,6 +26,9 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jos5j")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dfr0p")
 }],
