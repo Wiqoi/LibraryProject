@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://dy57mk7q2iv7m"]
+[gd_scene load_steps=7 format=4 uid="uid://dy57mk7q2iv7m"]
 
+[ext_resource type="Script" uid="uid://4nsx3ob1dmg2" path="res://Scenes/game.gd" id="1_i6g32"]
 [ext_resource type="TileSet" uid="uid://b4rrfvjdlk4fv" path="res://Assets/PlaceholdingTileset.tres" id="1_wowpa"]
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="3_wowpa"]
@@ -7,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dbx5ehsb13htr" path="res://Scripts/BookSpawnManager.gd" id="4_3dryh"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_i6g32")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-65, -68)
@@ -29,7 +31,6 @@ script = ExtResource("3_wowpa")
 max_zoom = Vector2(4, 4)
 
 [node name="BookOnGroundEvent" parent="." instance=ExtResource("3_wrm1d")]
-scale = Vector2(0.5, 0.5)
 
 [node name="BookSpawnManager" type="Node2D" parent="."]
 script = ExtResource("4_3dryh")

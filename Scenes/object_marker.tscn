@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dannavf646uva"]
+
+[ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/Placeholders.png" id="1_w52s1"]
+[ext_resource type="Script" uid="uid://dqy1mfmd6bpyf" path="res://Scripts/object_marker.gd" id="2_mlfb8"]
+
+[node name="ObjectMarker" type="Sprite2D"]
+z_index = 4000
+texture_filter = 1
+texture = ExtResource("1_w52s1")
+hframes = 3
+vframes = 4
+script = ExtResource("2_mlfb8")
