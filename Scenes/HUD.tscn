@@ -1,4 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsbp7nmgsjuit"]
+[gd_scene load_steps=4 format=3 uid="uid://bsbp7nmgsjuit"]
+
+[ext_resource type="Texture2D" uid="uid://dnq6m2slnrnt1" path="res://Assets/Staminabar1.png" id="1_jo1ms"]
+[ext_resource type="Texture2D" uid="uid://ctbja35p6wb6q" path="res://Assets/Staminabar2.png" id="2_psnte"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_entsu"]
 bg_color = Color(0.378666, 0.643731, 0.733326, 1)
@@ -26,6 +29,35 @@ offset_left = 925.0
 offset_top = 22.0
 offset_right = 1138.0
 offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_entsu")
 text = "  Score: "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 578.0
+offset_right = 994.0
+offset_bottom = 614.0
+theme_override_constants/separation = 15
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_jo1ms")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_psnte")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_psnte")
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_psnte")
