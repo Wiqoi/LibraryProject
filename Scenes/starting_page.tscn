@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://28vujj2q88w7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjqrp"]
-bg_color = Color(0.8678517, 0.78176385, 0.82689023, 1)
+bg_color = Color(0.867852, 0.781764, 0.82689, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dujba"]
-bg_color = Color(0.36884326, 0.6555796, 0.67064965, 1)
+bg_color = Color(0.48797, 0.555005, 0.992446, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-shadow_color = Color(0.42476243, 0.60678846, 1, 0.6)
+shadow_color = Color(0.424762, 0.606788, 1, 0.6)
 shadow_size = 4
 
 [node name="StartingPage" type="Control"]
@@ -29,24 +29,48 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bjqrp")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 382.0
-offset_top = 216.0
-offset_right = 741.0
-offset_bottom = 289.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = -93.0
+offset_right = 197.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 46
 theme_override_styles/normal = SubResource("StyleBoxFlat_dujba")
+text = "Start Game"
 
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 380.0
-offset_top = 316.0
-offset_right = 740.0
-offset_bottom = 394.0
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxFlat_dujba")
+text = "Options
+"
 
-[node name="Button3" type="Button" parent="."]
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxFlat_dujba")
+text = "Quit Game"
+
+[node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 378.0
-offset_top = 419.0
-offset_right = 740.0
-offset_bottom = 502.0
+offset_left = 175.0
+offset_top = 48.0
+offset_right = 962.0
+offset_bottom = 196.0
+theme_override_colors/font_color = Color(0.0912932, 0.00845574, 0.186666, 1)
+theme_override_font_sizes/font_size = 100
+text = "Library Adventure"

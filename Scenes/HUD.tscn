@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://bsbp7nmgsjuit"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_entsu"]
-bg_color = Color(0.37866554, 0.6437313, 0.7333264, 1)
+bg_color = Color(0.378666, 0.643731, 0.733326, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
