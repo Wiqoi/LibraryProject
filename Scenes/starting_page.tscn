@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://28vujj2q88w7"]
+[gd_scene load_steps=4 format=3 uid="uid://28vujj2q88w7"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjqrp"]
-bg_color = Color(0.867852, 0.781764, 0.82689, 1)
+[ext_resource type="Texture2D" uid="uid://biyw64ud7felm" path="res://Scenes/Library_bg.png" id="1_dujba"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8h5le"]
+texture = ExtResource("1_dujba")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dujba"]
 bg_color = Color(0.48797, 0.555005, 0.992446, 1)
@@ -9,6 +11,10 @@ border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 shadow_color = Color(0.424762, 0.606788, 1, 0.6)
 shadow_size = 4
 
@@ -27,7 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bjqrp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_8h5le")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -36,10 +42,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -199.0
-offset_top = -93.0
-offset_right = 197.0
-offset_bottom = 129.0
+offset_left = -202.5
+offset_top = -115.0
+offset_right = 202.5
+offset_bottom = 115.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -65,12 +71,12 @@ theme_override_font_sizes/font_size = 46
 theme_override_styles/normal = SubResource("StyleBoxFlat_dujba")
 text = "Quit Game"
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 0
 offset_left = 175.0
 offset_top = 48.0
 offset_right = 962.0
 offset_bottom = 196.0
-theme_override_colors/font_color = Color(0.0912932, 0.00845574, 0.186666, 1)
+theme_override_colors/font_color = Color(0.321569, 0.054902, 0.564706, 1)
 theme_override_font_sizes/font_size = 100
 text = "Library Adventure"
