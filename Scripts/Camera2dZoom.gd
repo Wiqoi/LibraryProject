@@ -11,7 +11,6 @@ func _process(_delta: float) -> void:
 		scroll_delta = 1.0
 	elif Input.is_action_just_pressed("scroll_up"):
 		scroll_delta = -1.0
-
 	if scroll_delta != 0.0:
 		adjust_camera_zoom(scroll_delta)
 
