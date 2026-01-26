@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://coreyppevxw7s"]
+[gd_scene load_steps=21 format=3 uid="uid://coreyppevxw7s"]
 
 [ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/Placeholders.png" id="1_aq7ag"]
 [ext_resource type="Script" uid="uid://5gjdr174oicg" path="res://Scripts/BookOnGroundEvent.gd" id="1_rprs8"]
+[ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="3_dg188"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aq7ag"]
 atlas = ExtResource("1_aq7ag")
@@ -135,3 +136,8 @@ shape = SubResource("RectangleShape2D_aq7ag")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_rprs8")
+
+[node name="ObjectMarker" parent="." instance=ExtResource("3_dg188")]
+position = Vector2(0, -42)
+on_screen_offset = Vector2(0, -10)
+screen_margin = 10.0
