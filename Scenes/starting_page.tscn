@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://28vujj2q88w7"]
+[gd_scene load_steps=6 format=3 uid="uid://28vujj2q88w7"]
 
-[ext_resource type="Texture2D" uid="uid://biyw64ud7felm" path="res://Scenes/Library_bg.png" id="1_dujba"]
+[ext_resource type="Script" uid="uid://ddx6efkqqahc1" path="res://Scripts/starting_page.gd" id="1_8h5le"]
+[ext_resource type="Texture2D" uid="uid://biyw64ud7felm" path="res://Assets/Library_bg.png" id="1_dujba"]
+[ext_resource type="Script" uid="uid://di30eij0dukt3" path="res://Scripts/start.gd" id="3_t7jmd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8h5le"]
 texture = ExtResource("1_dujba")
@@ -25,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8h5le")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -55,6 +58,7 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 46
 theme_override_styles/normal = SubResource("StyleBoxFlat_dujba")
 text = "Start Game"
+script = ExtResource("3_t7jmd")
 
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2

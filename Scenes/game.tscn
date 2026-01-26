@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://dy57mk7q2iv7m"]
+[gd_scene load_steps=10 format=4 uid="uid://dy57mk7q2iv7m"]
 
-[ext_resource type="Script" uid="uid://4nsx3ob1dmg2" path="res://Scenes/game.gd" id="1_i6g32"]
+[ext_resource type="Script" uid="uid://4nsx3ob1dmg2" path="res://Scripts/game.gd" id="1_i6g32"]
 [ext_resource type="TileSet" uid="uid://b4rrfvjdlk4fv" path="res://Assets/PlaceholdingTileset.tres" id="1_wowpa"]
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="3_wowpa"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dbx5ehsb13htr" path="res://Scripts/BookSpawnManager.gd" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://qv6wklffk6mr" path="res://Scenes/students.tscn" id="6_i6g32"]
 [ext_resource type="Script" uid="uid://kposr187swfu" path="res://Scripts/student_spawn_manager.gd" id="7_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://bsbp7nmgsjuit" path="res://Scenes/HUD.tscn" id="9_h4fw4"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_i6g32")
@@ -31,6 +32,12 @@ move_speed = 75.0
 position_smoothing_enabled = true
 script = ExtResource("3_wowpa")
 max_zoom = Vector2(4, 4)
+
+[node name="Hud" parent="Player/Camera2D" instance=ExtResource("9_h4fw4")]
+offset_left = -602.0
+offset_top = -332.0
+offset_right = -602.0
+offset_bottom = -332.0
 
 [node name="BookOnGroundEvent" parent="." instance=ExtResource("3_wrm1d")]
 
