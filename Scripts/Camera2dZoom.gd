@@ -5,7 +5,6 @@ extends Camera2D
 @export var max_zoom: Vector2 = Vector2(2.0, 2.0)
 
 func _process(_delta: float) -> void:
-	# Godot 3.x: Detect scroll wheel (positive = up, negative = down)
 	var scroll_delta = 0.0
 	if Input.is_action_just_pressed("scroll_down"):
 		scroll_delta = 1.0
@@ -19,3 +18,5 @@ func adjust_camera_zoom(scroll_input: float) -> void:
 	new_zoom.x = clamp(new_zoom.x, min_zoom.x, max_zoom.x)
 	new_zoom.y = clamp(new_zoom.y, min_zoom.y, max_zoom.y)
 	zoom = new_zoom
+	
+	$Hud.scale = zoom#This does not work this is sad :C

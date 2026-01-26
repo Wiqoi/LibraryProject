@@ -35,9 +35,9 @@ max_zoom = Vector2(4, 4)
 
 [node name="Hud" parent="Player/Camera2D" instance=ExtResource("9_h4fw4")]
 offset_left = -602.0
-offset_top = -332.0
+offset_top = -326.0
 offset_right = -602.0
-offset_bottom = -332.0
+offset_bottom = -326.0
 
 [node name="BookOnGroundEvent" parent="." instance=ExtResource("3_wrm1d")]
 
