@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://28vujj2q88w7"]
+[gd_scene load_steps=8 format=3 uid="uid://28vujj2q88w7"]
 
 [ext_resource type="Script" uid="uid://ddx6efkqqahc1" path="res://Scripts/starting_page.gd" id="1_8h5le"]
 [ext_resource type="Texture2D" uid="uid://biyw64ud7felm" path="res://Assets/Library_bg.png" id="1_dujba"]
 [ext_resource type="Script" uid="uid://di30eij0dukt3" path="res://Scripts/start.gd" id="3_t7jmd"]
+[ext_resource type="Script" uid="uid://d0eljxghj7epg" path="res://Scripts/options.gd" id="4_gff81"]
+[ext_resource type="Script" uid="uid://d0kicl1jyeku2" path="res://Scripts/quit.gd" id="5_50rtn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8h5le"]
 texture = ExtResource("1_dujba")
@@ -67,6 +69,7 @@ theme_override_font_sizes/font_size = 46
 theme_override_styles/normal = SubResource("StyleBoxFlat_dujba")
 text = "Options
 "
+script = ExtResource("4_gff81")
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -74,6 +77,7 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 46
 theme_override_styles/normal = SubResource("StyleBoxFlat_dujba")
 text = "Quit Game"
+script = ExtResource("5_50rtn")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
@@ -81,6 +85,6 @@ offset_left = 175.0
 offset_top = 48.0
 offset_right = 962.0
 offset_bottom = 196.0
-theme_override_colors/font_color = Color(0.321569, 0.054902, 0.564706, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "Library Adventure"

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Movement speed (tweak in Inspector)
-@export var move_speed: float = 100.0
+@export var move_speed: float = 750.0
 
 # Reference to your AnimatedSprite2D (named "Animations")
 @onready var animations: AnimatedSprite2D = $Animations
