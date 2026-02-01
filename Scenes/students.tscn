@@ -45,6 +45,8 @@ size = Vector2(15, 15)
 size = Vector2(16, 16)
 
 [node name="Students" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_jos5j")
 
 [node name="StudentSprite" type="AnimatedSprite2D" parent="."]
@@ -67,3 +69,8 @@ on_screen_offset = Vector2(0, -10)
 smoothing_speed = 10.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 20.0
+path_max_distance = 1000.0
+path_postprocessing = 2
+avoidance_enabled = true
+radius = 20.0

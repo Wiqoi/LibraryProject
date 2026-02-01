@@ -21,8 +21,8 @@ func _ready():
 		Vector2i(5, 2),
 		Vector2i(6, 2),
 		Vector2i(11, 3),
-		Vector2i(11, 3),
-		Vector2i(11, 3)
+		Vector2i(12, 3),
+		Vector2i(13, 3)
 	]
 	
 	var matching_cells = []
