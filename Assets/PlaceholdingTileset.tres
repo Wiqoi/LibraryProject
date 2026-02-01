@@ -2132,8 +2132,6 @@ texture = ExtResource("4_d0owo")
 
 [resource]
 physics_layer_0/collision_layer = 1
-custom_data_layer_0/name = "EventPosition1"
-custom_data_layer_0/type = 5
 sources/1 = SubResource("TileSetAtlasSource_3dryh")
 sources/0 = SubResource("TileSetAtlasSource_h4fw4")
 sources/2 = SubResource("TileSetAtlasSource_ldgsr")

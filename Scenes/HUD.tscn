@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsbp7nmgsjuit"]
+[gd_scene load_steps=4 format=3 uid="uid://bsbp7nmgsjuit"]
+
+[ext_resource type="Script" uid="uid://dwgpu6obvbbix" path="res://Scripts/score_count.gd" id="1_sd512"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_entsu"]
 bg_color = Color(0.378666, 0.643731, 0.733326, 1)
@@ -37,6 +39,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_entsu")
 text = "  Score: "
+script = ExtResource("1_sd512")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

@@ -30,9 +30,11 @@ func _ready() -> void:
 		animated_sprite.animation_finished.connect(_on_animation_finished)
 
 func randomize_spawn_position() -> void:
-	var random_x = randf_range(map_min.x, map_max.x)
-	var random_y = randf_range(map_min.y, map_max.y)
-	global_position = Vector2(random_x, random_y)
+	if Global.bookdropcoords.size() > 0:
+		global_position = Global.bookdropcoords.pick_random()
+	print(global_position)
+	if global_position in Global.bookdropcoords:
+		print("yay")
 
 # Play the looping BookIdle animation
 func play_book_idle_animation() -> void:
@@ -69,5 +71,6 @@ func _process(_delta: float) -> void:
 func _on_animation_finished() -> void:  # Remove the anim_name parameter
 	# Get the current animation name from the AnimatedSprite2D
 	var anim_name = animated_sprite.animation
+	Global.score += 1
 	if anim_name == "BookOrganize":
 		queue_free()
