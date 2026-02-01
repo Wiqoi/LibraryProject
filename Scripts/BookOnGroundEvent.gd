@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
-var player_node: CharacterBody2D = null  # Assign your Player's CharacterBody2D in the inspector
-@export var interaction_range: float = 100.0  # Max distance between book and player for interaction (adjust as needed)
-@export var map_min: Vector2 = Vector2(-800, -800)  # Min X/Y of your game map (spawn area)
-@export var map_max: Vector2 = Vector2(800, 800)  # Max X/Y of your game map (spawn area)
-var is_organizing: bool = false  # Flag to prevent multiple interactions
-var animated_sprite: AnimatedSprite2D  # Reference to the AnimatedSprite2D node
+var player_node: CharacterBody2D = null
+@export var interaction_range: float = 100.0
+@export var map_min: Vector2 = Vector2(-800, -800)
+@export var map_max: Vector2 = Vector2(800, 800)
+var is_organizing: bool = false
+var animated_sprite: AnimatedSprite2D
 var is_mouse_hovering = false
+var organize_timer: Timer
 
 func find_player() -> void:
-	# Find the player node in the scene tree (adjust the node path to match your player's name)
 	player_node = Global.player_node
 		
 func _ready() -> void:
@@ -17,16 +17,22 @@ func _ready() -> void:
 	
 	animated_sprite = $AnimatedSprite2D
 	
+	organize_timer = Timer.new()
+	add_child(organize_timer)
+	organize_timer.wait_time = 25.0
+	organize_timer.one_shot = true
+	organize_timer.timeout.connect(_on_timer_timeout)
+	organize_timer.start()
+	
 	var area = $Area2D
 	area.mouse_entered.connect(func(): is_mouse_hovering = true)
 	area.mouse_exited.connect(func(): is_mouse_hovering = false)
-	area.input_pickable = true  # Enable mouse detection
+	area.input_pickable = true
 	
 	randomize_spawn_position()
 	
 	if animated_sprite:
 		play_book_idle_animation()
-		# Connect animation finished signal (to detect when BookOrganize ends)
 		animated_sprite.animation_finished.connect(_on_animation_finished)
 
 func randomize_spawn_position() -> void:
@@ -36,27 +42,27 @@ func randomize_spawn_position() -> void:
 	if global_position in Global.bookdropcoords:
 		print("yay")
 
-# Play the looping BookIdle animation
 func play_book_idle_animation() -> void:
 	if animated_sprite.animation != "BookIdle":
 		animated_sprite.play("BookIdle")
 
-# Play the one-shot BookOrganize animation (non-looping)
 func play_book_organize_animation() -> void:
 	if not is_organizing and animated_sprite.animation != "BookOrganize":
 		is_organizing = true
-		animated_sprite.stop()  # Stop idle animation first
+		animated_sprite.stop()
 		animated_sprite.play("BookOrganize")
+		
+		var time_remaining = organize_timer.time_left
+		var time_score = int(time_remaining)
+		Global.score += 1 + time_score
+		if Global.score < 0:
+			Global.score = 0
+		print("Book organized! Time bonus: ", time_score, " seconds")
 
-# --------------------------
-# Interaction Detection (Player Input + Proximity + Mouse Hover)
-# --------------------------
 func _process(_delta: float) -> void:
-	# Skip processing if already organizing (prevent duplicate triggers)
 	if is_organizing:
 		return
 	
-	# 1. Check if book is near the player (within interaction range)
 	if player_node != null:
 		var distance_to_player = global_position.distance_to(player_node.global_position)
 		var is_near_player = distance_to_player <= interaction_range
@@ -64,13 +70,13 @@ func _process(_delta: float) -> void:
 		if is_near_player and is_mouse_hovering and Input.is_action_just_pressed("ui_interact"):
 			play_book_organize_animation()
 
-# --------------------------
-# Animation Finished Callback (Self-Delete After BookOrganize)
-# --------------------------
-# Replace the existing method:
-func _on_animation_finished() -> void:  # Remove the anim_name parameter
-	# Get the current animation name from the AnimatedSprite2D
+func _on_timer_timeout() -> void:
+	Global.score -= 25
+	if Global.score < 0:
+		Global.score = 0
+	queue_free()
+
+func _on_animation_finished() -> void:
 	var anim_name = animated_sprite.animation
-	Global.score += 1
 	if anim_name == "BookOrganize":
 		queue_free()

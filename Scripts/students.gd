@@ -57,9 +57,8 @@ func _ready() -> void:
 
 # Spawn NPC at random position within map boundary limits
 func randomize_spawn_position() -> void:
-	var random_x = randf_range(map_min.x, map_max.x)
-	var random_y = randf_range(map_min.y, map_max.y)
-	global_position = Vector2(random_x, random_y)
+	if Global.studentspawnarea.size() > 0:
+		global_position = Global.studentspawnarea.pick_random()
 
 # -----------------------------------------------------------------------------
 # Movement System (Consistent Path-Following to Target)
