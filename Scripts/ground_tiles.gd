@@ -18,6 +18,7 @@ func _ready():
 	]
 	
 	var matching_cells = []
+	var matching_cells2 = []
 	
 	var used_cells = get_used_cells()
 	
@@ -27,6 +28,7 @@ func _ready():
 		# Check if this atlas_coords is in our target array
 		if target_atlas_coords.has(atlas_coords):
 			matching_cells.append(to_global(map_to_local(cell)))
-	
+			matching_cells2.append(cell)
 	print("Found ", matching_cells.size(), " matching tiles:")
 	Global.studentspawnarea = matching_cells
+	Global.studentspawnareacells = matching_cells2

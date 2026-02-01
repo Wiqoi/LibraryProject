@@ -5,6 +5,7 @@ extends Node
 @export var max_spawn_delay: float = 15.0
 
 func _ready() -> void:
+	await get_tree().create_timer(0.5).timeout
 	spawn_book_after_random_delay()
 
 func spawn_book_after_random_delay() -> void:

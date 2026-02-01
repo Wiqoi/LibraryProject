@@ -21,20 +21,25 @@ func _ready():
 		Vector2i(5, 2),
 		Vector2i(6, 2),
 		Vector2i(11, 3),
-		Vector2i(11, 3),
-		Vector2i(11, 3)
+		Vector2i(12, 3),
+		Vector2i(13, 3)
 	]
 	
 	var matching_cells = []
+	var matching_cells2 = []
 	
 	var used_cells = get_used_cells()
 	
 	for cell in used_cells:
 		var atlas_coords = get_cell_atlas_coords(cell)
-		
-		# Check if this atlas_coords is in our target array
+
 		if target_atlas_coords.has(atlas_coords):
 			matching_cells.append(to_global(map_to_local(cell)))
+			matching_cells2.append(cell)
 	for cells in matching_cells:
 		if cells in Global.studentspawnarea:
 			Global.studentspawnarea.erase(cells)
+	for cells in matching_cells2:
+		if cells in Global.studentspawnareacells:
+			Global.studentspawnareacells.erase(cells)
+	Global.studentPathFinding = matching_cells2

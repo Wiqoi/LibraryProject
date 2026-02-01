@@ -13,6 +13,7 @@ func find_player() -> void:
 	player_node = Global.player_node
 		
 func _ready() -> void:
+	await get_tree().create_timer(0.5).timeout
 	find_player()
 	
 	animated_sprite = $AnimatedSprite2D
