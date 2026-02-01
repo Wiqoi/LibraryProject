@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bsbp7nmgsjuit"]
 
-[ext_resource type="Script" uid="uid://dwgpu6obvbbix" path="res://Scripts/score_count.gd" id="1_sd512"]
+[ext_resource type="Script" path="res://Scripts/score_count.gd" id="1_sd512"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_entsu"]
 bg_color = Color(0.378666, 0.643731, 0.733326, 1)
@@ -23,9 +23,14 @@ corner_radius_bottom_left = 16
 
 [node name="Hud" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = -0.483
+anchor_top = -0.481
+anchor_right = 0.517
+anchor_bottom = 0.5
+offset_left = 0.416016
+offset_top = -0.311981
+offset_right = 0.415955
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 
