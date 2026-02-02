@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://dy57mk7q2iv7m"]
 
 [ext_resource type="Script" uid="uid://4nsx3ob1dmg2" path="res://Scripts/game.gd" id="1_i6g32"]
-[ext_resource type="PackedScene" uid="uid://cw63qfmssn712" path="res://Scenes/MapLayers.tscn" id="2_ldgsr"]
+[ext_resource type="PackedScene" path="res://Scenes/MapLayers.tscn" id="2_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="3_wowpa"]
 [ext_resource type="PackedScene" uid="uid://coreyppevxw7s" path="res://Scenes/book_on_ground_event.tscn" id="3_wrm1d"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://qv6wklffk6mr" path="res://Scenes/students.tscn" id="6_i6g32"]
 [ext_resource type="Script" uid="uid://kposr187swfu" path="res://Scripts/student_spawn_manager.gd" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://bsbp7nmgsjuit" path="res://Scenes/HUD.tscn" id="9_h4fw4"]
-[ext_resource type="PackedScene" uid="uid://dhhnw0usf41g1" path="res://Scenes/student_nav_mesh.tscn" id="12_rku1e"]
+[ext_resource type="PackedScene" path="res://Scenes/student_nav_mesh.tscn" id="12_rku1e"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ldgsr"]
 vertices = PackedVector2Array(1541.37, 1110.83, 1545.33, 1136.81, 1286, 1132.85, 1286, 1105.81, 881.906, 779.961, 885.891, 1224.56, 861, 1221.24, 861, 1063.03, 1665.93, 934.844, 1667.81, 749.953, 1670.82, 590.383, 1712.91, 587.672, 1708.07, 1234.48, 1667.93, 1236.48, 491.313, 1690.05, 489.727, 1667.95, 926, 1665.95, 944, 1672.9, 1255.07, 940.891, 1006.42, 943.867, 1007.58, 916.07, 1260.82, 918.078, 930.891, 824.008, 1583.44, 824.977, 1582.51, 842.031, 1262.18, 841, 483.383, 1062.02, 485.617, 1002.94, 857.891, 1000.95, 860.109, 795.922, 1007.58, 1226.05, 1006.42, 1198.87, 1252.89, 1195.89, 1286, 1206.2, 363.961, 805, 364.953, 579.727, 418.008, 578.281, 419.008, 1381, 363.992, 811.07, 1260.28, 1133.87, 1004.58, 1136.88, 1003.41, 1108.79, 1257, 1103.81, 1539, 1201.2, 1539, 1228.94, 1426.73, 1677.89, 1426.25, 1695.93, 944, 1414.05, 926, 1419.02, 1618.78, 1474.64, 1787.05, 1480.64, 1787.94, 1647.89, 1609.07, 1646.1, 1610.07, 1506, 1257, 1042.12, 1008.21, 1039.12, 1008.79, 1013, 1262.01, 1013, 1286, 1039.2, 57.0625, 808.93, 52.0469, 1681.84, -61.8672, 1680.14, -51.1172, 805, 364.992, 1700, 418.141, 1417.98, 483.844, 798.922, 483.156, 755.938, 1284.64, 1005.89, 1537, 1008.88, 1537, 1034.19, 414.141, 1700, 924.891, 1381, 946.133, 1386, 1541.69, 1506, 1538.69, 1410.95, 1620.77, 1386, 938.867, 841, 1280.32, 941.172, 1282.8, 843.031, 1284.2, 913.117, 1622.82, 908.883, 1625.19, 783.039)
@@ -32,7 +32,6 @@ tile_map_data = PackedByteArray("AACh//X/AQABAAYAAACh//b/AQABAAYAAACh//f/AQABAAY
 unique_name_in_owner = true
 position = Vector2(1948, 1587)
 scale = Vector2(0.5, 0.5)
-move_speed = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true

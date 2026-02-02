@@ -73,4 +73,6 @@ target_desired_distance = 20.0
 path_max_distance = 1000.0
 path_postprocessing = 2
 avoidance_enabled = true
-radius = 20.0
+radius = 200.0
+neighbor_distance = 1000.0
+debug_enabled = true
