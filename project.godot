@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LibraryProject"
-run/main_scene="uid://28vujj2q88w7"
+run/main_scene="uid://dy57mk7q2iv7m"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 "<<<<<<<HEAD[input]Move_Up"={
