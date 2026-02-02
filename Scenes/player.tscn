@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://qkge5vvwfp1v"]
+[gd_scene load_steps=11 format=3 uid="uid://qkge5vvwfp1v"]
 
 [ext_resource type="Script" uid="uid://ccju6wsj5kbnj" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/Placeholders.png" id="1_mkara"]
+[ext_resource type="PackedScene" uid="uid://bsbp7nmgsjuit" path="res://Scenes/HUD.tscn" id="3_6t5aa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_mkara")
@@ -78,3 +79,17 @@ animation = &"MoveRight"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_a3adp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("3_6t5aa")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -311.688
+size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true

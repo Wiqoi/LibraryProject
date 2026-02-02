@@ -18,5 +18,3 @@ func adjust_camera_zoom(scroll_input: float) -> void:
 	new_zoom.x = clamp(new_zoom.x, min_zoom.x, max_zoom.x)
 	new_zoom.y = clamp(new_zoom.y, min_zoom.y, max_zoom.y)
 	zoom = new_zoom
-	
-	$Hud.scale = zoom#This does not work this is sad :C

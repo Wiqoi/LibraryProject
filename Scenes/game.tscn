@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dy57mk7q2iv7m"]
+[gd_scene load_steps=12 format=4 uid="uid://dy57mk7q2iv7m"]
 
 [ext_resource type="Script" uid="uid://4nsx3ob1dmg2" path="res://Scripts/game.gd" id="1_i6g32"]
 [ext_resource type="PackedScene" uid="uid://cw63qfmssn712" path="res://Scenes/MapLayers.tscn" id="2_ldgsr"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://dbx5ehsb13htr" path="res://Scripts/BookSpawnManager.gd" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://qv6wklffk6mr" path="res://Scenes/students.tscn" id="6_i6g32"]
 [ext_resource type="Script" uid="uid://kposr187swfu" path="res://Scripts/student_spawn_manager.gd" id="7_1l0tm"]
-[ext_resource type="PackedScene" uid="uid://bsbp7nmgsjuit" path="res://Scenes/HUD.tscn" id="9_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://dhhnw0usf41g1" path="res://Scenes/student_nav_mesh.tscn" id="12_rku1e"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ldgsr"]
@@ -32,19 +31,11 @@ tile_map_data = PackedByteArray("AACh//X/AQABAAYAAACh//b/AQABAAYAAACh//f/AQABAAY
 unique_name_in_owner = true
 position = Vector2(1948, 1587)
 scale = Vector2(0.5, 0.5)
-move_speed = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
 script = ExtResource("3_wowpa")
 max_zoom = Vector2(4, 4)
-
-[node name="Hud" parent="Player/Camera2D" instance=ExtResource("9_h4fw4")]
-offset_left = -596.0
-offset_top = -326.0
-offset_right = -596.0
-offset_bottom = -326.0
-metadata/_edit_use_anchors_ = true
 
 [node name="BookOnGroundEvent" parent="." instance=ExtResource("3_wrm1d")]
 
