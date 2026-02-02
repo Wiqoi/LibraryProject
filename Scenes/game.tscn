@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://dy57mk7q2iv7m"]
 
-[ext_resource type="Script" uid="uid://4nsx3ob1dmg2" path="res://Scripts/game.gd" id="1_i6g32"]
-[ext_resource type="PackedScene" uid="uid://cw63qfmssn712" path="res://Scenes/MapLayers.tscn" id="2_ldgsr"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_i6g32"]
+[ext_resource type="PackedScene" path="res://Scenes/MapLayers.tscn" id="2_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="3_wowpa"]
 [ext_resource type="PackedScene" uid="uid://coreyppevxw7s" path="res://Scenes/book_on_ground_event.tscn" id="3_wrm1d"]
@@ -31,6 +31,7 @@ tile_map_data = PackedByteArray("AACh//X/AQABAAYAAACh//b/AQABAAYAAACh//f/AQABAAY
 unique_name_in_owner = true
 position = Vector2(1948, 1587)
 scale = Vector2(0.5, 0.5)
+move_speed = 750.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true

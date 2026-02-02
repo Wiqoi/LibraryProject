@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://28vujj2q88w7"]
 
-[ext_resource type="Script" uid="uid://ddx6efkqqahc1" path="res://Scripts/starting_page.gd" id="1_8h5le"]
+[ext_resource type="Script" path="res://Scripts/starting_page.gd" id="1_8h5le"]
 [ext_resource type="Texture2D" uid="uid://biyw64ud7felm" path="res://Assets/Library_bg.png" id="1_dujba"]
-[ext_resource type="Script" uid="uid://di30eij0dukt3" path="res://Scripts/start.gd" id="3_t7jmd"]
+[ext_resource type="Script" path="res://Scripts/start.gd" id="3_t7jmd"]
 [ext_resource type="Script" path="res://Scripts/options.gd" id="4_gff81"]
 [ext_resource type="Script" path="res://Scripts/quit.gd" id="5_50rtn"]
 

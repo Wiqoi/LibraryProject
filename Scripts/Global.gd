@@ -7,3 +7,4 @@ var player_node: CharacterBody2D = null
 var bookdropcoords = []
 var studentspawnarea = []
 var score = 0
+var student_count = 0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsbcqlteqjqjf"
-path="res://.godot/imported/Tileset_16x16_9.png-7f4e9b3aff5f0654c5d418e2f2d192cb.ctex"
+uid="uid://clunnco7iotkp"
+path="res://.godot/imported/SidewaysStairsTemplate.png-6b9f4ddcaaba5125de184ab9d518acdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PlaceHold/Modern_Interiors_Free_v2.2/Modern tiles_Free/Old/Tileset_16x16_9.png"
-dest_files=["res://.godot/imported/Tileset_16x16_9.png-7f4e9b3aff5f0654c5d418e2f2d192cb.ctex"]
+source_file="res://Assets/SidewaysStairsTemplate.png"
+dest_files=["res://.godot/imported/SidewaysStairsTemplate.png-6b9f4ddcaaba5125de184ab9d518acdb.ctex"]
 
 [params]
 
