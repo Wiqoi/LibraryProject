@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://b4rrfvjdlk4fv"]
+[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://b4rrfvjdlk4fv"]
 
 [ext_resource type="Texture2D" uid="uid://cs27xohjdvppo" path="res://Assets/PlaceHold/Modern_Interiors_Free_v2.2/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="1_yo3up"]
 [ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/Placeholders.png" id="2_d0owo"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://caji2t6smcf54" path="res://Assets/Carpet.png" id="6_62uh1"]
 [ext_resource type="Texture2D" uid="uid://o2ihy01jv438" path="res://Assets/CarpitStairs.png" id="6_ihy08"]
 [ext_resource type="Texture2D" uid="uid://clunnco7iotkp" path="res://Assets/SidewaysStairsTemplate.png" id="7_wk4pn"]
+[ext_resource type="Texture2D" uid="uid://d1tq7jdyxcl4p" path="res://Assets/Stairs.png" id="8_dk8f1"]
+[ext_resource type="Texture2D" uid="uid://c55lfgetormrj" path="res://Assets/image.png" id="9_uf4oq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4fw4"]
 texture = ExtResource("1_yo3up")
@@ -2204,6 +2206,32 @@ texture = ExtResource("7_wk4pn")
 1:2/0 = 0
 2:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_imm14"]
+texture = ExtResource("8_dk8f1")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtybv"]
+texture = ExtResource("9_uf4oq")
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihy08"]
 texture = ExtResource("6_62uh1")
 0:0/0 = 0
@@ -2240,3 +2268,5 @@ sources/8 = SubResource("TileSetAtlasSource_7582w")
 sources/11 = SubResource("TileSetAtlasSource_dk8f1")
 sources/12 = SubResource("TileSetAtlasSource_uf4oq")
 sources/4 = SubResource("TileSetAtlasSource_tcipo")
+sources/5 = SubResource("TileSetAtlasSource_imm14")
+sources/6 = SubResource("TileSetAtlasSource_vtybv")
