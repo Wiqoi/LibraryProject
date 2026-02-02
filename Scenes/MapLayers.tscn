@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://cw63qfmssn712"]
+[gd_scene load_steps=6 format=4 uid="uid://wbibv1ioxd6h"]
 
 [ext_resource type="TileSet" uid="uid://b4rrfvjdlk4fv" path="res://Assets/PlaceholdingTileset.tres" id="1_6w1re"]
 [ext_resource type="Script" uid="uid://joa55cm7e6vw" path="res://Scripts/ground_tiles.gd" id="2_8csso"]
-[ext_resource type="Script" uid="uid://b5xp30gcnqtfj" path="res://Scripts/seen_wall_tiles.gd" id="3_2e2n6"]
-[ext_resource type="Script" uid="uid://bg60tffl6kf6g" path="res://Scripts/wall_tiles.gd" id="4_35owo"]
+[ext_resource type="Script" path="res://Scripts/seen_wall_tiles.gd" id="3_2e2n6"]
+[ext_resource type="Script" path="res://Scripts/wall_tiles.gd" id="4_35owo"]
 [ext_resource type="Script" uid="uid://e0ui0s0mng5l" path="res://Scripts/FindBookshelves.gd" id="5_ysbif"]
 
 [node name="GroundTiles" type="TileMapLayer"]

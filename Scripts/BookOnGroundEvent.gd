@@ -19,7 +19,7 @@ func _ready() -> void:
 	
 	organize_timer = Timer.new()
 	add_child(organize_timer)
-	organize_timer.wait_time = 25.0
+	organize_timer.wait_time = 55.0
 	organize_timer.one_shot = true
 	organize_timer.timeout.connect(_on_timer_timeout)
 	organize_timer.start()
