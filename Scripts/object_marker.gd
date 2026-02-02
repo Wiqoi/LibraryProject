@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var on_screen_offset: Vector2 = Vector2(0.5, -5.0)
+@export var on_screen_offset: Vector2 = Vector2(0, -35.0)
 @export var screen_margin: float = 4.0
 @export var smoothing_speed: float = 8.0
 
