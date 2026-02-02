@@ -4,7 +4,7 @@ var animated_sprite: AnimatedSprite2D
 @export var move_speed: float = 50.0
 var target: Vector2
 @onready var agent = $NavigationAgent2D
-
+var student_counter = 0;
 # Add these variables for stuck detection
 var last_position: Vector2 = Vector2.ZERO
 var stuck_timer: float = 0.0
@@ -16,14 +16,17 @@ func find_player() -> void:
 	player_node = Global.player_node
 
 func _ready() -> void:
-	animated_sprite = $StudentSprite
-	randomize_spawn_position()
-	randomize_target_position()
-	if animated_sprite:
-		animated_sprite.play("StudentIdle")
-	# Initialize stuck detection
-	last_position = global_position
-
+	print(Global.student_count)
+	if Global.student_count < 20:
+		Global.student_count = Global.student_count + 1
+		animated_sprite = $StudentSprite
+		randomize_spawn_position()
+		randomize_target_position()
+		if animated_sprite:
+			animated_sprite.play("StudentIdle")
+		# Initialize stuck detection
+		last_position = global_position
+	
 func randomize_spawn_position() -> void:
 	if Global.studentspawnarea.size() > 0:
 		global_position = Global.studentspawnarea.pick_random()
