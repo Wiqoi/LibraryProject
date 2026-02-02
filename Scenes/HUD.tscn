@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsbp7nmgsjuit"]
 
-[ext_resource type="Script" uid="uid://dwgpu6obvbbix" path="res://Scripts/score_count.gd" id="1_sd512"]
+[ext_resource type="Script" path="res://Scripts/score_count.gd" id="1_sd512"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_entsu"]
 bg_color = Color(0.378666, 0.643731, 0.733326, 1)
@@ -53,24 +53,28 @@ offset_right = 1117.0
 offset_bottom = 575.0
 
 [node name="Up" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1012.0
 offset_top = 444.0
 offset_right = 1079.0
 offset_bottom = 508.0
 
 [node name="Left" type="Button" parent="."]
+layout_mode = 0
 offset_left = 974.0
 offset_top = 511.0
 offset_right = 1041.0
 offset_bottom = 575.0
 
 [node name="Down" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1013.0
 offset_top = 578.0
 offset_right = 1080.0
 offset_bottom = 642.0
 
 [node name="Down2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 35.0
 offset_top = 559.0
 offset_right = 102.0

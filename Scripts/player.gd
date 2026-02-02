@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var move_speed: float = 100.0
-@export var sprint_speed: float = 200.0
+@export var sprint_speed: float = move_speed*1.5
 @export var max_stamina: float = 100.0
 @export var stamina_drain_rate: float = 20.0
 @export var stamina_regen_rate: float = 15.0
