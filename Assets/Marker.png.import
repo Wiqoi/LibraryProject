@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsbcqlteqjqjf"
-path="res://.godot/imported/Tileset_16x16_9.png-7f4e9b3aff5f0654c5d418e2f2d192cb.ctex"
+uid="uid://cmy147ji5pgl4"
+path="res://.godot/imported/Marker.png-188e7ed650a90c2b619aa25d1be39838.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PlaceHold/Modern_Interiors_Free_v2.2/Modern tiles_Free/Old/Tileset_16x16_9.png"
-dest_files=["res://.godot/imported/Tileset_16x16_9.png-7f4e9b3aff5f0654c5d418e2f2d192cb.ctex"]
+source_file="res://Assets/Marker.png"
+dest_files=["res://.godot/imported/Marker.png-188e7ed650a90c2b619aa25d1be39838.ctex"]
 
 [params]
 
