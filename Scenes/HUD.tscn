@@ -41,9 +41,10 @@ script = ExtResource("1_sd512")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_top = 4.0
-offset_right = 398.0
-offset_bottom = 31.0
+offset_left = 16.0
+offset_top = 25.0
+offset_right = 414.0
+offset_bottom = 52.0
 
 [node name="Right" type="Button" parent="."]
 layout_mode = 0

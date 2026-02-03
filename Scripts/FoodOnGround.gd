@@ -71,7 +71,7 @@ func _process(_delta: float) -> void:
 			play_book_organize_animation()
 
 func _on_timer_timeout() -> void:
-	Global.score -= 55
+	Global.score -= 25
 	if Global.score < 0:
 		Global.score = 0
 	queue_free()

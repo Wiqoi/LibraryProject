@@ -40,6 +40,8 @@ max_zoom = Vector2(4, 4)
 
 [node name="BookOnGroundEvent" parent="." instance=ExtResource("3_wrm1d")]
 
+[node name="FoodOnGround" parent="." instance=ExtResource("9_h4fw4")]
+
 [node name="Students" parent="." instance=ExtResource("6_i6g32")]
 
 [node name="StudentSpawnManager" type="Node2D" parent="."]
@@ -53,5 +55,3 @@ navigation_polygon = SubResource("NavigationPolygon_ldgsr")
 position = Vector2(-1, 4)
 navigation_polygon = SubResource("NavigationPolygon_o5yvi")
 travel_cost = 5.0
-
-[node name="FoodOnGround" parent="." instance=ExtResource("9_h4fw4")]

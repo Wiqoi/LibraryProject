@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://b8ocl76do627h"]
+
+[ext_resource type="Script" uid="uid://d4arpgm11tiiv" path="res://Scripts/FoodOnGround.gd" id="1_bjeo0"]
+[ext_resource type="Texture2D" uid="uid://bpeble6y0yk76" path="res://Assets/UneatenSandWitch.png" id="2_i7w4g"]
+[ext_resource type="Texture2D" uid="uid://do6e8c5m35o4w" path="res://Assets/ByeSandWitch.png" id="3_6i5lq"]
+[ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="4_cyvri"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvsmp"]
+atlas = ExtResource("2_i7w4g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mrbr"]
+atlas = ExtResource("3_6i5lq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq1t6"]
+atlas = ExtResource("3_6i5lq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3fkb"]
+atlas = ExtResource("3_6i5lq")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q25xv"]
+atlas = ExtResource("3_6i5lq")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn3qj"]
+atlas = ExtResource("3_6i5lq")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqvf3"]
+atlas = ExtResource("3_6i5lq")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldoy3"]
+atlas = ExtResource("3_6i5lq")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v82wp"]
+atlas = ExtResource("3_6i5lq")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e8ol2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvsmp")
+}],
+"loop": true,
+"name": &"BookIdle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mrbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq1t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3fkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q25xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn3qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqvf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldoy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v82wp")
+}],
+"loop": false,
+"name": &"BookOrganize",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq7ag"]
+size = Vector2(8, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rprs8"]
+size = Vector2(16, 20)
+
+[node name="ItemDropOnGround" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_bjeo0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_e8ol2")
+animation = &"BookOrganize"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aq7ag")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_rprs8")
+
+[node name="ObjectMarker" parent="." instance=ExtResource("4_cyvri")]
+position = Vector2(0, -42)
+scale = Vector2(1.4, 1.4)
+on_screen_offset = Vector2(0, -10)
+screen_margin = 10.0
