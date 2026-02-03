@@ -38,13 +38,13 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_entsu")
 text = "  Score: "
 script = ExtResource("1_sd512")
+metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 25.0
-offset_right = 414.0
-offset_bottom = 52.0
+layout_mode = 1
+offset_right = 398.0
+offset_bottom = 27.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Right" type="Button" parent="."]
 layout_mode = 0
@@ -52,6 +52,7 @@ offset_left = 1050.0
 offset_top = 511.0
 offset_right = 1117.0
 offset_bottom = 575.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Up" type="Button" parent="."]
 layout_mode = 0
@@ -59,6 +60,7 @@ offset_left = 1012.0
 offset_top = 444.0
 offset_right = 1079.0
 offset_bottom = 508.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Left" type="Button" parent="."]
 layout_mode = 0
@@ -66,6 +68,7 @@ offset_left = 974.0
 offset_top = 511.0
 offset_right = 1041.0
 offset_bottom = 575.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Down" type="Button" parent="."]
 layout_mode = 0
@@ -73,6 +76,7 @@ offset_left = 1013.0
 offset_top = 578.0
 offset_right = 1080.0
 offset_bottom = 642.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Down2" type="Button" parent="."]
 layout_mode = 0
@@ -82,3 +86,4 @@ offset_right = 102.0
 offset_bottom = 623.0
 text = "Sprint
 "
+metadata/_edit_use_anchors_ = true

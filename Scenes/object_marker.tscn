@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dannavf646uva"]
 
-[ext_resource type="Texture2D" uid="uid://cmy147ji5pgl4" path="res://Assets/Marker.png" id="1_mlfb8"]
+[ext_resource type="Texture2D" uid="uid://qiix2u4naslh" path="res://Assets/Markers.png" id="1_mlfb8"]
 [ext_resource type="Script" uid="uid://dqy1mfmd6bpyf" path="res://Scripts/object_marker.gd" id="2_mlfb8"]
 
 [node name="ObjectMarker" type="Sprite2D"]

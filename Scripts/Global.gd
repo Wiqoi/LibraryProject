@@ -8,3 +8,4 @@ var bookdropcoords = []
 var studentspawnarea = []
 var score = 0
 var student_count = 0
+var first_food = 0

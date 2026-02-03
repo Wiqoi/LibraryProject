@@ -78,5 +78,6 @@ func _on_timer_timeout() -> void:
 
 func _on_animation_finished() -> void:
 	var anim_name = animated_sprite.animation
+	Global.first_food = 1
 	if anim_name == "BookOrganize":
 		queue_free()
