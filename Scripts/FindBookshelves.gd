@@ -15,18 +15,18 @@ func _ready():
 		Vector2i(7, 11),
 		Vector2i(9, 10),
 		Vector2i(9, 11),
-		Vector2i(12, 72),  
-		Vector2i(11, 72),
-		Vector2i(10, 72),
-		Vector2i(13, 72),
-		Vector2i(14, 72),
-		Vector2i(15, 72),
-		Vector2i(12, 69),  
-		Vector2i(11, 69),
-		Vector2i(10, 69),
-		Vector2i(13, 69),
-		Vector2i(14, 69),
-		Vector2i(15, 69)
+		Vector2i(12, 73),  
+		Vector2i(11, 73),
+		Vector2i(10, 73),
+		Vector2i(13, 73),
+		Vector2i(14, 73),
+		Vector2i(15, 73),
+		Vector2i(12, 70),  
+		Vector2i(11, 70),
+		Vector2i(10, 70),
+		Vector2i(13, 70),
+		Vector2i(14, 70),
+		Vector2i(15, 70)
 	]
 	
 	var matching_cells = []

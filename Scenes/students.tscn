@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://qv6wklffk6mr"]
+[gd_scene load_steps=9 format=3 uid="uid://qv6wklffk6mr"]
 
 [ext_resource type="Script" uid="uid://dqfo2n46ehsid" path="res://Scripts/students.gd" id="1_jos5j"]
 [ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/Placeholders.png" id="2_oclyw"]
-[ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="3_oclyw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yi4b2"]
 atlas = ExtResource("2_oclyw")
@@ -62,17 +61,12 @@ shape = SubResource("RectangleShape2D_jos5j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StudentArea2D"]
 shape = SubResource("RectangleShape2D_oclyw")
 
-[node name="ObjectMarker" parent="." instance=ExtResource("3_oclyw")]
-position = Vector2(0, -20)
-scale = Vector2(1, 1)
-on_screen_offset = Vector2(0, -10)
-smoothing_speed = 10.0
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 20.0
 path_max_distance = 1000.0
 path_postprocessing = 2
 avoidance_enabled = true
-radius = 20.0
-max_neighbors = 2
+radius = 50.0
+max_neighbors = 1
+time_horizon_agents = 2.0
 debug_enabled = true

@@ -1,68 +1,69 @@
-[gd_scene load_steps=22 format=3 uid="uid://coreyppevxw7s"]
+[gd_scene load_steps=23 format=3 uid="uid://cp88da254ptx5"]
 
-[ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/Placeholders.png" id="1_aq7ag"]
-[ext_resource type="Script" uid="uid://5gjdr174oicg" path="res://Scripts/BookOnGroundEvent.gd" id="1_rprs8"]
-[ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="3_dg188"]
-[ext_resource type="Texture2D" uid="uid://cam36erfu0ken" path="res://Assets/Books.png" id="3_h4dxx"]
-[ext_resource type="Script" uid="uid://dbx5ehsb13htr" path="res://Scripts/BookSpawnManager.gd" id="5_pmcbm"]
+[ext_resource type="Script" uid="uid://5gjdr174oicg" path="res://Scripts/BookOnGroundEvent.gd" id="1_q4rac"]
+[ext_resource type="Texture2D" uid="uid://bpeble6y0yk76" path="res://Assets/UneatenSandWitch.png" id="2_q4rac"]
+[ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/Placeholders.png" id="3_4mrbr"]
+[ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="4_nq1t6"]
+[ext_resource type="Script" uid="uid://dbx5ehsb13htr" path="res://Scripts/BookSpawnManager.gd" id="5_v3fkb"]
+[ext_resource type="PackedScene" uid="uid://coreyppevxw7s" path="res://Scenes/book_on_ground_event.tscn" id="6_q25xv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8ol2"]
-atlas = ExtResource("3_h4dxx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvsmp"]
+atlas = ExtResource("2_q4rac")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rprs8"]
-atlas = ExtResource("1_aq7ag")
+atlas = ExtResource("3_4mrbr")
 region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dg188"]
-atlas = ExtResource("1_aq7ag")
+atlas = ExtResource("3_4mrbr")
 region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oikfq"]
-atlas = ExtResource("1_aq7ag")
+atlas = ExtResource("3_4mrbr")
 region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmcbm"]
-atlas = ExtResource("1_aq7ag")
+atlas = ExtResource("3_4mrbr")
 region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4dxx"]
-atlas = ExtResource("1_aq7ag")
+atlas = ExtResource("3_4mrbr")
 region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a70ob"]
-atlas = ExtResource("1_aq7ag")
+atlas = ExtResource("3_4mrbr")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mav2y"]
-atlas = ExtResource("1_aq7ag")
+atlas = ExtResource("3_4mrbr")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1qqx"]
-atlas = ExtResource("1_aq7ag")
+atlas = ExtResource("3_4mrbr")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o712s"]
-atlas = ExtResource("1_aq7ag")
+atlas = ExtResource("3_4mrbr")
 region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdx18"]
-atlas = ExtResource("1_aq7ag")
+atlas = ExtResource("3_4mrbr")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ad6f"]
-atlas = ExtResource("1_aq7ag")
+atlas = ExtResource("3_4mrbr")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kmp1x"]
-atlas = ExtResource("1_aq7ag")
+atlas = ExtResource("3_4mrbr")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e8ol2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e8ol2")
+"texture": SubResource("AtlasTexture_pvsmp")
 }],
 "loop": true,
 "name": &"BookIdle",
@@ -116,11 +117,11 @@ size = Vector2(8, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rprs8"]
 size = Vector2(16, 20)
 
-[node name="BookOnGround" type="Node2D"]
+[node name="FoodOnGround" type="Node2D"]
 
 [node name="ItemDropOnGround" type="CharacterBody2D" parent="."]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_rprs8")
+script = ExtResource("1_q4rac")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ItemDropOnGround"]
 texture_filter = 1
@@ -136,12 +137,12 @@ shape = SubResource("RectangleShape2D_aq7ag")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDropOnGround/Area2D"]
 shape = SubResource("RectangleShape2D_rprs8")
 
-[node name="ObjectMarker" parent="ItemDropOnGround" instance=ExtResource("3_dg188")]
+[node name="ObjectMarker" parent="ItemDropOnGround" instance=ExtResource("4_nq1t6")]
 position = Vector2(0, -42)
 scale = Vector2(1.4, 1.4)
 on_screen_offset = Vector2(0, -10)
 screen_margin = 10.0
 
 [node name="BookSpawnManager" type="Node2D" parent="."]
-script = ExtResource("5_pmcbm")
-book_scene = null
+script = ExtResource("5_v3fkb")
+book_scene = ExtResource("6_q25xv")
