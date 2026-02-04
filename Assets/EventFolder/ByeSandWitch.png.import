@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biyw64ud7felm"
-path="res://.godot/imported/Library_bg.png-5551d0645cac21e780f8a0378c208547.ctex"
+uid="uid://do6e8c5m35o4w"
+path="res://.godot/imported/ByeSandWitch.png-6ca7d30e352a87255595f677870af7c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Library_bg.png"
-dest_files=["res://.godot/imported/Library_bg.png-5551d0645cac21e780f8a0378c208547.ctex"]
+source_file="res://Assets/EventFolder/ByeSandWitch.png"
+dest_files=["res://.godot/imported/ByeSandWitch.png-6ca7d30e352a87255595f677870af7c7.ctex"]
 
 [params]
 

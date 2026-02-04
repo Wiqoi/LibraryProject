@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diy3kk8gj1y1k"
-path="res://.godot/imported/Carpit.png-97c6fdd7006d4cea9b030211025f3993.ctex"
+uid="uid://cam36erfu0ken"
+path="res://.godot/imported/Books.png-ddfa7c1e832d06501c5e93fa58e8daab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Carpit.png"
-dest_files=["res://.godot/imported/Carpit.png-97c6fdd7006d4cea9b030211025f3993.ctex"]
+source_file="res://Assets/EventFolder/Books.png"
+dest_files=["res://.godot/imported/Books.png-ddfa7c1e832d06501c5e93fa58e8daab.ctex"]
 
 [params]
 

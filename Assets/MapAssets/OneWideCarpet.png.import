@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmy147ji5pgl4"
-path="res://.godot/imported/Marker.png-188e7ed650a90c2b619aa25d1be39838.ctex"
+uid="uid://dnc48y1wg5grn"
+path="res://.godot/imported/OneWideCarpet.png-33d3a15f0a53ec6441ab0d91acc8199d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Marker.png"
-dest_files=["res://.godot/imported/Marker.png-188e7ed650a90c2b619aa25d1be39838.ctex"]
+source_file="res://Assets/MapAssets/OneWideCarpet.png"
+dest_files=["res://.godot/imported/OneWideCarpet.png-33d3a15f0a53ec6441ab0d91acc8199d.ctex"]
 
 [params]
 

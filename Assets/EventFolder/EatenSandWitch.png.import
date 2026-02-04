@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b63hwa5a2ro02"
-path="res://.godot/imported/StareExtender.png-5eb9d1e72a68a20bedffb53554c30e86.ctex"
+uid="uid://bqk5m8fw7rnia"
+path="res://.godot/imported/EatenSandWitch.png-69e97ef07ecb31e3bd515e8def85f84d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/StareExtender.png"
-dest_files=["res://.godot/imported/StareExtender.png-5eb9d1e72a68a20bedffb53554c30e86.ctex"]
+source_file="res://Assets/EventFolder/EatenSandWitch.png"
+dest_files=["res://.godot/imported/EatenSandWitch.png-69e97ef07ecb31e3bd515e8def85f84d.ctex"]
 
 [params]
 

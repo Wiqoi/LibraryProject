@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://coreyppevxw7s"]
 
-[ext_resource type="PackedScene" uid="uid://ct1cptfo2bun8" path="res://Scenes/book_drop_on_ground.tscn" id="1_rprs8"]
+[ext_resource type="PackedScene" uid="uid://ct1cptfo2bun8" path="res://Scenes/EventFolders/book_drop_on_ground.tscn" id="1_rprs8"]
 [ext_resource type="Script" uid="uid://dbx5ehsb13htr" path="res://Scripts/BookSpawnManager.gd" id="5_pmcbm"]
 
 [node name="BookOnGround" type="Node2D"]

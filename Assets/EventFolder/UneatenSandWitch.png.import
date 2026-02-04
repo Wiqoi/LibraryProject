@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctbja35p6wb6q"
-path="res://.godot/imported/Staminabar2.png-49a3e1f01a30114616b9617a2aeab3a2.ctex"
+uid="uid://bpeble6y0yk76"
+path="res://.godot/imported/UneatenSandWitch.png-b66117b694f025b55ae20779a94f1c4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Staminabar2.png"
-dest_files=["res://.godot/imported/Staminabar2.png-49a3e1f01a30114616b9617a2aeab3a2.ctex"]
+source_file="res://Assets/EventFolder/UneatenSandWitch.png"
+dest_files=["res://.godot/imported/UneatenSandWitch.png-b66117b694f025b55ae20779a94f1c4d.ctex"]
 
 [params]
 

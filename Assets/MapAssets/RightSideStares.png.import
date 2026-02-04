@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do6e8c5m35o4w"
-path="res://.godot/imported/ByeSandWitch.png-1dfa9c1860678779b6cda181c4ef56a5.ctex"
+uid="uid://bclrg4l13808x"
+path="res://.godot/imported/RightSideStares.png-81d76dc4fcd495de5b5dca73bc6a09b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ByeSandWitch.png"
-dest_files=["res://.godot/imported/ByeSandWitch.png-1dfa9c1860678779b6cda181c4ef56a5.ctex"]
+source_file="res://Assets/MapAssets/RightSideStares.png"
+dest_files=["res://.godot/imported/RightSideStares.png-81d76dc4fcd495de5b5dca73bc6a09b2.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://b8ocl76do627h"]
 
 [ext_resource type="Script" uid="uid://d4arpgm11tiiv" path="res://Scripts/FoodOnGround.gd" id="1_bjeo0"]
-[ext_resource type="Texture2D" uid="uid://bpeble6y0yk76" path="res://Assets/UneatenSandWitch.png" id="2_i7w4g"]
-[ext_resource type="Texture2D" uid="uid://do6e8c5m35o4w" path="res://Assets/ByeSandWitch.png" id="3_6i5lq"]
+[ext_resource type="Texture2D" uid="uid://bpeble6y0yk76" path="res://Assets/EventFolder/UneatenSandWitch.png" id="2_i7w4g"]
+[ext_resource type="Texture2D" uid="uid://do6e8c5m35o4w" path="res://Assets/EventFolder/ByeSandWitch.png" id="3_6i5lq"]
 [ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="4_cyvri"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pvsmp"]

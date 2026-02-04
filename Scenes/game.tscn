@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://ck87m2wamedbo" path="res://Scenes/MapLayers.tscn" id="2_ldgsr"]
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="2_qxrlw"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="3_wowpa"]
-[ext_resource type="PackedScene" uid="uid://coreyppevxw7s" path="res://Scenes/book_on_ground_event.tscn" id="3_wrm1d"]
-[ext_resource type="PackedScene" uid="uid://qv6wklffk6mr" path="res://Scenes/students.tscn" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://coreyppevxw7s" path="res://Scenes/EventFolders/book_on_ground_event.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://qv6wklffk6mr" path="res://Scenes/Students/students.tscn" id="6_i6g32"]
 [ext_resource type="Script" uid="uid://kposr187swfu" path="res://Scripts/student_spawn_manager.gd" id="7_1l0tm"]
-[ext_resource type="PackedScene" uid="uid://cp88da254ptx5" path="res://Scenes/food_on_ground.tscn" id="9_h4fw4"]
-[ext_resource type="PackedScene" uid="uid://dhhnw0usf41g1" path="res://Scenes/student_nav_mesh.tscn" id="12_rku1e"]
+[ext_resource type="PackedScene" uid="uid://cp88da254ptx5" path="res://Scenes/EventFolders/food_on_ground.tscn" id="9_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://dhhnw0usf41g1" path="res://Scenes/Students/student_nav_mesh.tscn" id="12_rku1e"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ldgsr"]
 vertices = PackedVector2Array(489.992, 1212.38, 487.078, 593.297, 893.344, 826, 1626.17, 1476.96, 1962.77, 1555.93, 1946.34, 1591.43, 1551, 1500.05, 1551, 1414.03, 1624.2, 1385.02, 944.039, 1387.03, 942.078, 1411.97, 877.344, 621.023, 874.703, 582.063, 1795.85, 587.93, 1744.97, 623.023, 1786.13, 1286.92, 1747.03, 1273.82, 1256.08, 1283.07, 1278.89, 1282.18, 1282.99, 905.313, 1260.09, 836.859, 1278.21, 843.141, 1579.59, 826, 1580.38, 839.133, 62.7031, 1671.27, -63.0781, 1674.72, -70.8984, 783.531, 37.7109, 825.422, 373.953, 806.531, 370.047, 811.57, 518, 1698.02, 518, 1666.15, 914.508, 1672.14, 1390, 1699.97, 404.281, 1692, 366.047, 1692, 412.281, 1412, 939.922, 1672.04, 1390, 1670.04, 927.508, 1412, 374.953, 592, 411.039, 592, 414.039, 1386.96, 922.539, 1389.04, 927.477, 1282.9, 941.961, 841.133, 498.867, 1286.91)

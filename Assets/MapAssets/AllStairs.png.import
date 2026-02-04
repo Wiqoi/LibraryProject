@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1ltuppqsryj0"
-path="res://.godot/imported/MoreStares.png-692390956ef4736306f4ef555bf3298c.ctex"
+uid="uid://byiojogqrtu5b"
+path="res://.godot/imported/AllStairs.png-c42e9ce15ee6bb6d49119e3174c15910.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MoreStares.png"
-dest_files=["res://.godot/imported/MoreStares.png-692390956ef4736306f4ef555bf3298c.ctex"]
+source_file="res://Assets/MapAssets/AllStairs.png"
+dest_files=["res://.godot/imported/AllStairs.png-c42e9ce15ee6bb6d49119e3174c15910.ctex"]
 
 [params]
 

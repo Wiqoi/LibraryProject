@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f2o8qr7q02d4"
-path="res://.godot/imported/Library_bg_menu.png-6ed728597d1972c65ea5207a60f4a5df.ctex"
+uid="uid://o2ihy01jv438"
+path="res://.godot/imported/CarpitStairs.png-7a353239251e2d71f4c4a66b6d53f52c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Library_bg_menu.png"
-dest_files=["res://.godot/imported/Library_bg_menu.png-6ed728597d1972c65ea5207a60f4a5df.ctex"]
+source_file="res://Assets/MapAssets/CarpitStairs.png"
+dest_files=["res://.godot/imported/CarpitStairs.png-7a353239251e2d71f4c4a66b6d53f52c.ctex"]
 
 [params]
 

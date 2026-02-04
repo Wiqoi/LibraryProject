@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpeble6y0yk76"
-path="res://.godot/imported/UneatenSandWitch.png-fae38db2d507112c686e1a6d2319ba9c.ctex"
+uid="uid://diy3kk8gj1y1k"
+path="res://.godot/imported/Carpit.png-48e1cddcb38e004ac66bd91c87af51a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UneatenSandWitch.png"
-dest_files=["res://.godot/imported/UneatenSandWitch.png-fae38db2d507112c686e1a6d2319ba9c.ctex"]
+source_file="res://Assets/MapAssets/Carpit.png"
+dest_files=["res://.godot/imported/Carpit.png-48e1cddcb38e004ac66bd91c87af51a6.ctex"]
 
 [params]
 

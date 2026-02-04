@@ -1,60 +1,60 @@
 [gd_scene load_steps=21 format=3 uid="uid://ct1cptfo2bun8"]
 
-[ext_resource type="Script" uid="uid://5gjdr174oicg" path="res://Scripts/BookOnGroundEvent.gd" id="1_ouf1r"]
-[ext_resource type="Texture2D" uid="uid://cam36erfu0ken" path="res://Assets/Books.png" id="2_1torj"]
-[ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/Placeholders.png" id="3_qkq2i"]
-[ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="4_586yb"]
+[ext_resource type="Script" uid="uid://5gjdr174oicg" path="res://Scripts/BookOnGroundEvent.gd" id="1_p2yno"]
+[ext_resource type="Texture2D" uid="uid://cam36erfu0ken" path="res://Assets/EventFolder/Books.png" id="2_mwxpd"]
+[ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/MapAssets/Placeholders.png" id="3_wy15u"]
+[ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="4_lm4nk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e8ol2"]
-atlas = ExtResource("2_1torj")
+atlas = ExtResource("2_mwxpd")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rprs8"]
-atlas = ExtResource("3_qkq2i")
+atlas = ExtResource("3_wy15u")
 region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dg188"]
-atlas = ExtResource("3_qkq2i")
+atlas = ExtResource("3_wy15u")
 region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oikfq"]
-atlas = ExtResource("3_qkq2i")
+atlas = ExtResource("3_wy15u")
 region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmcbm"]
-atlas = ExtResource("3_qkq2i")
+atlas = ExtResource("3_wy15u")
 region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4dxx"]
-atlas = ExtResource("3_qkq2i")
+atlas = ExtResource("3_wy15u")
 region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a70ob"]
-atlas = ExtResource("3_qkq2i")
+atlas = ExtResource("3_wy15u")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mav2y"]
-atlas = ExtResource("3_qkq2i")
+atlas = ExtResource("3_wy15u")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1qqx"]
-atlas = ExtResource("3_qkq2i")
+atlas = ExtResource("3_wy15u")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o712s"]
-atlas = ExtResource("3_qkq2i")
+atlas = ExtResource("3_wy15u")
 region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdx18"]
-atlas = ExtResource("3_qkq2i")
+atlas = ExtResource("3_wy15u")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ad6f"]
-atlas = ExtResource("3_qkq2i")
+atlas = ExtResource("3_wy15u")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kmp1x"]
-atlas = ExtResource("3_qkq2i")
+atlas = ExtResource("3_wy15u")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e8ol2"]
@@ -117,7 +117,7 @@ size = Vector2(16, 20)
 
 [node name="ItemDropOnGround" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_ouf1r")
+script = ExtResource("1_p2yno")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -133,7 +133,7 @@ shape = SubResource("RectangleShape2D_aq7ag")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_rprs8")
 
-[node name="ObjectMarker" parent="." instance=ExtResource("4_586yb")]
+[node name="ObjectMarker" parent="." instance=ExtResource("4_lm4nk")]
 position = Vector2(0, -42)
 scale = Vector2(3, 3)
 on_screen_offset = Vector2(0, -10)

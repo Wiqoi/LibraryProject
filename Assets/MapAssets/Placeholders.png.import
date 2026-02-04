@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceffhocvc33m"
-path="res://.godot/imported/OneWideCarpit.png-c2248e23dec6722b83d68fa2d7ae6804.ctex"
+uid="uid://d073d47lott2l"
+path="res://.godot/imported/Placeholders.png-012aacb7c6c6cb0310b0978dda421bcc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/OneWideCarpit.png"
-dest_files=["res://.godot/imported/OneWideCarpit.png-c2248e23dec6722b83d68fa2d7ae6804.ctex"]
+source_file="res://Assets/MapAssets/Placeholders.png"
+dest_files=["res://.godot/imported/Placeholders.png-012aacb7c6c6cb0310b0978dda421bcc.ctex"]
 
 [params]
 

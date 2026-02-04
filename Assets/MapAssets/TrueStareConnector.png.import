@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cam36erfu0ken"
-path="res://.godot/imported/Books.png-6d4c042c04eb680ca4f7c987bfeb01dd.ctex"
+uid="uid://bqjlw383keved"
+path="res://.godot/imported/TrueStareConnector.png-b87d1c56ae337ef18c7c57e1a3c095ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Books.png"
-dest_files=["res://.godot/imported/Books.png-6d4c042c04eb680ca4f7c987bfeb01dd.ctex"]
+source_file="res://Assets/MapAssets/TrueStareConnector.png"
+dest_files=["res://.godot/imported/TrueStareConnector.png-b87d1c56ae337ef18c7c57e1a3c095ba.ctex"]
 
 [params]
 

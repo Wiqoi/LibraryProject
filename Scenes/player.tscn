@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://qkge5vvwfp1v"]
 
 [ext_resource type="Script" uid="uid://ccju6wsj5kbnj" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/Placeholders.png" id="1_mkara"]
-[ext_resource type="PackedScene" uid="uid://bsbp7nmgsjuit" path="res://Scenes/HUD.tscn" id="3_6t5aa"]
-[ext_resource type="PackedScene" uid="uid://b2b5dvlqiob0v" path="res://Scenes/rule_descriptions.tscn" id="4_fkybt"]
+[ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/MapAssets/Placeholders.png" id="1_mkara"]
+[ext_resource type="PackedScene" uid="uid://bsbp7nmgsjuit" path="res://Scenes/UIFolders/HUD.tscn" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://b2b5dvlqiob0v" path="res://Scenes/UIFolders/rule_descriptions.tscn" id="4_fkybt"]
 [ext_resource type="Script" uid="uid://bsgpgksfvphwp" path="res://Scripts/rule_descriptions.gd" id="5_x3wgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]

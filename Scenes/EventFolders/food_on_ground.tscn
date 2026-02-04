@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp88da254ptx5"]
 
-[ext_resource type="PackedScene" uid="uid://b8ocl76do627h" path="res://Scenes/food_drop_on_ground.tscn" id="1_y8qgq"]
+[ext_resource type="PackedScene" uid="uid://b8ocl76do627h" path="res://Scenes/EventFolders/food_drop_on_ground.tscn" id="1_y8qgq"]
 [ext_resource type="Script" uid="uid://d121jtpaegftc" path="res://Scripts/food_spawn_manager.gd" id="5_q4rac"]
 
 [node name="FoodOnGround" type="Node2D"]
