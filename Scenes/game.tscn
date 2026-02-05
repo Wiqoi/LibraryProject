@@ -31,7 +31,6 @@ unique_name_in_owner = true
 position = Vector2(1930, 1597)
 scale = Vector2(0.5, 0.5)
 move_speed = 750.0
-sprint_speed = 1000.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true

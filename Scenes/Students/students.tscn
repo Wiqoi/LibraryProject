@@ -1,19 +1,64 @@
-[gd_scene load_steps=9 format=3 uid="uid://qv6wklffk6mr"]
+[gd_scene load_steps=21 format=3 uid="uid://qv6wklffk6mr"]
 
 [ext_resource type="Script" uid="uid://dqfo2n46ehsid" path="res://Scripts/students.gd" id="1_jos5j"]
 [ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/MapAssets/Placeholders.png" id="2_oclyw"]
+[ext_resource type="Texture2D" uid="uid://c5sam3eusp50o" path="res://Assets/PlaceHold/2D Top Down Pixel Art Characters/010.png" id="3_65spe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yi4b2"]
 atlas = ExtResource("2_oclyw")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jos5j"]
-atlas = ExtResource("2_oclyw")
-region = Rect2(64, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuexr"]
+atlas = ExtResource("3_65spe")
+region = Rect2(20, 0, 20, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dfr0p"]
-atlas = ExtResource("2_oclyw")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktyxj"]
+atlas = ExtResource("3_65spe")
+region = Rect2(0, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vonw"]
+atlas = ExtResource("3_65spe")
+region = Rect2(20, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31pmq"]
+atlas = ExtResource("3_65spe")
+region = Rect2(40, 0, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4ew0"]
+atlas = ExtResource("3_65spe")
+region = Rect2(0, 32, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6olgb"]
+atlas = ExtResource("3_65spe")
+region = Rect2(20, 32, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj8y8"]
+atlas = ExtResource("3_65spe")
+region = Rect2(40, 32, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4xwq"]
+atlas = ExtResource("3_65spe")
+region = Rect2(0, 64, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi5n3"]
+atlas = ExtResource("3_65spe")
+region = Rect2(20, 64, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5cq1"]
+atlas = ExtResource("3_65spe")
+region = Rect2(40, 64, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3ss1"]
+atlas = ExtResource("3_65spe")
+region = Rect2(0, 96, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvvs0"]
+atlas = ExtResource("3_65spe")
+region = Rect2(20, 96, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6xnk"]
+atlas = ExtResource("3_65spe")
+region = Rect2(40, 96, 20, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lo8rv"]
 animations = [{
@@ -27,13 +72,66 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jos5j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dfr0p")
+"texture": SubResource("AtlasTexture_uuexr")
 }],
 "loop": true,
 "name": &"StudentIdle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktyxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vonw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31pmq")
+}],
+"loop": true,
+"name": &"StudentWalkDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4ew0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6olgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj8y8")
+}],
+"loop": true,
+"name": &"StudentWalkLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4xwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi5n3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5cq1")
+}],
+"loop": true,
+"name": &"StudentWalkRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3ss1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvvs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6xnk")
+}],
+"loop": true,
+"name": &"StudentWalkUp",
 "speed": 5.0
 }]
 
@@ -49,9 +147,9 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_jos5j")
 
 [node name="StudentSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_lo8rv")
-animation = &"StudentIdle"
+animation = &"StudentWalkUp"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jos5j")

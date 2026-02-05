@@ -60,22 +60,29 @@ func update_speed():
 		current_speed = move_speed
 
 func update_animation():
-	if movement_dir == Vector2.ZERO:
-		if animations.animation != "Idle":
-			animations.animation = "Idle"
-	else:
-		var target_anim: String
+	var target_anim: String = "Idle"
+	
+	if movement_dir != Vector2.ZERO:
+		# Determine the animation based on movement direction
 		if abs(movement_dir.y) > abs(movement_dir.x):
 			target_anim = "MoveUp" if movement_dir.y < 0 else "MoveDown"
 		else:
 			target_anim = "MoveRight" if movement_dir.x > 0 else "MoveLeft"
-		
-		if animations.animation != target_anim:
-			animations.animation = target_anim
-
+	
+	# Only change and play animation if it's different from current
+	if animations.animation != target_anim:
+		animations.animation = target_anim
+		animations.play()
+	
+	# Set the correct frame based on movement
+	if movement_dir != Vector2.ZERO:
+		animations.speed_scale = 1.0  # Normal speed for movement
+	else:
+		animations.speed_scale = 0.0  # Pause on current frame for idle
 func _ready():
 	Global.player_node = self
 	animations.animation = "Idle"
+	animations.play()  # Make sure to play it
 	current_stamina = max_stamina
 	stamina_bar.value = current_stamina
 	
