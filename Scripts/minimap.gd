@@ -1,9 +1,9 @@
 extends Control
 
-const LEVEL_CONFIGS = {
-	1: {"map_origin": Vector2(992, 728), "map_world_size": Vector2(512, 288), "minimap_size": Vector2(320, 180)},
-	2: {"map_origin": Vector2(0, 0), "map_world_size": Vector2(592, 384), "minimap_size": Vector2(320, 208)},
-	3: {"map_origin": Vector2(0, 0), "map_world_size": Vector2(512, 288), "minimap_size": Vector2(320, 180)},
+const MINIMAP_SIZES = {
+	1: Vector2(320, 180),
+	2: Vector2(320, 208),
+	3: Vector2(320, 180),
 }
 
 @export var update_interval: float = 0.1
@@ -12,6 +12,9 @@ const LEVEL_CONFIGS = {
 var _current_level: int = 0
 var _update_timer: float = 0.0
 var minimap_visible: bool = true
+var _map_origin: Vector2 = Vector2.ZERO
+var _map_world_size: Vector2 = Vector2.ONE
+var _minimap_size: Vector2 = Vector2(320, 180)
 
 var player_marker: ColorRect
 var event_markers: Array = []
@@ -73,14 +76,12 @@ func _detect_level() -> int:
 
 
 func _setup_minimap() -> void:
-	var cfg = LEVEL_CONFIGS.get(_current_level, null)
-	if not cfg:
-		return
+	_minimap_size = MINIMAP_SIZES.get(_current_level, Vector2(320, 180))
+	_compute_map_bounds()
 
-	var msize: Vector2 = cfg["minimap_size"]
-	panel.size = msize + Vector2(4, 4)
-	background_rect.size = msize
-	markers_layer.size = msize
+	panel.size = _minimap_size + Vector2(4, 4)
+	background_rect.size = _minimap_size
+	markers_layer.size = _minimap_size
 	toggle_btn.position = Vector2(panel.size.x - 22, 2)
 
 	var tex = _load_texture()
@@ -91,7 +92,6 @@ func _setup_minimap() -> void:
 	if tex:
 		background_rect.texture = tex
 
-	# Remove old event/student markers
 	for m in event_markers:
 		m.queue_free()
 	event_markers.clear()
@@ -100,13 +100,54 @@ func _setup_minimap() -> void:
 	student_markers.clear()
 
 
+func _compute_map_bounds() -> void:
+	var min_pos = Vector2(INF, INF)
+	var max_pos = Vector2(-INF, -INF)
+
+	# Include tilemap cells
+	for layer_name in ["Ground", "Walls"]:
+		var tl = _find_tilemap_layer(layer_name)
+		if tl:
+			for cell in tl.get_used_cells():
+				var wp = tl.to_global(tl.map_to_local(cell))
+				min_pos = min_pos.min(wp)
+				max_pos = max_pos.max(wp)
+
+	# Include player
+	if Global.player_node:
+		var pp = Global.player_node.global_position
+		min_pos = min_pos.min(pp)
+		max_pos = max_pos.max(pp)
+
+	# Include events
+	var events = _find_all_events_node()
+	if events:
+		for child in events.get_children():
+			if is_instance_valid(child) and child is Node2D:
+				min_pos = min_pos.min(child.global_position)
+				max_pos = max_pos.max(child.global_position)
+
+	# Include students
+	for s in _find_students():
+		if is_instance_valid(s):
+			min_pos = min_pos.min(s.global_position)
+			max_pos = max_pos.max(s.global_position)
+
+	if min_pos.x == INF:
+		return
+
+	var size = max_pos - min_pos
+	var pad = Vector2(max(size.x * 0.1, 50), max(size.y * 0.1, 50))
+	_map_origin = min_pos - pad
+	_map_world_size = size + pad * 2
+
+
 func _world_to_minimap(world_pos: Vector2) -> Vector2:
-	var cfg = LEVEL_CONFIGS[_current_level]
-	var origin: Vector2 = cfg["map_origin"]
-	var world_size: Vector2 = cfg["map_world_size"]
-	var msize: Vector2 = cfg["minimap_size"]
-	var rel = world_pos - origin
-	return Vector2((rel.x / world_size.x) * msize.x, (rel.y / world_size.y) * msize.y)
+	var rel = world_pos - _map_origin
+	return Vector2(
+		(rel.x / _map_world_size.x) * _minimap_size.x,
+		(rel.y / _map_world_size.y) * _minimap_size.y
+	)
 
 
 func _update_player_marker() -> void:
@@ -199,12 +240,7 @@ func _save_texture(tex: ImageTexture) -> void:
 
 
 func _generate_background() -> ImageTexture:
-	var cfg = LEVEL_CONFIGS[_current_level]
-	var msize: Vector2 = cfg["minimap_size"]
-	var world_size: Vector2 = cfg["map_world_size"]
-	var origin: Vector2 = cfg["map_origin"]
-
-	var img = Image.create(int(msize.x), int(msize.y), false, Image.FORMAT_RGBA8)
+	var img = Image.create(int(_minimap_size.x), int(_minimap_size.y), false, Image.FORMAT_RGBA8)
 	img.fill(Color(0.08, 0.08, 0.14, 0.85))
 
 	var ground = _find_tilemap_layer("Ground")
@@ -215,11 +251,11 @@ func _generate_background() -> ImageTexture:
 			continue
 		for cell in tl.layer.get_used_cells():
 			var cell_world = tl.layer.to_global(tl.layer.map_to_local(cell))
-			var rel = cell_world - origin
-			var mx = int(rel.x / world_size.x * msize.x)
-			var my = int(rel.y / world_size.y * msize.y)
+			var rel = cell_world - _map_origin
+			var mx = int(rel.x / _map_world_size.x * _minimap_size.x)
+			var my = int(rel.y / _map_world_size.y * _minimap_size.y)
 			img.set_pixel(mx, my, tl.color)
-			if mx + 1 < int(msize.x) and my + 1 < int(msize.y):
+			if mx + 1 < int(_minimap_size.x) and my + 1 < int(_minimap_size.y):
 				img.set_pixel(mx + 1, my, tl.color)
 				img.set_pixel(mx, my + 1, tl.color)
 				img.set_pixel(mx + 1, my + 1, tl.color)
@@ -232,8 +268,9 @@ func _find_tilemap_layer(layer_name: String) -> TileMapLayer:
 	if not root:
 		return null
 	for child in root.get_children():
-		if _find_layer_in_node(child, layer_name):
-			return _find_layer_in_node(child, layer_name)
+		var found = _find_layer_in_node(child, layer_name)
+		if found:
+			return found
 	return null
 
 
@@ -251,11 +288,8 @@ func _toggle() -> void:
 	minimap_visible = not minimap_visible
 	if minimap_visible:
 		toggle_btn.text = "-"
-		var cfg = LEVEL_CONFIGS.get(_current_level, null)
-		if cfg:
-			var msize: Vector2 = cfg["minimap_size"]
-			panel.size = msize + Vector2(4, 4)
-			toggle_btn.position = Vector2(panel.size.x - 22, 2)
+		panel.size = _minimap_size + Vector2(4, 4)
+		toggle_btn.position = Vector2(panel.size.x - 22, 2)
 	else:
 		toggle_btn.text = "+"
 		panel.size = Vector2(24, 20)
