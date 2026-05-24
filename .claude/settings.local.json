@@ -8,7 +8,17 @@
       "mcp__godot-ai__script_attach",
       "mcp__godot-ai__scene_save",
       "mcp__godot-ai__scene_get_hierarchy",
-      "mcp__godot-ai__scene_open"
+      "mcp__godot-ai__scene_open",
+      "Bash(git push *)",
+      "Bash(git config *)",
+      "mcp__godot-ai__script_patch",
+      "mcp__godot-ai__script_manage",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "mcp__godot-ai__node_manage",
+      "mcp__godot-ai__animation_manage",
+      "mcp__godot-ai__node_get_properties",
+      "Bash(powershell *)"
     ]
   }
 }
