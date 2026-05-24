@@ -81,6 +81,7 @@ func _setup_minimap() -> void:
 	panel.size = msize + Vector2(4, 4)
 	background_rect.size = msize
 	markers_layer.size = msize
+	toggle_btn.position = Vector2(panel.size.x - 22, 2)
 
 	var tex = _load_texture()
 	if not tex:
