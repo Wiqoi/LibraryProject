@@ -44,4 +44,5 @@ func play_book_idle_animation() -> void:
 func Picked_up() -> void:
 	self.visible = false
 	self.position = Global.player_node.position
+	Global.firstBackpack = 1
 	

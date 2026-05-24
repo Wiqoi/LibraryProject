@@ -45,6 +45,7 @@ func play_book_organize_animation() -> void:
 		is_organizing = true
 		fight_Sprite.stop()  # Stop idle animation first
 		fight_Sprite.play("stopped")
+		Global.firstFighting = 1
 
 # --------------------------
 # Interaction Detection (Player Input + Proximity + Mouse Hover)
