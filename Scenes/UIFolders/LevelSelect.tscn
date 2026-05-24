@@ -14,73 +14,6 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7nb8g"]
 texture = ExtResource("1_0x7qd")
 
-[sub_resource type="Animation" id="Animation_qfxdr"]
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("/LevelSelect/TitleLabel:modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("/LevelSelect/Lvl1:modulate:a")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.3, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("/LevelSelect/Lvl2:modulate:a")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.4, 0.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("/LevelSelect/Lvl3:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.5, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("/LevelSelect/BackButton:modulate:a")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.2, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mp27m"]
-_data = {
-&"fade_in": SubResource("Animation_qfxdr")
-}
-
 [node name="LevelSelect" type="Control" unique_id=72339143]
 texture_filter = 1
 layout_mode = 3
@@ -102,7 +35,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7nb8g")
 
 [node name="Lvl1" type="Button" parent="." unique_id=1432553029]
-modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 9
@@ -117,7 +49,6 @@ text = "Level 1"
 script = ExtResource("1_7ldud")
 
 [node name="Lvl2" type="Button" parent="." unique_id=567187661]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -134,7 +65,6 @@ text = "Level 2"
 script = ExtResource("2_3mk76")
 
 [node name="Lvl3" type="Button" parent="." unique_id=1262215962]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -194,7 +124,6 @@ text = "BYPASSLVL3
 script = ExtResource("8_6sf32")
 
 [node name="TitleLabel" type="Label" parent="." unique_id=1135054447]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -208,11 +137,7 @@ theme_override_colors/font_color = Color(1, 0.95, 0.7, 1)
 theme_override_font_sizes/font_size = 60
 text = "Select Level"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1284528914]
-libraries/ = SubResource("AnimationLibrary_mp27m")
-
 [node name="BackButton" type="Button" parent="." unique_id=1162190746]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 24.0
 offset_top = 24.0
