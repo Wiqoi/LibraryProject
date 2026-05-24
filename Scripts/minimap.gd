@@ -1,9 +1,9 @@
 extends Control
 
 const LEVEL_CONFIGS = {
-	1: {"map_origin": Vector2(992, 728), "map_world_size": Vector2(512, 288), "minimap_size": Vector2(160, 90)},
-	2: {"map_origin": Vector2(0, 0), "map_world_size": Vector2(592, 384), "minimap_size": Vector2(160, 104)},
-	3: {"map_origin": Vector2(0, 0), "map_world_size": Vector2(512, 288), "minimap_size": Vector2(160, 90)},
+	1: {"map_origin": Vector2(992, 728), "map_world_size": Vector2(512, 288), "minimap_size": Vector2(320, 180)},
+	2: {"map_origin": Vector2(0, 0), "map_world_size": Vector2(592, 384), "minimap_size": Vector2(320, 208)},
+	3: {"map_origin": Vector2(0, 0), "map_world_size": Vector2(512, 288), "minimap_size": Vector2(320, 180)},
 }
 
 @export var update_interval: float = 0.1
@@ -26,7 +26,7 @@ var student_markers: Array = []
 func _ready() -> void:
 	toggle_btn.pressed.connect(_toggle)
 	player_marker = ColorRect.new()
-	player_marker.size = Vector2(6, 6)
+	player_marker.size = Vector2(10, 10)
 	player_marker.color = Color.GREEN
 	markers_layer.add_child(player_marker)
 
@@ -125,7 +125,7 @@ func _update_event_markers() -> void:
 
 	while event_markers.size() < needed:
 		var m = ColorRect.new()
-		m.size = Vector2(4, 4)
+		m.size = Vector2(6, 6)
 		m.color = Color.RED
 		event_markers.append(m)
 		markers_layer.add_child(m)
@@ -148,7 +148,7 @@ func _update_student_markers() -> void:
 
 	while student_markers.size() < needed:
 		var m = ColorRect.new()
-		m.size = Vector2(4, 4)
+		m.size = Vector2(6, 6)
 		m.color = Color.YELLOW
 		student_markers.append(m)
 		markers_layer.add_child(m)
