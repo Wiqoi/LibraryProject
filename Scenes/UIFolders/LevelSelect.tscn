@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://c65ac30p1n1xl" path="res://Scripts/lvl_3.gd" id="3_3lcxl"]
 [ext_resource type="Script" uid="uid://bkrqpyi6qgl3u" path="res://Scripts/alert.gd" id="4_3lcxl"]
 [ext_resource type="Script" uid="uid://bfxmirm6a4ls6" path="res://Scripts/Text.gd" id="4_3mk76"]
-[ext_resource type="Script" uid="uid://briycxaokt2ik" path="res://Scripts/bypasslvl_2.gd" id="7_qro0d"]
-[ext_resource type="Script" uid="uid://cbks20hqqdxk1" path="res://Scripts/bypasslvl_3.gd" id="8_6sf32"]
+[ext_resource type="Script" path="res://Scripts/bypasslvl_2.gd" id="7_qro0d"]
+[ext_resource type="Script" path="res://Scripts/bypasslvl_3.gd" id="8_6sf32"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7nb8g"]
 texture = ExtResource("1_0x7qd")

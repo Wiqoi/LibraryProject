@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bkjxucs3g4vej"]
+[gd_scene load_steps=14 format=3 uid="uid://bkjxucs3g4vej"]
 
 [ext_resource type="Script" uid="uid://03he4gplhk7e" path="res://Scripts/level_3.gd" id="1_h6p24"]
 [ext_resource type="PackedScene" uid="uid://daupokxccqh08" path="res://Scenes/CheckoutArea.tscn" id="2_h6p24"]
@@ -22,7 +22,7 @@ vertices = PackedVector2Array(1580.97, 822, 1582.92, 841.07, 1286.97, 843.063, 1
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(21, 20, 22, 23), PackedInt32Array(24, 21, 23, 25, 26), PackedInt32Array(17, 27, 28, 13), PackedInt32Array(29, 30, 31, 32, 33, 34), PackedInt32Array(29, 34, 17, 16), PackedInt32Array(35, 14, 13), PackedInt32Array(35, 13, 26, 25), PackedInt32Array(36, 37, 38, 39, 40), PackedInt32Array(41, 42, 43, 36, 40), PackedInt32Array(44, 45, 4, 7), PackedInt32Array(44, 7, 46, 47), PackedInt32Array(47, 46, 42, 41), PackedInt32Array(2, 40, 39, 3), PackedInt32Array(8, 12, 48, 49, 50), PackedInt32Array(51, 50, 49, 24, 26), PackedInt32Array(51, 26, 52, 53), PackedInt32Array(53, 52, 0, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(467, 577, 1835, 574, 1834, 1295, 1034, 1297, 1034, 1266, 970, 1263, 970, 866, 1256, 868, 1254, 843, 948, 850, 955, 1363, 1643, 1372, 1642, 1468, 2023, 1470, 2029, 1670, 1594, 1666, 1597, 1525, 1531, 1521, 1532, 1427, 955, 1429, 957, 1500, 1443, 1499, 1447, 1716, 465, 1716, 466, 1500, 916, 1500, 916, 1432, 434, 1429, 430, 1711, 357, 1713, 354, 823, 316, 823, 319, 1707, -303, 1718, -310, 568, 301, 571, 315, 791, 357, 791, 357, 570, 431, 571, 428, 1370, 919, 1367, 921, 812, 1590, 812, 1594, 851, 1296, 853, 1292, 892, 1607, 887, 1607, 793, 897, 797, 908, 1260, 837, 1262, 840, 1299, 469, 1301)])
 
-[node name="Game" type="Node2D"]
+[node name="Game2" type="Node2D"]
 script = ExtResource("1_h6p24")
 
 [node name="GroundTilesNode" parent="." instance=ExtResource("2_h6p24")]

@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://c5ug0fs60c1pp"]
+
+[ext_resource type="Script" uid="uid://bxuloltuln382" path="res://Scenes/EventFolders/misplaced_book.gd" id="1_osxcu"]
+[ext_resource type="Texture2D" uid="uid://cam36erfu0ken" path="res://Assets/EventFolder/Books.png" id="2_osxcu"]
+[ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/MapAssets/Placeholders.png" id="3_ivjni"]
+[ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="4_d0ja6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kjmrn"]
+friction = 0.8
+bounce = 0.07
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8skqp"]
+radius = 0.0
+height = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjcb4"]
+atlas = ExtResource("2_osxcu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dlqf"]
+atlas = ExtResource("3_ivjni")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hahf0"]
+atlas = ExtResource("3_ivjni")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj3kf"]
+atlas = ExtResource("3_ivjni")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h847p"]
+atlas = ExtResource("3_ivjni")
+region = Rect2(72, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iach2"]
+atlas = ExtResource("3_ivjni")
+region = Rect2(0, 32, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cqmd2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjcb4")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dlqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hahf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj3kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h847p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iach2")
+}],
+"loop": false,
+"name": &"Sanitize",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgya"]
+size = Vector2(16, 16)
+
+[node name="HandSS" type="RigidBody2D"]
+texture_filter = 1
+collision_mask = 3
+mass = 20.0
+physics_material_override = SubResource("PhysicsMaterial_kjmrn")
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_osxcu")
+
+[node name="Collisions" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8skqp")
+
+[node name="StudentLook" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, 0)
+scale = Vector2(1.55625, 1.5)
+sprite_frames = SubResource("SpriteFrames_cqmd2")
+animation = &"Idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_yvgya")
+
+[node name="ObjectMarker" parent="." instance=ExtResource("4_d0ja6")]
+position = Vector2(0, -42)
+scale = Vector2(3, 3)
+on_screen_offset = Vector2(0, -20)
+screen_margin = 10.0

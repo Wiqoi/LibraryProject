@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsbp7nmgsjuit"]
 
-[ext_resource type="Script" path="res://Scripts/ObjectivesCloseOpen.gd" id="1_khrgo"]
+[ext_resource type="Script" uid="uid://dc1o3qrrs1jyg" path="res://Scripts/ObjectivesCloseOpen.gd" id="1_khrgo"]
 [ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="1_xqwax"]
 [ext_resource type="Script" uid="uid://cpjgb7cbh7xcr" path="res://Scripts/right.gd" id="2_vagh1"]
 [ext_resource type="Script" uid="uid://c5nu66km0vs5s" path="res://Scripts/menu_bar.gd" id="2_xqwax"]

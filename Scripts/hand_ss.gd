@@ -10,6 +10,9 @@ var is_mouse_hovering = false
 var organize_timer: Timer
 var done = 0
 
+func firsttime():
+	pass
+
 func find_player() -> void:
 	player_node = Global.player_node
 		
@@ -75,7 +78,7 @@ func _on_timer_timeout() -> void:
 
 func _on_animation_finished() -> void:
 	var anim_name = animated_sprite.animation
-	Global.firstS = 1
+	firsttime()
 	if anim_name == "Sanitize":
 		self.remove_child($ObjectMarker)
 		done = 1

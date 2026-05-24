@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bqsrvxdclic6h"]
+[gd_scene load_steps=6 format=4 uid="uid://bqsrvxdclic6h"]
 
 [ext_resource type="Texture2D" uid="uid://cs27xohjdvppo" path="res://Assets/PlaceHold/Modern_Interiors_Free_v2.2/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="1_3sr7s"]
 [ext_resource type="Texture2D" uid="uid://dr62hyrsh8s71" path="res://Assets/PlaceHold/Modern_Interiors_Free_v2.2/Modern tiles_Free/Interiors_free/16x16/Room_Builder_free_16x16.png" id="2_0uy6e"]

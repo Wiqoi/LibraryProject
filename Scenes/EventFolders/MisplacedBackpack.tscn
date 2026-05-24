@@ -87,7 +87,7 @@ shape = SubResource("CapsuleShape2D_8skqp")
 position = Vector2(-0.5, 0)
 scale = Vector2(1.05, 1)
 sprite_frames = SubResource("SpriteFrames_cqmd2")
-animation = &"Sanitize"
+animation = &"Idle"
 
 [node name="Area2D" type="Area2D" parent="."]
 

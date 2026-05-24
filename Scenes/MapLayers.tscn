@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://cxylgddtmftdr"]
+[gd_scene load_steps=0 format=4 uid="uid://cxylgddtmftdr"]
 
 [ext_resource type="TileSet" uid="uid://b4rrfvjdlk4fv" path="res://Assets/PlaceholdingTileset.tres" id="1_6w1re"]
 [ext_resource type="Script" uid="uid://joa55cm7e6vw" path="res://Scripts/ground_tiles.gd" id="2_8csso"]

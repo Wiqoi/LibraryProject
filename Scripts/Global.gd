@@ -19,4 +19,6 @@ var lvl3done = 0
 var givenText = ""
 var showRules = 0
 var firstS = 0
+var firstBook = 0
 var Objectives = ""
+var lvl1dc = 0

@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dlj3ocoohgych"]
+[gd_scene load_steps=15 format=3 uid="uid://dlj3ocoohgych"]
 
-[ext_resource type="Script" uid="uid://bipb0f85u8gmp" path="res://Scripts/hand_ss.gd" id="1_6njmw"]
 [ext_resource type="Texture2D" uid="uid://c5sam3eusp50o" path="res://Assets/PlaceHold/2D Top Down Pixel Art Characters/010.png" id="1_kjmrn"]
+[ext_resource type="Script" uid="uid://btjibr1prb3ho" path="res://Scenes/EventFolders/hand_sss.gd" id="1_yvgya"]
 [ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="3_5crgr"]
 [ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/MapAssets/Placeholders.png" id="3_yvgya"]
 
@@ -78,7 +78,7 @@ mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_kjmrn")
 gravity_scale = 0.0
 lock_rotation = true
-script = ExtResource("1_6njmw")
+script = ExtResource("1_yvgya")
 
 [node name="Collisions" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_8skqp")
@@ -87,7 +87,7 @@ shape = SubResource("CapsuleShape2D_8skqp")
 position = Vector2(-0.5, 0)
 scale = Vector2(1.05, 1)
 sprite_frames = SubResource("SpriteFrames_cqmd2")
-animation = &"Sanitize"
+animation = &"Idle"
 
 [node name="Area2D" type="Area2D" parent="."]
 

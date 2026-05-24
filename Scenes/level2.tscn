@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf6vjdjxetmjg"]
+[gd_scene load_steps=7 format=3 uid="uid://bf6vjdjxetmjg"]
 
 [ext_resource type="Script" uid="uid://dlnggh2aqol6f" path="res://Scripts/level_2.gd" id="1_onqnr"]
 [ext_resource type="PackedScene" uid="uid://bqsrvxdclic6h" path="res://Scenes/LibraryInterior.tscn" id="2_onqnr"]
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="3_vn460"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="4_r8hce"]
+[ext_resource type="PackedScene" uid="uid://c5ug0fs60c1pp" path="res://Scenes/EventFolders/MisplacedBook.tscn" id="6_styii"]
 [ext_resource type="AudioStream" uid="uid://cwn1digytoix8" path="res://Assets/Double-Rainbow-chosic.com_.mp3" id="11_mu7lp"]
 
 [node name="Game" type="Node2D"]
@@ -23,3 +24,8 @@ max_zoom = Vector2(4, 4)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_mu7lp")
 autoplay = true
+
+[node name="AllEvents" type="Node2D" parent="."]
+
+[node name="Book" parent="AllEvents" instance=ExtResource("6_styii")]
+position = Vector2(-312, -64)
