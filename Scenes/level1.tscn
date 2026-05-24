@@ -1,63 +1,102 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy57mk7q2iv7m"]
+[gd_scene format=3 uid="uid://dy57mk7q2iv7m"]
 
 [ext_resource type="Script" uid="uid://4nsx3ob1dmg2" path="res://Scripts/game.gd" id="1_rqhku"]
 [ext_resource type="PackedScene" uid="uid://ck87m2wamedbo" path="res://Scenes/LibraryOutside.tscn" id="2_cpkqv"]
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="3_d1mwp"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="4_u1b78"]
 [ext_resource type="PackedScene" uid="uid://dlj3ocoohgych" path="res://Scenes/EventFolders/hand_ss.tscn" id="6_didp7"]
+[ext_resource type="PackedScene" uid="uid://bd3667hbgy40a" path="res://Scenes/EventFolders/MisplacedBackpack.tscn" id="7_jgkgd"]
+[ext_resource type="PackedScene" uid="uid://bmaeypeah1ebq" path="res://Scenes/fighting.tscn" id="8_bs12r"]
+[ext_resource type="PackedScene" uid="uid://7nkfms0u6w05" path="res://Scenes/EventFolders/LetKidsEnter.tscn" id="9_rqhku"]
 [ext_resource type="AudioStream" uid="uid://cwn1digytoix8" path="res://Assets/Double-Rainbow-chosic.com_.mp3" id="11_af2a1"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1310237995]
 script = ExtResource("1_rqhku")
 
-[node name="GroundTiles" parent="." instance=ExtResource("2_cpkqv")]
+[node name="GroundTiles" parent="." unique_id=825040254 instance=ExtResource("2_cpkqv")]
 texture_filter = 1
 position = Vector2(992.2, 727.5)
 
-[node name="Player" parent="." instance=ExtResource("3_d1mwp")]
+[node name="Player" parent="." unique_id=1116159253 instance=ExtResource("3_d1mwp")]
 unique_name_in_owner = true
 position = Vector2(1204, 845)
 scale = Vector2(0.5, 0.5)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1416200322]
 position_smoothing_enabled = true
 script = ExtResource("4_u1b78")
 max_zoom = Vector2(4, 4)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=947679115]
 stream = ExtResource("11_af2a1")
 autoplay = true
 
-[node name="SanitizeHands" type="Node2D" parent="."]
+[node name="SanitizeHands" type="Node2D" parent="." unique_id=1608549116]
 
-[node name="AllEvents" type="Node2D" parent="."]
+[node name="AllEvents" type="Node2D" parent="." unique_id=606250397]
 
-[node name="HandSS" parent="AllEvents" instance=ExtResource("6_didp7")]
+[node name="HandSS" parent="AllEvents" unique_id=813675601 instance=ExtResource("6_didp7")]
 position = Vector2(1073, 822)
 
-[node name="HandSS4" parent="AllEvents" instance=ExtResource("6_didp7")]
+[node name="HandSS4" parent="AllEvents" unique_id=1939740181 instance=ExtResource("6_didp7")]
 position = Vector2(1046, 822)
 
-[node name="HandSS5" parent="AllEvents" instance=ExtResource("6_didp7")]
+[node name="HandSS5" parent="AllEvents" unique_id=1619026131 instance=ExtResource("6_didp7")]
 position = Vector2(1019, 822)
 
-[node name="HandSS2" parent="AllEvents" instance=ExtResource("6_didp7")]
+[node name="HandSS2" parent="AllEvents" unique_id=643414850 instance=ExtResource("6_didp7")]
 position = Vector2(1102, 822)
 
-[node name="HandSS3" parent="AllEvents" instance=ExtResource("6_didp7")]
+[node name="HandSS3" parent="AllEvents" unique_id=1618823053 instance=ExtResource("6_didp7")]
 position = Vector2(1130, 822)
 
-[node name="HandSS6" parent="AllEvents" instance=ExtResource("6_didp7")]
+[node name="HandSS6" parent="AllEvents" unique_id=224719958 instance=ExtResource("6_didp7")]
 position = Vector2(1072, 855)
 
-[node name="HandSS7" parent="AllEvents" instance=ExtResource("6_didp7")]
+[node name="HandSS7" parent="AllEvents" unique_id=248670410 instance=ExtResource("6_didp7")]
 position = Vector2(1044, 855)
 
-[node name="HandSS8" parent="AllEvents" instance=ExtResource("6_didp7")]
+[node name="HandSS8" parent="AllEvents" unique_id=176873228 instance=ExtResource("6_didp7")]
 position = Vector2(1017, 855)
 
-[node name="HandSS9" parent="AllEvents" instance=ExtResource("6_didp7")]
+[node name="HandSS9" parent="AllEvents" unique_id=1259574695 instance=ExtResource("6_didp7")]
 position = Vector2(1100, 855)
 
-[node name="HandSS10" parent="AllEvents" instance=ExtResource("6_didp7")]
+[node name="HandSS10" parent="AllEvents" unique_id=603775839 instance=ExtResource("6_didp7")]
 position = Vector2(1128, 855)
+
+[node name="Backpack1" parent="AllEvents" unique_id=863056105 instance=ExtResource("7_jgkgd")]
+position = Vector2(1150, 800)
+
+[node name="Backpack2" parent="AllEvents" unique_id=797832647 instance=ExtResource("7_jgkgd")]
+position = Vector2(1120, 780)
+
+[node name="Backpack3" parent="AllEvents" unique_id=1408947366 instance=ExtResource("7_jgkgd")]
+position = Vector2(1090, 790)
+
+[node name="Backpack4" parent="AllEvents" unique_id=602716077 instance=ExtResource("7_jgkgd")]
+position = Vector2(1160, 770)
+
+[node name="Backpack5" parent="AllEvents" unique_id=560366112 instance=ExtResource("7_jgkgd")]
+position = Vector2(1060, 810)
+
+[node name="Fighting1" parent="AllEvents" unique_id=88715654 instance=ExtResource("8_bs12r")]
+position = Vector2(980, 750)
+
+[node name="Fighting2" parent="AllEvents" unique_id=355540346 instance=ExtResource("8_bs12r")]
+position = Vector2(1020, 730)
+
+[node name="Fighting3" parent="AllEvents" unique_id=674389647 instance=ExtResource("8_bs12r")]
+position = Vector2(960, 710)
+
+[node name="LetKidsEnter1" parent="AllEvents" unique_id=836530443 instance=ExtResource("9_rqhku")]
+position = Vector2(1260, 830)
+
+[node name="LetKidsEnter2" parent="AllEvents" unique_id=661310211 instance=ExtResource("9_rqhku")]
+position = Vector2(1280, 850)
+
+[node name="LetKidsEnter3" parent="AllEvents" unique_id=1728579842 instance=ExtResource("9_rqhku")]
+position = Vector2(1250, 860)
+
+[node name="LetKidsEnter4" parent="AllEvents" unique_id=1936032230 instance=ExtResource("9_rqhku")]
+position = Vector2(1290, 820)

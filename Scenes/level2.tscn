@@ -1,31 +1,57 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf6vjdjxetmjg"]
+[gd_scene format=3 uid="uid://bf6vjdjxetmjg"]
 
 [ext_resource type="Script" uid="uid://dlnggh2aqol6f" path="res://Scripts/level_2.gd" id="1_onqnr"]
 [ext_resource type="PackedScene" uid="uid://bqsrvxdclic6h" path="res://Scenes/LibraryInterior.tscn" id="2_onqnr"]
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="3_vn460"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="4_r8hce"]
 [ext_resource type="PackedScene" uid="uid://c5ug0fs60c1pp" path="res://Scenes/EventFolders/MisplacedBook.tscn" id="6_styii"]
+[ext_resource type="PackedScene" uid="uid://coreyppevxw7s" path="res://Scenes/EventFolders/book_on_ground_event.tscn" id="7_vn2uo"]
+[ext_resource type="PackedScene" uid="uid://cp88da254ptx5" path="res://Scenes/EventFolders/food_on_ground.tscn" id="8_mtqcm"]
+[ext_resource type="PackedScene" uid="uid://dshouting001" path="res://Scenes/EventFolders/Shouting.tscn" id="9_mmf1u"]
+[ext_resource type="PackedScene" uid="uid://drunning001" path="res://Scenes/EventFolders/RunningAround.tscn" id="10_vn460"]
 [ext_resource type="AudioStream" uid="uid://cwn1digytoix8" path="res://Assets/Double-Rainbow-chosic.com_.mp3" id="11_mu7lp"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1765984461]
 script = ExtResource("1_onqnr")
 
-[node name="GroundTilesNode" parent="." instance=ExtResource("2_onqnr")]
+[node name="GroundTilesNode" parent="." unique_id=687674457 instance=ExtResource("2_onqnr")]
 
-[node name="Player" parent="." instance=ExtResource("3_vn460")]
+[node name="Player" parent="." unique_id=503890929 instance=ExtResource("3_vn460")]
 unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1699181189]
 position_smoothing_enabled = true
 script = ExtResource("4_r8hce")
 max_zoom = Vector2(4, 4)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1158420660]
 stream = ExtResource("11_mu7lp")
 autoplay = true
 
-[node name="AllEvents" type="Node2D" parent="."]
+[node name="AllEvents" type="Node2D" parent="." unique_id=922212023]
 
-[node name="Book" parent="AllEvents" instance=ExtResource("6_styii")]
+[node name="Book" parent="AllEvents" unique_id=2014724475 instance=ExtResource("6_styii")]
 position = Vector2(-312, -64)
+
+[node name="BookOnGroundEvent" parent="AllEvents" unique_id=2054263638 instance=ExtResource("7_vn2uo")]
+
+[node name="FoodOnGround" parent="AllEvents" unique_id=1518739870 instance=ExtResource("8_mtqcm")]
+
+[node name="Shouting1" parent="AllEvents" unique_id=1307418767 instance=ExtResource("9_mmf1u")]
+position = Vector2(-200, -100)
+
+[node name="Shouting2" parent="AllEvents" unique_id=365909162 instance=ExtResource("9_mmf1u")]
+position = Vector2(-150, -50)
+
+[node name="Shouting3" parent="AllEvents" unique_id=766947386 instance=ExtResource("9_mmf1u")]
+position = Vector2(-250, -30)
+
+[node name="Running1" parent="AllEvents" unique_id=545524855 instance=ExtResource("10_vn460")]
+position = Vector2(-100, -150)
+
+[node name="Running2" parent="AllEvents" unique_id=1741691242 instance=ExtResource("10_vn460")]
+position = Vector2(-50, -80)
+
+[node name="Running3" parent="AllEvents" unique_id=844935114 instance=ExtResource("10_vn460")]
+position = Vector2(-180, -120)

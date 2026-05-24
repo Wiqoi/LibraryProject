@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkjxucs3g4vej"]
+[gd_scene format=3 uid="uid://bkjxucs3g4vej"]
 
 [ext_resource type="Script" uid="uid://03he4gplhk7e" path="res://Scripts/level_3.gd" id="1_h6p24"]
 [ext_resource type="PackedScene" uid="uid://daupokxccqh08" path="res://Scenes/CheckoutArea.tscn" id="2_h6p24"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dhhnw0usf41g1" path="res://Scenes/Students/student_nav_mesh.tscn" id="9_p2sx0"]
 [ext_resource type="PackedScene" uid="uid://bmaeypeah1ebq" path="res://Scenes/fighting.tscn" id="10_tc3ri"]
 [ext_resource type="AudioStream" uid="uid://cwn1digytoix8" path="res://Assets/Double-Rainbow-chosic.com_.mp3" id="11_3nkac"]
+[ext_resource type="PackedScene" uid="uid://dcheckout001" path="res://Scenes/EventFolders/Checkout.tscn" id="12_fpsp3"]
+[ext_resource type="PackedScene" uid="uid://dpushchair001" path="res://Scenes/EventFolders/PushChair.tscn" id="13_wffsm"]
+[ext_resource type="PackedScene" uid="uid://7nkfm0qcoj05" path="res://Scenes/EventFolders/LetKidsLeave.tscn" id="14_dw3di"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ldgsr"]
 vertices = PackedVector2Array(489.992, 1212.38, 487.078, 593.297, 893.344, 826, 1626.17, 1476.96, 1962.77, 1555.93, 1946.34, 1591.43, 1551, 1500.05, 1551, 1414.03, 1624.2, 1385.02, 944.039, 1387.03, 942.078, 1411.97, 877.344, 621.023, 874.703, 582.063, 1795.85, 587.93, 1744.97, 623.023, 1786.13, 1286.92, 1747.03, 1273.82, 1256.08, 1283.07, 1278.89, 1282.18, 1282.99, 905.313, 1260.09, 836.859, 1278.21, 843.141, 1579.59, 826, 1580.38, 839.133, 62.7031, 1671.27, -63.0781, 1674.72, -70.8984, 783.531, 37.7109, 825.422, 373.953, 806.531, 370.047, 811.57, 518, 1698.02, 518, 1666.15, 914.508, 1672.14, 1390, 1699.97, 404.281, 1692, 366.047, 1692, 412.281, 1412, 939.922, 1672.04, 1390, 1670.04, 927.508, 1412, 374.953, 592, 411.039, 592, 414.039, 1386.96, 922.539, 1389.04, 927.477, 1282.9, 941.961, 841.133, 498.867, 1286.91)
@@ -22,40 +25,75 @@ vertices = PackedVector2Array(1580.97, 822, 1582.92, 841.07, 1286.97, 843.063, 1
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21), PackedInt32Array(21, 20, 22, 23), PackedInt32Array(24, 21, 23, 25, 26), PackedInt32Array(17, 27, 28, 13), PackedInt32Array(29, 30, 31, 32, 33, 34), PackedInt32Array(29, 34, 17, 16), PackedInt32Array(35, 14, 13), PackedInt32Array(35, 13, 26, 25), PackedInt32Array(36, 37, 38, 39, 40), PackedInt32Array(41, 42, 43, 36, 40), PackedInt32Array(44, 45, 4, 7), PackedInt32Array(44, 7, 46, 47), PackedInt32Array(47, 46, 42, 41), PackedInt32Array(2, 40, 39, 3), PackedInt32Array(8, 12, 48, 49, 50), PackedInt32Array(51, 50, 49, 24, 26), PackedInt32Array(51, 26, 52, 53), PackedInt32Array(53, 52, 0, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(467, 577, 1835, 574, 1834, 1295, 1034, 1297, 1034, 1266, 970, 1263, 970, 866, 1256, 868, 1254, 843, 948, 850, 955, 1363, 1643, 1372, 1642, 1468, 2023, 1470, 2029, 1670, 1594, 1666, 1597, 1525, 1531, 1521, 1532, 1427, 955, 1429, 957, 1500, 1443, 1499, 1447, 1716, 465, 1716, 466, 1500, 916, 1500, 916, 1432, 434, 1429, 430, 1711, 357, 1713, 354, 823, 316, 823, 319, 1707, -303, 1718, -310, 568, 301, 571, 315, 791, 357, 791, 357, 570, 431, 571, 428, 1370, 919, 1367, 921, 812, 1590, 812, 1594, 851, 1296, 853, 1292, 892, 1607, 887, 1607, 793, 897, 797, 908, 1260, 837, 1262, 840, 1299, 469, 1301)])
 
-[node name="Game2" type="Node2D"]
+[node name="Game2" type="Node2D" unique_id=1256619138]
 script = ExtResource("1_h6p24")
 
-[node name="GroundTilesNode" parent="." instance=ExtResource("2_h6p24")]
+[node name="GroundTilesNode" parent="." unique_id=1954850152 instance=ExtResource("2_h6p24")]
 
-[node name="Player" parent="." instance=ExtResource("3_vwkqt")]
+[node name="Player" parent="." unique_id=1563432018 instance=ExtResource("3_vwkqt")]
 unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=297266571]
 position_smoothing_enabled = true
 script = ExtResource("4_fpsp3")
 max_zoom = Vector2(4, 4)
 
-[node name="BookOnGroundEvent" parent="." instance=ExtResource("5_wffsm")]
+[node name="BookOnGroundEvent" parent="." unique_id=243035738 instance=ExtResource("5_wffsm")]
 
-[node name="FoodOnGround" parent="." instance=ExtResource("6_dw3di")]
+[node name="FoodOnGround" parent="." unique_id=1776576404 instance=ExtResource("6_dw3di")]
 
-[node name="Students" parent="." instance=ExtResource("7_qia21")]
+[node name="Students" parent="." unique_id=761900302 instance=ExtResource("7_qia21")]
 
-[node name="StudentSpawnManager" type="Node2D" parent="."]
+[node name="StudentSpawnManager" type="Node2D" parent="." unique_id=1388566203]
 script = ExtResource("8_tg0qr")
 
-[node name="StudentNavMesh" parent="." instance=ExtResource("9_p2sx0")]
+[node name="StudentNavMesh" parent="." unique_id=1709644589 instance=ExtResource("9_p2sx0")]
 navigation_polygon = SubResource("NavigationPolygon_ldgsr")
 
-[node name="OtherAreasMesh" type="NavigationRegion2D" parent="StudentNavMesh"]
+[node name="OtherAreasMesh" type="NavigationRegion2D" parent="StudentNavMesh" unique_id=748531341]
 position = Vector2(-1, 4)
 navigation_polygon = SubResource("NavigationPolygon_o5yvi")
 travel_cost = 5.0
 
-[node name="Fighting" parent="." instance=ExtResource("10_tc3ri")]
+[node name="Fighting" parent="." unique_id=1619986983 instance=ExtResource("10_tc3ri")]
 position = Vector2(-72, -25)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=405617385]
 stream = ExtResource("11_3nkac")
 autoplay = true
+
+[node name="AllEvents" type="Node2D" parent="." unique_id=910270313]
+
+[node name="Checkout1" parent="AllEvents" unique_id=767341690 instance=ExtResource("12_fpsp3")]
+position = Vector2(900, 1400)
+
+[node name="Checkout2" parent="AllEvents" unique_id=994601118 instance=ExtResource("12_fpsp3")]
+position = Vector2(950, 1420)
+
+[node name="Checkout3" parent="AllEvents" unique_id=1076260407 instance=ExtResource("12_fpsp3")]
+position = Vector2(850, 1380)
+
+[node name="Checkout4" parent="AllEvents" unique_id=1879025959 instance=ExtResource("12_fpsp3")]
+position = Vector2(920, 1360)
+
+[node name="PushChair1" parent="AllEvents" unique_id=1711573617 instance=ExtResource("13_wffsm")]
+position = Vector2(1000, 1350)
+
+[node name="PushChair2" parent="AllEvents" unique_id=19446340 instance=ExtResource("13_wffsm")]
+position = Vector2(1050, 1370)
+
+[node name="PushChair3" parent="AllEvents" unique_id=1592546251 instance=ExtResource("13_wffsm")]
+position = Vector2(980, 1390)
+
+[node name="PushChair4" parent="AllEvents" unique_id=1498152242 instance=ExtResource("13_wffsm")]
+position = Vector2(1020, 1410)
+
+[node name="LetKidsLeave1" parent="AllEvents" unique_id=195485829 instance=ExtResource("14_dw3di")]
+position = Vector2(1100, 1500)
+
+[node name="LetKidsLeave2" parent="AllEvents" unique_id=1069141604 instance=ExtResource("14_dw3di")]
+position = Vector2(1150, 1480)
+
+[node name="LetKidsLeave3" parent="AllEvents" unique_id=711983946 instance=ExtResource("14_dw3di")]
+position = Vector2(1080, 1460)
