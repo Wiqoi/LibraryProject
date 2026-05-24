@@ -1,18 +1,87 @@
-[gd_scene load_steps=10 format=3 uid="uid://3c5w6dud362i"]
+[gd_scene format=3 uid="uid://3c5w6dud362i"]
 
 [ext_resource type="Texture2D" uid="uid://f2o8qr7q02d4" path="res://Assets/UIAsets/Library_bg_menu.png" id="1_0x7qd"]
 [ext_resource type="Script" uid="uid://y6rj6ko2qkdo" path="res://Scripts/lvl_1.gd" id="1_7ldud"]
+[ext_resource type="Script" uid="uid://bturdpgqsl50o" path="res://Scripts/level_select.gd" id="1_qjufc"]
 [ext_resource type="Script" uid="uid://chasgfvs7aexq" path="res://Scripts/lvl_2.gd" id="2_3mk76"]
 [ext_resource type="Script" uid="uid://c65ac30p1n1xl" path="res://Scripts/lvl_3.gd" id="3_3lcxl"]
 [ext_resource type="Script" uid="uid://bkrqpyi6qgl3u" path="res://Scripts/alert.gd" id="4_3lcxl"]
 [ext_resource type="Script" uid="uid://bfxmirm6a4ls6" path="res://Scripts/Text.gd" id="4_3mk76"]
 [ext_resource type="Script" path="res://Scripts/bypasslvl_2.gd" id="7_qro0d"]
 [ext_resource type="Script" path="res://Scripts/bypasslvl_3.gd" id="8_6sf32"]
+[ext_resource type="Script" uid="uid://cjrploh2rjx0r" path="res://Scripts/back_to_menu.gd" id="10_br1yg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7nb8g"]
 texture = ExtResource("1_0x7qd")
 
-[node name="LevelSelect" type="Control"]
+[sub_resource type="Animation" id="Animation_qfxdr"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/LevelSelect/TitleLabel:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/LevelSelect/Lvl1:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("/LevelSelect/Lvl2:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("/LevelSelect/Lvl3:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("/LevelSelect/BackButton:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mp27m"]
+_data = {
+&"fade_in": SubResource("Animation_qfxdr")
+}
+
+[node name="LevelSelect" type="Control" unique_id=72339143]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -20,8 +89,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qjufc")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1669252495]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -31,58 +101,64 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7nb8g")
 
-[node name="Lvl1" type="Button" parent="."]
+[node name="Lvl1" type="Button" parent="." unique_id=1432553029]
+modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 24.0
-offset_top = 48.0
+offset_top = 120.0
 offset_right = 360.0
 offset_bottom = -32.0
 grow_vertical = 2
+theme_override_font_sizes/font_size = 40
 text = "Level 1"
 script = ExtResource("1_7ldud")
 
-[node name="Lvl2" type="Button" parent="."]
+[node name="Lvl2" type="Button" parent="." unique_id=567187661]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -168.0
-offset_top = 48.0
+offset_top = 120.0
 offset_right = 168.0
 offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 40
 text = "Level 2"
 script = ExtResource("2_3mk76")
 
-[node name="Lvl3" type="Button" parent="."]
+[node name="Lvl3" type="Button" parent="." unique_id=1262215962]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -360.0
-offset_top = 48.0
+offset_top = 120.0
 offset_right = -23.0
 offset_bottom = -32.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_font_sizes/font_size = 40
 text = "Level 3
 "
 script = ExtResource("3_3lcxl")
 
-[node name="Alert" type="Control" parent="."]
+[node name="Alert" type="Control" parent="." unique_id=1426758829]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_3lcxl")
 
-[node name="ColorRect" type="ColorRect" parent="Alert"]
+[node name="ColorRect" type="ColorRect" parent="Alert" unique_id=2123874742]
 layout_mode = 0
 offset_left = 43.0
 offset_top = 58.0
@@ -90,7 +166,7 @@ offset_right = 1241.0
 offset_bottom = 636.0
 color = Color(0.297915, 0.112638, 0.032015, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Alert"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Alert" unique_id=565973588]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 85.0
@@ -99,7 +175,7 @@ offset_bottom = 586.0
 text = "Loading..."
 script = ExtResource("4_3mk76")
 
-[node name="BYPASSLVL2" type="Button" parent="."]
+[node name="BYPASSLVL2" type="Button" parent="." unique_id=1821826961]
 layout_mode = 0
 offset_left = 472.0
 offset_right = 808.0
@@ -108,7 +184,7 @@ text = "BYPASSLVL2
 "
 script = ExtResource("7_qro0d")
 
-[node name="BYPASSLVL3" type="Button" parent="."]
+[node name="BYPASSLVL3" type="Button" parent="." unique_id=1852437783]
 layout_mode = 0
 offset_left = 920.0
 offset_right = 1256.0
@@ -116,3 +192,32 @@ offset_bottom = 40.0
 text = "BYPASSLVL3
 "
 script = ExtResource("8_6sf32")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1135054447]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 40.0
+offset_right = 300.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.7, 1)
+theme_override_font_sizes/font_size = 60
+text = "Select Level"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1284528914]
+libraries/ = SubResource("AnimationLibrary_mp27m")
+
+[node name="BackButton" type="Button" parent="." unique_id=1162190746]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 160.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 28
+text = "Back"
+script = ExtResource("10_br1yg")

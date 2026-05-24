@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2b5dvlqiob0v"]
+[gd_scene format=3 uid="uid://b2b5dvlqiob0v"]
 
 [ext_resource type="Script" path="res://Scripts/rich_text_label.gd" id="1_ratgk"]
 [ext_resource type="Texture2D" uid="uid://b13okt8li5mkc" path="res://Assets/Posters/Backpacks.png" id="2_ii42a"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dnwf6nr11pxxs" path="res://Assets/Posters/Sanitize.png" id="9_ixt2p"]
 [ext_resource type="Texture2D" uid="uid://b3ohcao0xuo3b" path="res://Assets/Posters/Noises.png" id="10_ak2vh"]
 
-[node name="RuleDescriptions" type="Control"]
+[node name="RuleDescriptions" type="Control" unique_id=478589413]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -20,18 +20,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2144661887]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.132
 anchor_bottom = 0.284
-offset_left = 393.0
-offset_top = 10.0
-offset_right = 589.04
-offset_bottom = 488.52
-color = Color(0.247059, 0.282353, 0.352941, 1)
+offset_left = 340.0
+offset_top = 200.0
+offset_right = 640.0
+offset_bottom = 500.0
+color = Color(0.08, 0.1, 0.18, 0.95)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1501267606]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -44,10 +44,12 @@ offset_right = 138.0
 offset_bottom = 292.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(1, 0.95, 0.7, 1)
+theme_override_font_sizes/normal_font_size = 24
 text = "This is so sad"
 script = ExtResource("1_ratgk")
 
-[node name="Backpack" type="TextureRect" parent="."]
+[node name="Backpack" type="TextureRect" parent="." unique_id=272658107]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -58,7 +60,7 @@ offset_bottom = 680.0
 texture = ExtResource("2_ii42a")
 expand_mode = 1
 
-[node name="Fighting" type="TextureRect" parent="."]
+[node name="Fighting" type="TextureRect" parent="." unique_id=1754856397]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -69,7 +71,7 @@ offset_bottom = 680.0
 texture = ExtResource("3_o7qfe")
 expand_mode = 1
 
-[node name="Running" type="TextureRect" parent="."]
+[node name="Running" type="TextureRect" parent="." unique_id=643918202]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -80,7 +82,7 @@ offset_bottom = 680.0
 texture = ExtResource("4_lqlmv")
 expand_mode = 1
 
-[node name="Chairs" type="TextureRect" parent="."]
+[node name="Chairs" type="TextureRect" parent="." unique_id=604257282]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -91,7 +93,7 @@ offset_bottom = 680.0
 texture = ExtResource("5_tb2bs")
 expand_mode = 1
 
-[node name="Books" type="TextureRect" parent="."]
+[node name="Books" type="TextureRect" parent="." unique_id=863855453]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -102,7 +104,7 @@ offset_bottom = 680.0
 texture = ExtResource("6_2n5ao")
 expand_mode = 1
 
-[node name="Food" type="TextureRect" parent="."]
+[node name="Food" type="TextureRect" parent="." unique_id=385626743]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -113,7 +115,7 @@ offset_bottom = 680.0
 texture = ExtResource("7_x32ya")
 expand_mode = 1
 
-[node name="Checkout" type="TextureRect" parent="."]
+[node name="Checkout" type="TextureRect" parent="." unique_id=1164405078]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -124,7 +126,7 @@ offset_bottom = 680.0
 texture = ExtResource("8_wiy3b")
 expand_mode = 1
 
-[node name="Sanitize" type="TextureRect" parent="."]
+[node name="Sanitize" type="TextureRect" parent="." unique_id=922954872]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -135,7 +137,7 @@ offset_bottom = 680.0
 texture = ExtResource("9_ixt2p")
 expand_mode = 1
 
-[node name="Noise" type="TextureRect" parent="."]
+[node name="Noise" type="TextureRect" parent="." unique_id=1251425907]
 visible = false
 texture_filter = 1
 layout_mode = 0
