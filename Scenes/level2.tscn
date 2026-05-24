@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="3_vn460"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="4_r8hce"]
 [ext_resource type="PackedScene" uid="uid://c5ug0fs60c1pp" path="res://Scenes/EventFolders/MisplacedBook.tscn" id="6_styii"]
-[ext_resource type="PackedScene" uid="uid://coreyppevxw7s" path="res://Scenes/EventFolders/book_on_ground_event.tscn" id="7_vn2uo"]
-[ext_resource type="PackedScene" uid="uid://cp88da254ptx5" path="res://Scenes/EventFolders/food_on_ground.tscn" id="8_mtqcm"]
 [ext_resource type="PackedScene" uid="uid://dshouting001" path="res://Scenes/EventFolders/Shouting.tscn" id="9_mmf1u"]
+[ext_resource type="PackedScene" uid="uid://ct1cptfo2bun8" path="res://Scenes/EventFolders/book_drop_on_ground.tscn" id="9_vn2uo"]
+[ext_resource type="PackedScene" uid="uid://b8ocl76do627h" path="res://Scenes/EventFolders/food_drop_on_ground.tscn" id="10_mtqcm"]
 [ext_resource type="PackedScene" uid="uid://drunning001" path="res://Scenes/EventFolders/RunningAround.tscn" id="10_vn460"]
 [ext_resource type="AudioStream" uid="uid://cwn1digytoix8" path="res://Assets/Double-Rainbow-chosic.com_.mp3" id="11_mu7lp"]
 
@@ -34,10 +34,6 @@ autoplay = true
 [node name="Book" parent="AllEvents" unique_id=2014724475 instance=ExtResource("6_styii")]
 position = Vector2(-312, -64)
 
-[node name="BookOnGroundEvent" parent="AllEvents" unique_id=2054263638 instance=ExtResource("7_vn2uo")]
-
-[node name="FoodOnGround" parent="AllEvents" unique_id=1518739870 instance=ExtResource("8_mtqcm")]
-
 [node name="Shouting1" parent="AllEvents" unique_id=1307418767 instance=ExtResource("9_mmf1u")]
 position = Vector2(-200, -100)
 
@@ -55,3 +51,30 @@ position = Vector2(-50, -80)
 
 [node name="Running3" parent="AllEvents" unique_id=844935114 instance=ExtResource("10_vn460")]
 position = Vector2(-180, -120)
+
+[node name="Book1" parent="AllEvents" unique_id=378253714 instance=ExtResource("9_vn2uo")]
+position = Vector2(-300, -180)
+
+[node name="Book2" parent="AllEvents" unique_id=2062432668 instance=ExtResource("9_vn2uo")]
+position = Vector2(-250, -200)
+
+[node name="Book3" parent="AllEvents" unique_id=2021902826 instance=ExtResource("9_vn2uo")]
+position = Vector2(-200, -170)
+
+[node name="Book4" parent="AllEvents" unique_id=698149067 instance=ExtResource("9_vn2uo")]
+position = Vector2(-280, -150)
+
+[node name="Book5" parent="AllEvents" unique_id=289083513 instance=ExtResource("9_vn2uo")]
+position = Vector2(-220, -140)
+
+[node name="Food1" parent="AllEvents" unique_id=42242497 instance=ExtResource("10_mtqcm")]
+position = Vector2(-150, -180)
+
+[node name="Food2" parent="AllEvents" unique_id=233246047 instance=ExtResource("10_mtqcm")]
+position = Vector2(-100, -160)
+
+[node name="Food3" parent="AllEvents" unique_id=1912138621 instance=ExtResource("10_mtqcm")]
+position = Vector2(-130, -140)
+
+[node name="Food4" parent="AllEvents" unique_id=423936425 instance=ExtResource("10_mtqcm")]
+position = Vector2(-170, -160)

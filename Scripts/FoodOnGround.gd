@@ -29,8 +29,6 @@ func _ready() -> void:
 	area.mouse_exited.connect(func(): is_mouse_hovering = false)
 	area.input_pickable = true
 	
-	randomize_spawn_position()
-	
 	if animated_sprite:
 		play_book_idle_animation()
 		animated_sprite.animation_finished.connect(_on_animation_finished)

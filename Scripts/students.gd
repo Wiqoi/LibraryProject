@@ -23,7 +23,6 @@ func _ready() -> void:
 	if Global.student_count < 20:
 		Global.student_count = Global.student_count + 1
 		animated_sprite = $StudentSprite
-		randomize_spawn_position()
 		randomize_target_position()
 		if animated_sprite:
 			animated_sprite.play("StudentIdle")  # Just StudentIdle
