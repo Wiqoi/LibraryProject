@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cqwgiimwon3ho"]
+
+[ext_resource type="PackedScene" uid="uid://drunning001" path="res://Scenes/EventFolders/RunningAround.tscn" id="1_rprs8"]
+[ext_resource type="Script" uid="uid://d121jtpaegftc" path="res://Scripts/food_spawn_manager.gd" id="5_pmcbm"]
+
+[node name="RunOnGround" type="Node2D" unique_id=1837108589]
+
+[node name="RunItem" parent="." unique_id=1820104466 instance=ExtResource("1_rprs8")]
+
+[node name="RunSpawnManager" type="Node2D" parent="." unique_id=1764131398]
+script = ExtResource("5_pmcbm")
+book_scene = ExtResource("1_rprs8")

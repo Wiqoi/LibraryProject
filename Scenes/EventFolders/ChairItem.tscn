@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmaeypeah1ebq"]
+[gd_scene load_steps=15 format=3 uid="uid://52yg8rniguqe"]
 
 [ext_resource type="Texture2D" uid="uid://c5sam3eusp50o" path="res://Assets/PlaceHold/2D Top Down Pixel Art Characters/010.png" id="1_kjmrn"]
-[ext_resource type="Script" uid="uid://dswhxtxwdf2nh" path="res://fighting.gd" id="1_yvgya"]
+[ext_resource type="Script" uid="uid://cns2135sop7hd" path="res://Scripts/push_chair.gd" id="1_yvgya"]
 [ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="3_5crgr"]
 [ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/MapAssets/Placeholders.png" id="3_yvgya"]
 
@@ -17,17 +17,25 @@ height = 28.0
 atlas = ExtResource("1_kjmrn")
 region = Rect2(20, 32, 20, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bcuv0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dlqf"]
 atlas = ExtResource("3_yvgya")
-region = Rect2(0, 96, 32, 32)
+region = Rect2(0, 0, 24, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ffurp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hahf0"]
 atlas = ExtResource("3_yvgya")
-region = Rect2(32, 96, 32, 32)
+region = Rect2(24, 0, 24, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ovra7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj3kf"]
 atlas = ExtResource("3_yvgya")
-region = Rect2(64, 96, 32, 32)
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h847p"]
+atlas = ExtResource("3_yvgya")
+region = Rect2(72, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iach2"]
+atlas = ExtResource("3_yvgya")
+region = Rect2(0, 32, 24, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cqmd2"]
 animations = [{
@@ -41,13 +49,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bcuv0")
+"texture": SubResource("AtlasTexture_2dlqf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ffurp")
+"texture": SubResource("AtlasTexture_hahf0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ovra7")
+"texture": SubResource("AtlasTexture_tj3kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h847p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iach2")
 }],
 "loop": false,
 "name": &"Sanitize",
@@ -57,7 +71,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgya"]
 size = Vector2(16, 20)
 
-[node name="Fighting" type="RigidBody2D"]
+[node name="ChairItem" type="RigidBody2D"]
 texture_filter = 1
 collision_mask = 3
 mass = 20.0
