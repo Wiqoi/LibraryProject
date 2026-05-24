@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsbp7nmgsjuit"]
+[gd_scene format=3 uid="uid://bsbp7nmgsjuit"]
 
 [ext_resource type="Script" uid="uid://dc1o3qrrs1jyg" path="res://Scripts/ObjectivesCloseOpen.gd" id="1_khrgo"]
 [ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="1_xqwax"]
@@ -7,9 +7,9 @@
 [ext_resource type="Script" uid="uid://cgbiuyvxleco3" path="res://Scripts/up.gd" id="3_xhb6w"]
 [ext_resource type="Script" uid="uid://bga1pqbjfedcn" path="res://Scripts/left.gd" id="4_xhb6w"]
 [ext_resource type="Script" uid="uid://ctkob60p5mcsd" path="res://Scripts/down.gd" id="5_ydgmi"]
-[ext_resource type="PackedScene" path="res://Scenes/UIFolders/minimap.tscn" id="6_minimap"]
+[ext_resource type="PackedScene" uid="uid://minimap001" path="res://Scenes/UIFolders/minimap.tscn" id="6_minimap"]
 
-[node name="Hud" type="Control"]
+[node name="Hud" type="Control" unique_id=899515702]
 texture_filter = 1
 layout_mode = 3
 anchor_left = -0.483
@@ -23,23 +23,23 @@ offset_bottom = 25.7119
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1121760691]
 layout_mode = 0
-offset_left = 63.0
-offset_top = 65.0
-offset_right = 135.0
-offset_bottom = 137.0
+offset_left = 31.0
+offset_top = 601.0
+offset_right = 103.0
+offset_bottom = 673.0
 text = "Options"
 script = ExtResource("1_xqwax")
 
-[node name="ObjectiveBar" type="Control" parent="."]
+[node name="ObjectiveBar" type="Control" parent="." unique_id=272791490]
 anchors_preset = 0
 offset_left = 7.0
 offset_top = 1.0
 offset_right = 47.0
 offset_bottom = 41.0
 
-[node name="ColorRect" type="ColorRect" parent="ObjectiveBar"]
+[node name="ColorRect" type="ColorRect" parent="ObjectiveBar" unique_id=33152754]
 layout_mode = 0
 offset_left = 807.0
 offset_top = 61.0
@@ -47,7 +47,7 @@ offset_right = 1207.0
 offset_bottom = 331.0
 color = Color(0.761432, 0.467646, 0.0859126, 1)
 
-[node name="MenuBar" type="MenuBar" parent="ObjectiveBar"]
+[node name="MenuBar" type="MenuBar" parent="ObjectiveBar" unique_id=979079211]
 modulate = Color(0.849307, 0.868733, 0.971113, 1)
 self_modulate = Color(0.831515, 0.78216, 0.949573, 1)
 layout_mode = 0
@@ -57,7 +57,7 @@ offset_right = 1207.0
 offset_bottom = 329.0
 script = ExtResource("2_xqwax")
 
-[node name="OBJ label" type="RichTextLabel" parent="ObjectiveBar/MenuBar"]
+[node name="OBJ label" type="RichTextLabel" parent="ObjectiveBar/MenuBar" unique_id=127492693]
 layout_mode = 0
 offset_top = -27.0
 offset_right = 414.0
@@ -65,7 +65,7 @@ offset_bottom = -4.0
 text = "Objectives:"
 fit_content = true
 
-[node name="Objective 1" type="RichTextLabel" parent="ObjectiveBar/MenuBar"]
+[node name="Objective 1" type="RichTextLabel" parent="ObjectiveBar/MenuBar" unique_id=256107949]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -78,7 +78,7 @@ grow_horizontal = 2
 text = " - Clean Up the Sandwiches"
 fit_content = true
 
-[node name="Objective 2" type="RichTextLabel" parent="ObjectiveBar/MenuBar"]
+[node name="Objective 2" type="RichTextLabel" parent="ObjectiveBar/MenuBar" unique_id=902798997]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -91,7 +91,7 @@ grow_horizontal = 2
 text = " - Clean Up the Sandwiches"
 fit_content = true
 
-[node name="Objective 3" type="RichTextLabel" parent="ObjectiveBar/MenuBar"]
+[node name="Objective 3" type="RichTextLabel" parent="ObjectiveBar/MenuBar" unique_id=116235877]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -104,7 +104,7 @@ grow_horizontal = 2
 text = " - Clean Up the Sandwiches"
 fit_content = true
 
-[node name="Objective 4" type="RichTextLabel" parent="ObjectiveBar/MenuBar"]
+[node name="Objective 4" type="RichTextLabel" parent="ObjectiveBar/MenuBar" unique_id=1752343440]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -117,7 +117,7 @@ grow_horizontal = 2
 text = " - Clean Up the Sandwiches"
 fit_content = true
 
-[node name="CheckButton" type="CheckButton" parent="ObjectiveBar"]
+[node name="CheckButton" type="CheckButton" parent="ObjectiveBar" unique_id=2011829293]
 layout_mode = 0
 offset_left = 1097.0
 offset_top = 10.0
@@ -128,10 +128,10 @@ text = "Close
 "
 script = ExtResource("1_khrgo")
 
-[node name="UserOnScreenControl" type="Node2D" parent="."]
+[node name="UserOnScreenControl" type="Node2D" parent="." unique_id=402630636]
 position = Vector2(10, 10)
 
-[node name="Right" type="Button" parent="UserOnScreenControl"]
+[node name="Right" type="Button" parent="UserOnScreenControl" unique_id=339404614]
 offset_left = 1006.0
 offset_top = 471.0
 offset_right = 1073.0
@@ -139,7 +139,7 @@ offset_bottom = 535.0
 script = ExtResource("2_vagh1")
 metadata/_edit_use_anchors_ = true
 
-[node name="Up" type="Button" parent="UserOnScreenControl"]
+[node name="Up" type="Button" parent="UserOnScreenControl" unique_id=297445956]
 offset_left = 968.0
 offset_top = 404.0
 offset_right = 1035.0
@@ -147,7 +147,7 @@ offset_bottom = 468.0
 script = ExtResource("3_xhb6w")
 metadata/_edit_use_anchors_ = true
 
-[node name="Left" type="Button" parent="UserOnScreenControl"]
+[node name="Left" type="Button" parent="UserOnScreenControl" unique_id=556775629]
 offset_left = 930.0
 offset_top = 471.0
 offset_right = 997.0
@@ -155,7 +155,7 @@ offset_bottom = 535.0
 script = ExtResource("4_xhb6w")
 metadata/_edit_use_anchors_ = true
 
-[node name="Down" type="Button" parent="UserOnScreenControl"]
+[node name="Down" type="Button" parent="UserOnScreenControl" unique_id=1761122777]
 offset_left = 969.0
 offset_top = 538.0
 offset_right = 1036.0
@@ -163,16 +163,15 @@ offset_bottom = 602.0
 script = ExtResource("5_ydgmi")
 metadata/_edit_use_anchors_ = true
 
-[node name="Minimap" parent="." instance=ExtResource("6_minimap")]
+[node name="Minimap" parent="." unique_id=1878899355 instance=ExtResource("6_minimap")]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 0.0
 anchor_right = 1.0
-anchor_bottom = 0.0
-offset_left = -340.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = 220.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 329.0
+offset_bottom = 211.0
+grow_horizontal = 0
 
 [connection signal="toggled" from="ObjectiveBar/CheckButton" to="ObjectiveBar/CheckButton" method="_on_toggled"]

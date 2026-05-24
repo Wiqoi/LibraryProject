@@ -104,6 +104,15 @@ func _compute_map_bounds() -> void:
 	var min_pos = Vector2(INF, INF)
 	var max_pos = Vector2(-INF, -INF)
 
+	# Include tilemap cells
+	for layer_name in ["Ground", "Walls"]:
+		var tl = _find_tilemap_layer(layer_name)
+		if tl:
+			for cell in tl.get_used_cells():
+				var wp = tl.to_global(tl.map_to_local(cell))
+				min_pos = min_pos.min(wp)
+				max_pos = max_pos.max(wp)
+
 	# Include player
 	if Global.player_node:
 		var pp = Global.player_node.global_position
