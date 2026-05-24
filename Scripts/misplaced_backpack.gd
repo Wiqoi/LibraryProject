@@ -45,4 +45,5 @@ func Picked_up() -> void:
 	self.visible = false
 	self.position = Global.player_node.position
 	Global.firstBackpack = 1
+	Global.events_done += 1
 	

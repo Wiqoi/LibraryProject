@@ -52,6 +52,7 @@ func play_book_organize_animation() -> void:
 		
 		var time_remaining = organize_timer.time_left
 		var time_score = int(time_remaining)
+		Global.events_done += 1
 		Global.score += 1 + time_score
 		if Global.score < 0:
 			Global.score = 0
@@ -72,6 +73,7 @@ func _on_timer_timeout() -> void:
 	Global.score -= 55
 	if Global.score < 0:
 		Global.score = 0
+	Global.events_done += 1
 	queue_free()
 
 func _on_animation_finished() -> void:

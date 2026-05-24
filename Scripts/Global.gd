@@ -27,4 +27,5 @@ var firstRunning = 0
 var firstChairs = 0
 var firstCheckout = 0
 var Objectives = ""
-var lvl1dc = 0
+var events_done = 0
+var events_total = 0
