@@ -14,6 +14,32 @@ var current_stamina: float = max_stamina
 var is_sprinting: bool = false
 var can_sprint: bool = true
 var current_speed: float = move_speed
+var carried_backpack: AnimatedSprite2D = null
+
+func attach_backpack(backpack_texture: Texture2D) -> void:
+	if carried_backpack:
+		carried_backpack.queue_free()
+
+	# Create SpriteFrames with one frame from the backpack texture
+	var frames = SpriteFrames.new()
+	frames.add_animation("carry")
+	frames.set_animation_speed("carry", 5.0)
+	frames.add_frame("carry", backpack_texture)
+
+	carried_backpack = AnimatedSprite2D.new()
+	carried_backpack.sprite_frames = frames
+	carried_backpack.animation = "carry"
+	carried_backpack.position = Vector2(0, -18)
+	carried_backpack.scale = Vector2(0.4, 0.4)
+	carried_backpack.z_index = 1
+	add_child(carried_backpack)
+	Global.player_has_backpack = true
+
+func remove_backpack() -> void:
+	if carried_backpack:
+		carried_backpack.queue_free()
+		carried_backpack = null
+	Global.player_has_backpack = false
 
 func _physics_process(_delta: float) -> void:
 	movement_dir = Vector2(

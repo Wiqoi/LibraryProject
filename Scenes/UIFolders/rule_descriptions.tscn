@@ -147,3 +147,34 @@ offset_right = 744.0
 offset_bottom = 680.0
 texture = ExtResource("10_ak2vh")
 expand_mode = 1
+
+[node name="QuizPanel" type="ColorRect" parent="." unique_id=1831561858]
+visible = false
+layout_mode = 0
+offset_left = 260.0
+offset_top = 520.0
+offset_right = 760.0
+offset_bottom = 680.0
+color = Color(0.08, 0.1, 0.18, 0.95)
+
+[node name="QuizQuestion" type="Label" parent="QuizPanel" unique_id=370856193]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 480.0
+offset_bottom = 60.0
+autowrap_mode = 2
+
+[node name="AnswerA" type="Button" parent="QuizPanel" unique_id=1661510691]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 80.0
+offset_right = 460.0
+offset_bottom = 120.0
+
+[node name="AnswerB" type="Button" parent="QuizPanel" unique_id=1342716839]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 130.0
+offset_right = 460.0
+offset_bottom = 170.0

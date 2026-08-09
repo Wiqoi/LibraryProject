@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c8sw4omd2lxwb"]
+
+[ext_resource type="Script" uid="uid://blciqorgyjeey" path="res://Scripts/cubby_item.gd" id="1_22w5f"]
+[ext_resource type="Texture2D" uid="uid://dsivf5s0y7w7a" path="res://Assets/EventFolder/CubbiesAndBackpack.png" id="2_gfgl1"]
+[ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="3_gfgl1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfgl1"]
+atlas = ExtResource("2_gfgl1")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whs6l"]
+atlas = ExtResource("2_gfgl1")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ghjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfgl1")
+}],
+"loop": true,
+"name": &"Bag inside",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whs6l")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whs6l"]
+size = Vector2(48, 48)
+
+[node name="CubbyItem" type="Area2D" unique_id=91737750]
+script = ExtResource("1_22w5f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=323582772]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1ghjq")
+animation = &"Default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2013308318]
+shape = SubResource("RectangleShape2D_whs6l")
+
+[node name="ObjectMarker" parent="." unique_id=360176266 instance=ExtResource("3_gfgl1")]
+position = Vector2(0, -42)
+scale = Vector2(3, 3)

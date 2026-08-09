@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="3_d1mwp"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="4_u1b78"]
 [ext_resource type="PackedScene" uid="uid://dlj3ocoohgych" path="res://Scenes/EventFolders/hand_ss.tscn" id="6_didp7"]
-[ext_resource type="PackedScene" uid="uid://bd3667hbgy40a" path="res://Scenes/EventFolders/MisplacedBackpack.tscn" id="7_jgkgd"]
 [ext_resource type="PackedScene" uid="uid://bmaeypeah1ebq" path="res://Scenes/fighting.tscn" id="8_bs12r"]
+[ext_resource type="PackedScene" uid="uid://c8sw4omd2lxwb" path="res://Scenes/EventFolders/CubbyItem.tscn" id="9_bs12r"]
 [ext_resource type="PackedScene" uid="uid://7nkfms0u6w05" path="res://Scenes/EventFolders/LetKidsEnter.tscn" id="9_rqhku"]
+[ext_resource type="PackedScene" uid="uid://ccmacwuyghygc" path="res://Scenes/EventFolders/BackpackItem.tscn" id="10_rqhku"]
 [ext_resource type="AudioStream" uid="uid://cwn1digytoix8" path="res://Assets/Double-Rainbow-chosic.com_.mp3" id="11_af2a1"]
 
 [node name="Game" type="Node2D" unique_id=1310237995]
@@ -51,7 +52,7 @@ position = Vector2(1102, 822)
 position = Vector2(1130, 822)
 
 [node name="HandSS6" parent="AllEvents" unique_id=224719958 instance=ExtResource("6_didp7")]
-position = Vector2(1072, 855)
+position = Vector2(1072, 856)
 
 [node name="HandSS7" parent="AllEvents" unique_id=248670410 instance=ExtResource("6_didp7")]
 position = Vector2(1044, 855)
@@ -65,29 +66,14 @@ position = Vector2(1100, 855)
 [node name="HandSS10" parent="AllEvents" unique_id=603775839 instance=ExtResource("6_didp7")]
 position = Vector2(1128, 855)
 
-[node name="Backpack1" parent="AllEvents" unique_id=863056105 instance=ExtResource("7_jgkgd")]
-position = Vector2(1150, 800)
-
-[node name="Backpack2" parent="AllEvents" unique_id=797832647 instance=ExtResource("7_jgkgd")]
-position = Vector2(1120, 780)
-
-[node name="Backpack3" parent="AllEvents" unique_id=1408947366 instance=ExtResource("7_jgkgd")]
-position = Vector2(1090, 790)
-
-[node name="Backpack4" parent="AllEvents" unique_id=602716077 instance=ExtResource("7_jgkgd")]
-position = Vector2(1160, 770)
-
-[node name="Backpack5" parent="AllEvents" unique_id=560366112 instance=ExtResource("7_jgkgd")]
-position = Vector2(1060, 810)
-
 [node name="Fighting1" parent="AllEvents" unique_id=88715654 instance=ExtResource("8_bs12r")]
-position = Vector2(980, 750)
+position = Vector2(984, 672)
 
 [node name="Fighting2" parent="AllEvents" unique_id=355540346 instance=ExtResource("8_bs12r")]
-position = Vector2(1020, 730)
+position = Vector2(1016, 704)
 
 [node name="Fighting3" parent="AllEvents" unique_id=674389647 instance=ExtResource("8_bs12r")]
-position = Vector2(960, 710)
+position = Vector2(976, 712)
 
 [node name="LetKidsEnter1" parent="AllEvents" unique_id=836530443 instance=ExtResource("9_rqhku")]
 position = Vector2(1260, 830)
@@ -100,3 +86,33 @@ position = Vector2(1250, 860)
 
 [node name="LetKidsEnter4" parent="AllEvents" unique_id=1936032230 instance=ExtResource("9_rqhku")]
 position = Vector2(1290, 820)
+
+[node name="Cubby1" parent="AllEvents" unique_id=91737750 instance=ExtResource("9_bs12r")]
+position = Vector2(712, 816)
+
+[node name="Cubby2" parent="AllEvents" unique_id=1541172662 instance=ExtResource("9_bs12r")]
+position = Vector2(840, 816)
+
+[node name="Cubby3" parent="AllEvents" unique_id=86085100 instance=ExtResource("9_bs12r")]
+position = Vector2(776, 816)
+
+[node name="Cubby4" parent="AllEvents" unique_id=351522597 instance=ExtResource("9_bs12r")]
+position = Vector2(776, 888)
+
+[node name="Cubby5" parent="AllEvents" unique_id=609401736 instance=ExtResource("9_bs12r")]
+position = Vector2(712, 888)
+
+[node name="Backpack1" parent="." unique_id=1484178849 instance=ExtResource("10_rqhku")]
+position = Vector2(928, 896)
+
+[node name="Backpack2" parent="." unique_id=1770627644 instance=ExtResource("10_rqhku")]
+position = Vector2(968, 928)
+
+[node name="Backpack3" parent="." unique_id=1396327869 instance=ExtResource("10_rqhku")]
+position = Vector2(1032, 936)
+
+[node name="Backpack4" parent="." unique_id=778205321 instance=ExtResource("10_rqhku")]
+position = Vector2(928, 840)
+
+[node name="Backpack5" parent="." unique_id=1068978362 instance=ExtResource("10_rqhku")]
+position = Vector2(1096, 960)
