@@ -60,6 +60,15 @@ var running_done: int = 0
 var running_total: int = 3
 var food_done: int = 0
 var food_total: int = 4
+# Per-objective progress counters (Level 3)
+var checkout_done: int = 0
+var checkout_total: int = 0
+var chairs_done: int = 0
+var chairs_total: int = 0
+var leave_done: int = 0
+var leave_total: int = 0
+var lineup_done: int = 0
+var lineup_total: int = 0
 # Indexed by line in the objectives text file; true = objective complete
 var objectives_done: Array = [false, false, false, false]
 # Indexed by line; true = objective visible to the player (its events are available)

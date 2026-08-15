@@ -1,7 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://dcheckout001"]
+[gd_scene load_steps=27 format=3 uid="uid://clineupscn001"]
 
 [ext_resource type="Texture2D" uid="uid://c5sam3eusp50o" path="res://Assets/PlaceHold/2D Top Down Pixel Art Characters/010.png" id="1_kjmrn"]
-[ext_resource type="Script" uid="uid://bhcl14kinlx2p" path="res://Scripts/checkout.gd" id="1_yvgya"]
+[ext_resource type="Script" uid="uid://clineupscr001" path="res://Scripts/line_up.gd" id="1_yvgya"]
 [ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="3_5crgr"]
 [ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/MapAssets/Placeholders.png" id="3_yvgya"]
 
@@ -175,7 +175,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgya"]
 size = Vector2(16, 20)
 
-[node name="Checkout" type="RigidBody2D"]
+[node name="LineUp" type="RigidBody2D"]
 texture_filter = 1
 collision_mask = 3
 mass = 20.0

@@ -16,7 +16,7 @@ script = ExtResource("1_rqhku")
 
 [node name="GroundTiles" parent="." instance=ExtResource("2_cpkqv")]
 texture_filter = 1
-position = Vector2(992.2, 727.5)
+position = Vector2(992, 736)
 
 [node name="Player" parent="." instance=ExtResource("3_d1mwp")]
 unique_name_in_owner = true
@@ -69,19 +69,19 @@ position = Vector2(1107, 705)
 position = Vector2(1135, 705)
 
 [node name="Cubby1" parent="AllEvents" instance=ExtResource("9_bs12r")]
-position = Vector2(712, 816)
+position = Vector2(712, 824)
 
 [node name="Cubby2" parent="AllEvents" instance=ExtResource("9_bs12r")]
-position = Vector2(840, 816)
+position = Vector2(712, 784)
 
 [node name="Cubby3" parent="AllEvents" instance=ExtResource("9_bs12r")]
-position = Vector2(776, 816)
+position = Vector2(712, 904)
 
 [node name="Cubby4" parent="AllEvents" instance=ExtResource("9_bs12r")]
-position = Vector2(776, 888)
+position = Vector2(712, 944)
 
 [node name="Cubby5" parent="AllEvents" instance=ExtResource("9_bs12r")]
-position = Vector2(712, 888)
+position = Vector2(712, 864)
 
 [node name="EnterDoor" parent="AllEvents" instance=ExtResource("12_ed")]
 position = Vector2(928, 688)

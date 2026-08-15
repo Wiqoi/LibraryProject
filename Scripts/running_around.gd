@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 func _update_run(delta: float) -> void:
 	# Stop running only while THIS kid is being interacted with, is done, or in the finale
 	if done != 0 or is_organizing or is_walking_away or Global.player_has_backpack:
-		if animated_sprite and animated_sprite.animation == "Walk":
+		if animated_sprite and animated_sprite.animation != "Idle":
 			animated_sprite.play("Idle")
 		return
 
@@ -43,10 +43,21 @@ func _update_run(delta: float) -> void:
 			run_direction = 1
 		return
 
-	global_position += to_target.normalized() * run_speed * delta
+	var move_dir = to_target.normalized()
+	global_position += move_dir * run_speed * delta
 
-	if animated_sprite and animated_sprite.animation != "Walk":
-		animated_sprite.play("Walk")
+	if animated_sprite:
+		_play_run_animation(move_dir)
+
+# Pick the walk animation matching the dominant movement axis (WalkLeft/Right/Up/Down).
+func _play_run_animation(move_dir: Vector2) -> void:
+	var anim_name: String
+	if abs(move_dir.y) > abs(move_dir.x):
+		anim_name = "WalkUp" if move_dir.y < 0 else "WalkDown"
+	else:
+		anim_name = "WalkLeft" if move_dir.x < 0 else "WalkRight"
+	if animated_sprite.animation != anim_name:
+		animated_sprite.play(anim_name)
 
 func firsttime():
 	Global.firstRunning = 1

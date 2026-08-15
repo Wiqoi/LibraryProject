@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bq4oknamnjfc8"]
+[gd_scene load_steps=12 format=3 uid="uid://bq4oknamnjfc8"]
 
 [ext_resource type="Script" uid="uid://d1u276kyu1a6w" path="res://Scripts/shelf_item.gd" id="1_shelf"]
 [ext_resource type="Texture2D" uid="uid://cs27xohjdvppo" path="res://Assets/PlaceHold/Modern_Interiors_Free_v2.2/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="2_shelf"]
@@ -38,7 +38,10 @@ atlas = ExtResource("3_shelf")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shelf"]
-size = Vector2(40, 40)
+size = Vector2(30, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okd60"]
+size = Vector2(30, 16)
 
 [node name="Shelf" type="Area2D"]
 script = ExtResource("1_shelf")
@@ -56,7 +59,7 @@ scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_book")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_shelf")
 
 [node name="ObjectMarker" parent="." instance=ExtResource("4_shelf")]
@@ -66,5 +69,5 @@ scale = Vector2(3, 3)
 [node name="SolidBody" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SolidBody"]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_shelf")
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_okd60")

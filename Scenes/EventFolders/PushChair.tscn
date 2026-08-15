@@ -1,17 +1,34 @@
-[gd_scene load_steps=15 format=3 uid="uid://dpushchair001"]
+[gd_scene load_steps=21 format=3 uid="uid://dpushchair001"]
 
 [ext_resource type="Texture2D" uid="uid://c5sam3eusp50o" path="res://Assets/PlaceHold/2D Top Down Pixel Art Characters/010.png" id="1_kjmrn"]
 [ext_resource type="Script" uid="uid://cns2135sop7hd" path="res://Scripts/push_chair.gd" id="1_yvgya"]
+[ext_resource type="Texture2D" uid="uid://b3kcj7fw48v2c" path="res://Assets/EventFolder/Chairs.png" id="2_nb0ob"]
 [ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="3_5crgr"]
+[ext_resource type="Texture2D" uid="uid://dabcibfjghh8o" path="res://Assets/EventFolder/ChairsPulledOut.png" id="3_ctshc"]
 [ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/MapAssets/Placeholders.png" id="3_yvgya"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kjmrn"]
 friction = 0.8
 bounce = 0.07
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8skqp"]
-radius = 5.0
-height = 28.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb0ob"]
+size = Vector2(30, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njbcd"]
+atlas = ExtResource("2_nb0ob")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j5w8"]
+atlas = ExtResource("2_nb0ob")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kglil"]
+atlas = ExtResource("3_ctshc")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhadp"]
+atlas = ExtResource("2_nb0ob")
+region = Rect2(32, 48, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kq6h"]
 atlas = ExtResource("1_kjmrn")
@@ -39,6 +56,38 @@ region = Rect2(0, 32, 24, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cqmd2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njbcd")
+}],
+"loop": true,
+"name": &"ChairPushedInLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j5w8")
+}],
+"loop": true,
+"name": &"ChairPushedInRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kglil")
+}],
+"loop": true,
+"name": &"ChairsPulledOutLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhadp")
+}],
+"loop": true,
+"name": &"ChairsPulledOutRight",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4kq6h")
@@ -69,7 +118,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgya"]
-size = Vector2(16, 20)
+size = Vector2(30, 39)
 
 [node name="PushChair" type="RigidBody2D"]
 texture_filter = 1
@@ -78,24 +127,27 @@ mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_kjmrn")
 gravity_scale = 0.0
 lock_rotation = true
+freeze = true
 script = ExtResource("1_yvgya")
 
 [node name="Collisions" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_8skqp")
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_nb0ob")
 
 [node name="StudentLook" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.5, 0)
 scale = Vector2(1.05, 1)
 sprite_frames = SubResource("SpriteFrames_cqmd2")
-animation = &"Idle"
+animation = &"ChairsPulledOutRight"
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -6.5)
 shape = SubResource("RectangleShape2D_yvgya")
 
 [node name="ObjectMarker" parent="." instance=ExtResource("3_5crgr")]
 position = Vector2(0, -42)
 scale = Vector2(3, 3)
-on_screen_offset = Vector2(0, -10)
+on_screen_offset = Vector2(0, -34)
 screen_margin = 10.0

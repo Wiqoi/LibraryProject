@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dshouting001"]
+[gd_scene load_steps=16 format=3 uid="uid://dshouting001"]
 
 [ext_resource type="Texture2D" uid="uid://c5sam3eusp50o" path="res://Assets/PlaceHold/2D Top Down Pixel Art Characters/010.png" id="1_kjmrn"]
 [ext_resource type="Script" uid="uid://543ya6cbhfqg" path="res://Scripts/shouting.gd" id="1_yvgya"]
 [ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="3_5crgr"]
 [ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/MapAssets/Placeholders.png" id="3_yvgya"]
+[ext_resource type="Script" uid="uid://cshoutvis001" path="res://Scripts/shout_visuals.gd" id="2_shoutv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kjmrn"]
 friction = 0.8
@@ -99,3 +100,7 @@ position = Vector2(0, -42)
 scale = Vector2(3, 3)
 on_screen_offset = Vector2(0, -10)
 screen_margin = 10.0
+
+[node name="ShoutVisuals" type="Node2D" parent="."]
+z_index = 4001
+script = ExtResource("2_shoutv")

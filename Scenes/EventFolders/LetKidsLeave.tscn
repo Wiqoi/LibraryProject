@@ -97,5 +97,5 @@ shape = SubResource("RectangleShape2D_yvgya")
 [node name="ObjectMarker" parent="." instance=ExtResource("3_5crgr")]
 position = Vector2(0, -42)
 scale = Vector2(3, 3)
-on_screen_offset = Vector2(0, -10)
+on_screen_offset = Vector2(0, -28)
 screen_margin = 10.0

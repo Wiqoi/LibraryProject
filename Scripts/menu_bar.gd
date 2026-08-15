@@ -17,6 +17,12 @@ var counters_by_level = {
 		["running_done", "running_total"],
 		["food_done", "food_total"],
 	],
+	"Level3Objectives.txt": [
+		["checkout_done", "checkout_total"],
+		["chairs_done", "chairs_total"],
+		["lineup_done", "lineup_total"],
+		["leave_done", "leave_total"],
+	],
 }
 
 func _load_objectives() -> void:
