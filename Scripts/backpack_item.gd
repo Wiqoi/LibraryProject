@@ -11,11 +11,15 @@ var done: bool = false
 
 func _ready() -> void:
 	player_node = Global.player_node
+	add_to_group("interactables")
 
 	var area = $Area2D
 	area.mouse_entered.connect(func(): is_mouse_hovering = true)
 	area.mouse_exited.connect(func(): is_mouse_hovering = false)
 	area.input_pickable = true
+
+func is_available() -> bool:
+	return not done and not Global.player_has_backpack and not Global.is_interacting
 
 func _process(delta: float) -> void:
 	if self.linear_velocity != Vector2(0, 0):
@@ -35,7 +39,7 @@ func _process(delta: float) -> void:
 		var distance_to_player = global_position.distance_to(player_node.global_position)
 		var is_near_player = distance_to_player <= interaction_range
 
-		if is_near_player and is_mouse_hovering and Input.is_action_just_pressed("ui_interact"):
+		if is_near_player and is_mouse_hovering and Input.is_action_just_pressed("ui_interact") and not Global.is_interacting:
 			start_pickup()
 
 func start_pickup() -> void:
@@ -43,12 +47,14 @@ func start_pickup() -> void:
 		return
 	is_organizing = true
 	interaction_elapsed = 0.0
+	Global.is_interacting = true
 	Global.interaction_started.emit(interaction_text)
 
 func _complete_pickup() -> void:
 	is_organizing = false
 	interaction_elapsed = 0.0
 	done = true
+	Global.is_interacting = false
 	Global.interaction_finished.emit()
 
 	# Attach backpack to player using the sprite texture

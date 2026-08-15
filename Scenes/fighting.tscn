@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmaeypeah1ebq"]
+[gd_scene load_steps=13 format=3 uid="uid://bmaeypeah1ebq"]
 
 [ext_resource type="Texture2D" uid="uid://c5sam3eusp50o" path="res://Assets/PlaceHold/2D Top Down Pixel Art Characters/010.png" id="1_kjmrn"]
 [ext_resource type="Script" uid="uid://dswhxtxwdf2nh" path="res://fighting.gd" id="1_yvgya"]

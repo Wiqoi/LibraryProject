@@ -7,5 +7,8 @@ func _ready():
 
 # Function to handle quit button press
 func _on_quit_pressed():
-	# Quit the game (works for desktop, mobile, etc.)
+	# Play the swing-out + fade before quitting.
+	var page = get_tree().current_scene
+	if page and page.has_method("play_exit"):
+		await page.play_exit()
 	get_tree().quit()

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ccmacwuyghygc"]
+[gd_scene load_steps=7 format=3 uid="uid://ccmacwuyghygc"]
 
 [ext_resource type="Script" uid="uid://clwcluwvupwdr" path="res://Scripts/backpack_item.gd" id="1_osr8m"]
 [ext_resource type="Texture2D" uid="uid://dpl251w23gaj2" path="res://Assets/EventFolder/Backpack.png" id="2_5a6vb"]
@@ -9,13 +9,13 @@ friction = 0.8
 bounce = 0.07
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57hr0"]
-radius = 5.0
-height = 28.0
+radius = 4.0
+height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvysr"]
-size = Vector2(24, 24)
+size = Vector2(40, 40)
 
-[node name="BackpackItem" type="RigidBody2D" unique_id=1484178849]
+[node name="BackpackItem" type="RigidBody2D"]
 collision_mask = 3
 mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_cjg82")
@@ -23,18 +23,20 @@ gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_osr8m")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=870342552]
-scale = Vector2(0.5, 0.5)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_5a6vb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=838336346]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 1)
 shape = SubResource("CapsuleShape2D_57hr0")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1470753465]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1222031838]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_gvysr")
 
-[node name="ObjectMarker" parent="." unique_id=1566991989 instance=ExtResource("3_5a6vb")]
+[node name="ObjectMarker" parent="." instance=ExtResource("3_5a6vb")]
 position = Vector2(0, -42)
 scale = Vector2(3, 3)

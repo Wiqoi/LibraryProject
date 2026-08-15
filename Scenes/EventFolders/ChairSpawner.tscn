@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bwr8h7wyss6g8"]
+[gd_scene load_steps=3 format=3 uid="uid://bwr8h7wyss6g8"]
 
 [ext_resource type="PackedScene" uid="uid://52yg8rniguqe" path="res://Scenes/EventFolders/ChairItem.tscn" id="1_rprs8"]
-[ext_resource type="Script" path="res://Scripts/chair_spawn_manager.gd" id="2_pmcbm"]
+[ext_resource type="Script" uid="uid://bome2escw5l4k" path="res://Scripts/chair_spawn_manager.gd" id="2_pmcbm"]
 
 [node name="ChairOnGround" type="Node2D"]
 

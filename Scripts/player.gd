@@ -42,6 +42,11 @@ func remove_backpack() -> void:
 	Global.player_has_backpack = false
 
 func _physics_process(_delta: float) -> void:
+	if Global.level_transitioning:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+
 	movement_dir = Vector2(
 		Input.get_action_strength("Move_Right") - Input.get_action_strength("Move_Left") + Global.LR,
 		Input.get_action_strength("Move_Down") - Input.get_action_strength("Move_Up") + Global.UD

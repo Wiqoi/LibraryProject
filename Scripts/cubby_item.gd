@@ -8,6 +8,7 @@ var is_mouse_hovering: bool = false
 var done: bool = false
 
 func _ready() -> void:
+	add_to_group("interactables")
 	input_pickable = true
 	mouse_entered.connect(func(): is_mouse_hovering = true)
 	mouse_exited.connect(func(): is_mouse_hovering = false)
@@ -16,6 +17,9 @@ func _ready() -> void:
 		$ObjectMarker.visible = false
 	if has_node("AnimatedSprite2D"):
 		$AnimatedSprite2D.play("Default")
+
+func is_available() -> bool:
+	return not done and Global.player_has_backpack and not Global.is_interacting
 
 func _process(delta: float) -> void:
 	if is_organizing:
@@ -31,7 +35,7 @@ func _process(delta: float) -> void:
 		$ObjectMarker.visible = Global.player_has_backpack and not done
 
 	if not done and Global.player_has_backpack:
-		if is_mouse_hovering and Input.is_action_just_pressed("ui_interact"):
+		if is_mouse_hovering and Input.is_action_just_pressed("ui_interact") and not Global.is_interacting:
 			start_stow()
 
 func start_stow() -> void:
@@ -39,12 +43,14 @@ func start_stow() -> void:
 		return
 	is_organizing = true
 	interaction_elapsed = 0.0
+	Global.is_interacting = true
 	Global.interaction_started.emit(interaction_text)
 
 func _complete_stow() -> void:
 	is_organizing = false
 	interaction_elapsed = 0.0
 	done = true
+	Global.is_interacting = false
 	Global.interaction_finished.emit()
 
 	# Remove backpack from player
@@ -56,6 +62,9 @@ func _complete_stow() -> void:
 	if Global.firstBackpack == 0:
 		Global.firstBackpack = 1
 	Global.events_done += 1
+	Global.cubby_done += 1
+	if Global.cubby_done >= Global.cubby_total:
+		Global.objectives_done[1] = true
 	Global.task_completed.emit(global_position)
 
 	# Hide marker and switch to filled animation

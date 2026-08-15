@@ -27,7 +27,6 @@ var student_markers: Array = []
 
 
 func _ready() -> void:
-	toggle_btn.pressed.connect(_toggle)
 	player_marker = ColorRect.new()
 	player_marker.size = Vector2(10, 10)
 	player_marker.color = Color.GREEN
@@ -47,18 +46,15 @@ func _process(delta: float) -> void:
 		hide()
 		return
 
-	if minimap_visible:
-		background_rect.show()
-		markers_layer.show()
-		_update_timer += delta
-		if _update_timer >= update_interval:
-			_update_timer = 0.0
-			_update_player_marker()
-			_update_event_markers()
-			_update_student_markers()
-	else:
-		background_rect.hide()
-		markers_layer.hide()
+	if not minimap_visible:
+		return
+
+	_update_timer += delta
+	if _update_timer >= update_interval:
+		_update_timer = 0.0
+		_update_player_marker()
+		_update_event_markers()
+		_update_student_markers()
 
 	if Input.is_action_just_pressed("minimap_toggle"):
 		_toggle()
@@ -286,11 +282,7 @@ func _find_layer_in_node(node: Node, layer_name: String) -> TileMapLayer:
 
 func _toggle() -> void:
 	minimap_visible = not minimap_visible
-	if minimap_visible:
-		toggle_btn.text = "-"
-		panel.size = _minimap_size + Vector2(4, 4)
-		toggle_btn.position = Vector2(panel.size.x - 22, 2)
-	else:
-		toggle_btn.text = "+"
-		panel.size = Vector2(24, 20)
-		toggle_btn.position = Vector2(2, 2)
+	panel.visible = minimap_visible
+	background_rect.visible = minimap_visible
+	markers_layer.visible = minimap_visible
+	toggle_btn.text = "-" if minimap_visible else "+"

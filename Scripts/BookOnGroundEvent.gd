@@ -16,6 +16,7 @@ func find_player() -> void:
 
 func _ready() -> void:
 	find_player()
+	add_to_group("interactables")
 
 	animated_sprite = $AnimatedSprite2D
 
@@ -38,6 +39,9 @@ func play_book_idle_animation() -> void:
 	if animated_sprite.animation != "BookIdle":
 		animated_sprite.play("BookIdle")
 
+func is_available() -> bool:
+	return not is_organizing and not Global.player_has_backpack and not Global.is_interacting
+
 func _process(delta: float) -> void:
 	if is_organizing:
 		interaction_elapsed += delta
@@ -58,7 +62,7 @@ func _process(delta: float) -> void:
 		var distance_to_player = global_position.distance_to(player_node.global_position)
 		var is_near_player = distance_to_player <= interaction_range
 
-		if is_near_player and is_mouse_hovering and Input.is_action_just_pressed("ui_interact"):
+		if is_near_player and is_mouse_hovering and Input.is_action_just_pressed("ui_interact") and not Global.is_interacting:
 			start_interaction()
 
 func start_interaction() -> void:
@@ -66,6 +70,7 @@ func start_interaction() -> void:
 		return
 	is_organizing = true
 	interaction_elapsed = 0.0
+	Global.is_interacting = true
 
 	Global.events_done += 1
 	Global.score += 1
@@ -78,6 +83,11 @@ func start_interaction() -> void:
 func _complete_interaction() -> void:
 	is_organizing = false
 	interaction_elapsed = 0.0
+	Global.is_interacting = false
 	Global.interaction_finished.emit()
 	Global.task_completed.emit(global_position)
+
+	Global.books_done += 1
+	if Global.books_done >= Global.books_total:
+		Global.objectives_done[0] = true
 	queue_free()

@@ -1,118 +1,105 @@
-[gd_scene format=3 uid="uid://dy57mk7q2iv7m"]
+[gd_scene load_steps=11 format=3 uid="uid://dy57mk7q2iv7m"]
 
 [ext_resource type="Script" uid="uid://4nsx3ob1dmg2" path="res://Scripts/game.gd" id="1_rqhku"]
 [ext_resource type="PackedScene" uid="uid://ck87m2wamedbo" path="res://Scenes/LibraryOutside.tscn" id="2_cpkqv"]
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="3_d1mwp"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="4_u1b78"]
 [ext_resource type="PackedScene" uid="uid://dlj3ocoohgych" path="res://Scenes/EventFolders/hand_ss.tscn" id="6_didp7"]
-[ext_resource type="PackedScene" uid="uid://bmaeypeah1ebq" path="res://Scenes/fighting.tscn" id="8_bs12r"]
 [ext_resource type="PackedScene" uid="uid://c8sw4omd2lxwb" path="res://Scenes/EventFolders/CubbyItem.tscn" id="9_bs12r"]
-[ext_resource type="PackedScene" uid="uid://7nkfms0u6w05" path="res://Scenes/EventFolders/LetKidsEnter.tscn" id="9_rqhku"]
 [ext_resource type="PackedScene" uid="uid://ccmacwuyghygc" path="res://Scenes/EventFolders/BackpackItem.tscn" id="10_rqhku"]
-[ext_resource type="AudioStream" uid="uid://cwn1digytoix8" path="res://Assets/Double-Rainbow-chosic.com_.mp3" id="11_af2a1"]
+[ext_resource type="AudioStream" uid="uid://dxjvyojg3bnn8" path="res://Assets/Music/InGameMusic.mp3" id="11_af2a1"]
+[ext_resource type="PackedScene" uid="uid://enterdoor01" path="res://Scenes/EventFolders/EnterDoor.tscn" id="12_ed"]
+[ext_resource type="Script" uid="uid://c38jhvoq8b0mn" path="res://Scripts/event_guide.gd" id="13_eg"]
 
-[node name="Game" type="Node2D" unique_id=1310237995]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_rqhku")
 
-[node name="GroundTiles" parent="." unique_id=825040254 instance=ExtResource("2_cpkqv")]
+[node name="GroundTiles" parent="." instance=ExtResource("2_cpkqv")]
 texture_filter = 1
 position = Vector2(992.2, 727.5)
 
-[node name="Player" parent="." unique_id=1116159253 instance=ExtResource("3_d1mwp")]
+[node name="Player" parent="." instance=ExtResource("3_d1mwp")]
 unique_name_in_owner = true
 position = Vector2(1204, 845)
 scale = Vector2(0.5, 0.5)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1416200322]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
 script = ExtResource("4_u1b78")
 max_zoom = Vector2(4, 4)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=947679115]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_af2a1")
+volume_db = -6.0
 autoplay = true
 
-[node name="SanitizeHands" type="Node2D" parent="." unique_id=1608549116]
+[node name="SanitizeHands" type="Node2D" parent="."]
 
-[node name="AllEvents" type="Node2D" parent="." unique_id=606250397]
+[node name="AllEvents" type="Node2D" parent="."]
 
-[node name="HandSS" parent="AllEvents" unique_id=813675601 instance=ExtResource("6_didp7")]
-position = Vector2(1073, 822)
+[node name="HandSS" parent="AllEvents" instance=ExtResource("6_didp7")]
+position = Vector2(1080, 672)
+is_fighter = true
 
-[node name="HandSS4" parent="AllEvents" unique_id=1939740181 instance=ExtResource("6_didp7")]
-position = Vector2(1046, 822)
+[node name="HandSS4" parent="AllEvents" instance=ExtResource("6_didp7")]
+position = Vector2(1053, 672)
 
-[node name="HandSS5" parent="AllEvents" unique_id=1619026131 instance=ExtResource("6_didp7")]
-position = Vector2(1019, 822)
+[node name="HandSS5" parent="AllEvents" instance=ExtResource("6_didp7")]
+position = Vector2(1026, 672)
 
-[node name="HandSS2" parent="AllEvents" unique_id=643414850 instance=ExtResource("6_didp7")]
-position = Vector2(1102, 822)
+[node name="HandSS2" parent="AllEvents" instance=ExtResource("6_didp7")]
+position = Vector2(1109, 672)
 
-[node name="HandSS3" parent="AllEvents" unique_id=1618823053 instance=ExtResource("6_didp7")]
-position = Vector2(1130, 822)
+[node name="HandSS3" parent="AllEvents" instance=ExtResource("6_didp7")]
+position = Vector2(1137, 672)
 
-[node name="HandSS6" parent="AllEvents" unique_id=224719958 instance=ExtResource("6_didp7")]
-position = Vector2(1072, 856)
+[node name="HandSS6" parent="AllEvents" instance=ExtResource("6_didp7")]
+position = Vector2(1079, 706)
 
-[node name="HandSS7" parent="AllEvents" unique_id=248670410 instance=ExtResource("6_didp7")]
-position = Vector2(1044, 855)
+[node name="HandSS7" parent="AllEvents" instance=ExtResource("6_didp7")]
+position = Vector2(1051, 705)
 
-[node name="HandSS8" parent="AllEvents" unique_id=176873228 instance=ExtResource("6_didp7")]
-position = Vector2(1017, 855)
+[node name="HandSS8" parent="AllEvents" instance=ExtResource("6_didp7")]
+position = Vector2(1024, 705)
 
-[node name="HandSS9" parent="AllEvents" unique_id=1259574695 instance=ExtResource("6_didp7")]
-position = Vector2(1100, 855)
+[node name="HandSS9" parent="AllEvents" instance=ExtResource("6_didp7")]
+position = Vector2(1107, 705)
 
-[node name="HandSS10" parent="AllEvents" unique_id=603775839 instance=ExtResource("6_didp7")]
-position = Vector2(1128, 855)
+[node name="HandSS10" parent="AllEvents" instance=ExtResource("6_didp7")]
+position = Vector2(1135, 705)
 
-[node name="Fighting1" parent="AllEvents" unique_id=88715654 instance=ExtResource("8_bs12r")]
-position = Vector2(984, 672)
-
-[node name="Fighting2" parent="AllEvents" unique_id=355540346 instance=ExtResource("8_bs12r")]
-position = Vector2(1016, 704)
-
-[node name="Fighting3" parent="AllEvents" unique_id=674389647 instance=ExtResource("8_bs12r")]
-position = Vector2(976, 712)
-
-[node name="LetKidsEnter1" parent="AllEvents" unique_id=836530443 instance=ExtResource("9_rqhku")]
-position = Vector2(1260, 830)
-
-[node name="LetKidsEnter2" parent="AllEvents" unique_id=661310211 instance=ExtResource("9_rqhku")]
-position = Vector2(1280, 850)
-
-[node name="LetKidsEnter3" parent="AllEvents" unique_id=1728579842 instance=ExtResource("9_rqhku")]
-position = Vector2(1250, 860)
-
-[node name="LetKidsEnter4" parent="AllEvents" unique_id=1936032230 instance=ExtResource("9_rqhku")]
-position = Vector2(1290, 820)
-
-[node name="Cubby1" parent="AllEvents" unique_id=91737750 instance=ExtResource("9_bs12r")]
+[node name="Cubby1" parent="AllEvents" instance=ExtResource("9_bs12r")]
 position = Vector2(712, 816)
 
-[node name="Cubby2" parent="AllEvents" unique_id=1541172662 instance=ExtResource("9_bs12r")]
+[node name="Cubby2" parent="AllEvents" instance=ExtResource("9_bs12r")]
 position = Vector2(840, 816)
 
-[node name="Cubby3" parent="AllEvents" unique_id=86085100 instance=ExtResource("9_bs12r")]
+[node name="Cubby3" parent="AllEvents" instance=ExtResource("9_bs12r")]
 position = Vector2(776, 816)
 
-[node name="Cubby4" parent="AllEvents" unique_id=351522597 instance=ExtResource("9_bs12r")]
+[node name="Cubby4" parent="AllEvents" instance=ExtResource("9_bs12r")]
 position = Vector2(776, 888)
 
-[node name="Cubby5" parent="AllEvents" unique_id=609401736 instance=ExtResource("9_bs12r")]
+[node name="Cubby5" parent="AllEvents" instance=ExtResource("9_bs12r")]
 position = Vector2(712, 888)
 
-[node name="Backpack1" parent="." unique_id=1484178849 instance=ExtResource("10_rqhku")]
+[node name="EnterDoor" parent="AllEvents" instance=ExtResource("12_ed")]
+position = Vector2(928, 688)
+
+[node name="EventGuide" type="Node2D" parent="."]
+script = ExtResource("13_eg")
+
+[node name="Backpack1" parent="." instance=ExtResource("10_rqhku")]
 position = Vector2(928, 896)
 
-[node name="Backpack2" parent="." unique_id=1770627644 instance=ExtResource("10_rqhku")]
+[node name="Backpack2" parent="." instance=ExtResource("10_rqhku")]
 position = Vector2(968, 928)
 
-[node name="Backpack3" parent="." unique_id=1396327869 instance=ExtResource("10_rqhku")]
+[node name="Backpack3" parent="." instance=ExtResource("10_rqhku")]
 position = Vector2(1032, 936)
 
-[node name="Backpack4" parent="." unique_id=778205321 instance=ExtResource("10_rqhku")]
+[node name="Backpack4" parent="." instance=ExtResource("10_rqhku")]
 position = Vector2(928, 840)
 
-[node name="Backpack5" parent="." unique_id=1068978362 instance=ExtResource("10_rqhku")]
+[node name="Backpack5" parent="." instance=ExtResource("10_rqhku")]
 position = Vector2(1096, 960)

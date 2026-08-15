@@ -1,13 +1,19 @@
-[gd_scene format=3 uid="uid://28vujj2q88w7"]
+[gd_scene load_steps=12 format=3 uid="uid://28vujj2q88w7"]
 
 [ext_resource type="Script" uid="uid://ddx6efkqqahc1" path="res://Scripts/starting_page.gd" id="1_8h5le"]
 [ext_resource type="Texture2D" uid="uid://biyw64ud7felm" path="res://Assets/UIAsets/Library_bg.png" id="1_dujba"]
 [ext_resource type="Script" uid="uid://di30eij0dukt3" path="res://Scripts/start.gd" id="3_t7jmd"]
+[ext_resource type="Texture2D" uid="uid://bd002pol5xo1t" path="res://Assets/GUI-HUDASSETS/PNG/SpriteSheet.png" id="3_xaxdf"]
 [ext_resource type="Script" uid="uid://d0eljxghj7epg" path="res://Scripts/options.gd" id="4_gff81"]
 [ext_resource type="Script" uid="uid://d0kicl1jyeku2" path="res://Scripts/quit.gd" id="5_50rtn"]
+[ext_resource type="AudioStream" uid="uid://b3cmvken0fpwi" path="res://Assets/Music/Menu Music.mp3" id="6_music"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8h5le"]
 texture = ExtResource("1_dujba")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q4x4n"]
+texture = ExtResource("3_xaxdf")
+region_rect = Rect2(20.2307, 667.769, 434.564, 103.359)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dujba"]
 bg_color = Color(0.48797, 0.555005, 0.992446, 1)
@@ -22,7 +28,11 @@ corner_radius_bottom_left = 16
 shadow_color = Color(0.424762, 0.606788, 1, 0.6)
 shadow_size = 4
 
-[node name="StartingPage" type="Control" unique_id=438299896]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p4as7"]
+texture = ExtResource("3_xaxdf")
+region_rect = Rect2(20.2307, 667.769, 434.564, 103.359)
+
+[node name="StartingPage" type="Control"]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -32,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8h5le")
 
-[node name="Panel" type="Panel" parent="." unique_id=1781092050]
+[node name="Panel" type="Panel" parent="."]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -42,33 +52,35 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_8h5le")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1895560522]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -202.5
-offset_top = -60.0
-offset_right = 202.5
-offset_bottom = 170.0
+offset_left = -608.0
+offset_top = -144.0
+offset_right = -96.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="Start" type="Button" parent="VBoxContainer" unique_id=383207538]
+[node name="Start" type="Button" parent="VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 46
-theme_override_styles/normal = SubResource("StyleBoxFlat_dujba")
+theme_override_styles/hover = SubResource("StyleBoxTexture_q4x4n")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q4x4n")
+theme_override_styles/normal = SubResource("StyleBoxTexture_q4x4n")
 text = "Start Game"
 script = ExtResource("3_t7jmd")
 
-[node name="Options" type="Button" parent="VBoxContainer" unique_id=124828260]
+[node name="Options" type="Button" parent="VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -78,25 +90,31 @@ text = "Options
 "
 script = ExtResource("4_gff81")
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=2097320293]
+[node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 46
-theme_override_styles/normal = SubResource("StyleBoxFlat_dujba")
+theme_override_styles/hover = SubResource("StyleBoxTexture_q4x4n")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q4x4n")
+theme_override_styles/normal = SubResource("StyleBoxTexture_p4as7")
 text = "Quit Game"
 script = ExtResource("5_50rtn")
 
-[node name="Title" type="Label" parent="." unique_id=1353105365]
+[node name="Title" type="Label" parent="."]
 layout_mode = 0
-offset_left = 175.0
-offset_top = 48.0
-offset_right = 962.0
-offset_bottom = 196.0
+offset_left = 48.0
+offset_top = 40.0
+offset_right = 923.0
+offset_bottom = 188.0
 theme_override_colors/font_color = Color(1, 0.95, 0.7, 1)
 theme_override_colors/font_shadow_color = Color(0.2, 0.1, 0, 0.8)
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/font_size = 100
 text = "Library Adventure"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_music")
+autoplay = true

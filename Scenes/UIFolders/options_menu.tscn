@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://6nlsojm6s8p5"]
+[gd_scene load_steps=5 format=3 uid="uid://6nlsojm6s8p5"]
 
 [ext_resource type="Script" uid="uid://xjkvfxpd3uj5" path="res://Scripts/h_slider.gd" id="1_4u6qn"]
 [ext_resource type="Script" uid="uid://bey8atxhs5owi" path="res://Scripts/resolutions.gd" id="2_4qfj6"]
 [ext_resource type="Script" path="res://Scripts/QuitButton.gd" id="3_4qfj6"]
 [ext_resource type="Script" path="res://Scripts/Rejoin.gd" id="3_jvecm"]
 
-[node name="Options Menu" type="Control" unique_id=1441445279]
+[node name="Options Menu" type="Control"]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -16,24 +16,24 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1184030730]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 1096.0
 offset_bottom = 368.0
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=2011742420]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Sound
 "
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer" unique_id=1489655749]
+[node name="HSlider" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
 value = 50.0
 script = ExtResource("1_4u6qn")
 
-[node name="Resolutions" type="OptionButton" parent="VBoxContainer" unique_id=1059480548]
+[node name="Resolutions" type="OptionButton" parent="VBoxContainer"]
 layout_mode = 2
 item_count = 3
 popup/item_0/text = "1920x1080"
@@ -44,18 +44,18 @@ popup/item_2/text = "1280x720"
 popup/item_2/id = 2
 script = ExtResource("2_4qfj6")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1408164590]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_direction = 1
 layout_mode = 2
 
-[node name="GoBack" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=531250065]
+[node name="GoBack" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "CLOSE OPTIONS"
 script = ExtResource("3_jvecm")
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=437877006]
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

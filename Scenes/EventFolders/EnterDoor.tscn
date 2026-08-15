@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://enterdoor01"]
+
+[ext_resource type="Script" uid="uid://d3kspo6f3m5w2" path="res://Scripts/enter_door.gd" id="1_ed"]
+[ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/MapAssets/Placeholders.png" id="2_ed"]
+[ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="3_ed"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ed"]
+size = Vector2(48, 48)
+
+[node name="EnterDoor" type="Area2D"]
+script = ExtResource("1_ed")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_ed")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ed")
+
+[node name="ObjectMarker" parent="." instance=ExtResource("3_ed")]
+position = Vector2(0, -42)
+scale = Vector2(3, 3)

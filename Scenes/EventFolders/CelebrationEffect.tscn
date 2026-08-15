@@ -1,20 +1,20 @@
-[gd_scene format=3 uid="uid://cag8jfj7ejxiy"]
+[gd_scene load_steps=2 format=3 uid="uid://cag8jfj7ejxiy"]
 
 [ext_resource type="Script" uid="uid://b7he20uvajru6" path="res://Scripts/CelebrationEffect.gd" id="1_bo100"]
 
-[node name="CelebrationEffect" type="Control" unique_id=418236883]
+[node name="CelebrationEffect" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_bo100")
 
-[node name="ThumbsUp" type="Label" parent="." unique_id=1475939252]
+[node name="ThumbsUp" type="Label" parent="."]
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 60.0
 text = "👍"
 horizontal_alignment = 1
 
-[node name="Message" type="Label" parent="." unique_id=1986960164]
+[node name="Message" type="Label" parent="."]
 layout_mode = 0
 offset_top = 55.0
 offset_right = 200.0

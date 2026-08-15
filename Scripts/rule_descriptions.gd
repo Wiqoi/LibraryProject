@@ -1,157 +1,155 @@
 extends Control
-
-var firstF = 0
-var firstSanitize = 0
-var firstBook = 0
-var firstBackpack = 0
-var firstFighting = 0
-var firstNoise = 0
-var firstRunning = 0
-var firstChairs = 0
-var firstCheckout = 0
-
-func _ready() -> void:
-	$QuizPanel/AnswerA.pressed.connect(func(): _on_answer(true))
-	$QuizPanel/AnswerB.pressed.connect(func(): _on_answer(false))
+# Rule-description screens: poster + text + 4-answer quiz appear together and
+# swing straight down. The game pauses while a rule is being shown. Wrong quiz
+# answers stay red until the correct one is picked, then the whole page drops
+# down off the bottom of the screen.
 
 var _quiz_answered: bool = false
-var _quiz_picked_a: bool = false
+var _quiz_picked: int = 0
+var _quiz_buttons: Array = []
+var _base_positions: Dictionary = {}
 
-func _on_answer(picked_a: bool) -> void:
+
+func _ready() -> void:
+	_quiz_buttons = [$QuizPanel/AnswerA, $QuizPanel/AnswerB, $QuizPanel/AnswerC, $QuizPanel/AnswerD]
+	for i in _quiz_buttons.size():
+		_quiz_buttons[i].pressed.connect(_on_answer.bind(i))
+
+
+func _on_answer(picked: int) -> void:
 	_quiz_answered = true
-	_quiz_picked_a = picked_a
+	_quiz_picked = picked
 
-func _run_quiz(question: String, answer_a: String, answer_b: String, correct_is_a: bool) -> void:
-	$QuizPanel/QuizQuestion.text = question
-	$QuizPanel/AnswerA.text = answer_a
-	$QuizPanel/AnswerB.text = answer_b
+
+func _get_base(node: Control) -> Vector2:
+	# Remember where a node normally sits, so animations can return it there.
+	if not _base_positions.has(node):
+		_base_positions[node] = node.position
+	return _base_positions[node]
+
+
+# "Already shown" state lives in Global so it survives level changes —
+# otherwise level-1 rules re-trigger their quiz when level 2 loads.
+func _was_shown(key: String) -> bool:
+	return Global.rules_shown.get(key, false)
+
+
+func _mark_shown(key: String) -> void:
+	Global.rules_shown[key] = true
+
+
+func _swing_down(node: Control, offset: float = -40.0) -> void:
+	# Straight-down drop with a bounce. Runs while paused because the tweens
+	# are bound to this node (process_mode = 3, PROCESS_MODE_WHEN_PAUSED).
+	var base := _get_base(node)
+	node.position = base + Vector2(0, offset)
+	var t := create_tween()
+	t.tween_property(node, "position", base, 0.4).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+
+
+func _drop_out_page(nodes: Array) -> Tween:
+	# One tween that slides every part of the rule page straight down off the
+	# bottom of the screen (single tween so we only await one `finished`).
+	var t := create_tween()
+	t.set_parallel(true)
+	for node in nodes:
+		t.tween_property(node, "position", _get_base(node) + Vector2(0, 800), 0.4).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	return t
+
+
+func _show_rule(key: String, text_file: String, poster: Control, question: String, answers: Array, correct_index: int) -> void:
+	_mark_shown(key)
+	Global.givenText = FileAccess.open(text_file, FileAccess.READ).get_line()
+	poster.visible = true
 	$QuizPanel.visible = true
-	_quiz_answered = false
+	self.visible = true
+	get_tree().paused = true
 
-	# Wait for button press (game is paused; process_frame still fires for Control with process_mode=3)
-	while not _quiz_answered:
-		await get_tree().process_frame
+	# Poster, text panel and quiz all swing down at the same time.
+	_swing_down(poster)
+	_swing_down($ColorRect)
+	_swing_down($RichTextLabel)
+	_swing_down($QuizPanel)
 
-	var is_correct = (correct_is_a and _quiz_picked_a) or (not correct_is_a and not _quiz_picked_a)
+	await _run_quiz(question, answers, correct_index)
 
-	if not is_correct:
-		if _quiz_picked_a:
-			$QuizPanel/AnswerA.modulate = Color.RED
-			await get_tree().create_timer(0.3).timeout
-			$QuizPanel/AnswerA.modulate = Color.WHITE
-		else:
-			$QuizPanel/AnswerB.modulate = Color.RED
-			await get_tree().create_timer(0.3).timeout
-			$QuizPanel/AnswerB.modulate = Color.WHITE
-		await get_tree().create_timer(0.8).timeout
+	# Drop the whole rule page down below the screen.
+	var page: Array = [poster, $ColorRect, $RichTextLabel, $QuizPanel]
+	await _drop_out_page(page).finished
 
+	get_tree().paused = false
+	self.visible = false
+	poster.visible = false
 	$QuizPanel.visible = false
+	for node in page:
+		node.position = _get_base(node)
+
+
+func _run_quiz(question: String, answers: Array, correct_index: int) -> void:
+	$QuizPanel/QuizQuestion.text = question
+	# Shuffle the answer positions so the correct one isn't always in the same spot.
+	var order: Array = [0, 1, 2, 3]
+	order.shuffle()
+	var shuffled_correct := order.find(correct_index)
+	for i in _quiz_buttons.size():
+		_quiz_buttons[i].text = answers[order[i]]
+		_quiz_buttons[i].modulate = Color.WHITE
+		_quiz_buttons[i].disabled = false
+
+	# Keep asking until the correct answer is picked; wrong picks stay red.
+	while true:
+		_quiz_answered = false
+		while not _quiz_answered:
+			await get_tree().process_frame
+		if _quiz_picked == shuffled_correct:
+			break
+		_quiz_buttons[_quiz_picked].modulate = Color.RED
+		_quiz_buttons[_quiz_picked].disabled = true
+		await get_tree().create_timer(0.4).timeout
+
 
 func _process(delta: float) -> void:
-	if Global.first_food == 1 && firstF == 0:
-		firstF = 1
-		Global.givenText = FileAccess.open("res://TextFiles/CollectFood.txt", FileAccess.READ).get_line()
-		$Food.visible = true
-		self.visible = true
-		get_tree().paused = true
-		await get_tree().create_timer(6).timeout
-		await _run_quiz("What should you do with food in the library?", "Clean it up and throw it away", "Leave it for someone else", true)
-		get_tree().paused = false
-		self.visible = false
-		$Food.visible = false
+	if Global.first_food == 1 && not _was_shown("food"):
+		await _show_rule("food", "res://TextFiles/CollectFood.txt", $Food,
+			"What should you do with food in the library?",
+			["Clean it up and throw it away", "Leave it for someone else", "Hide it under a chair", "Feed it to the librarian"], 0)
 
-	if Global.firstS == 1 && firstSanitize == 0:
-		firstSanitize = 1
-		Global.givenText = FileAccess.open("res://TextFiles/SanitizeHands.txt", FileAccess.READ).get_line()
-		$Sanitize.visible = true
-		self.visible = true
-		get_tree().paused = true
-		await get_tree().create_timer(6).timeout
-		await _run_quiz("Why is sanitizing hands important?", "Keeps books and space clean", "It makes hands smell nice", true)
-		get_tree().paused = false
-		self.visible = false
-		$Sanitize.visible = false
+	if Global.firstS == 1 && not _was_shown("sanitize"):
+		await _show_rule("sanitize", "res://TextFiles/SanitizeHands.txt", $Sanitize,
+			"Why is sanitizing hands important?",
+			["Keeps books and space clean", "It makes hands smell nice", "It is not important", "Only when someone is watching"], 0)
 
-	if Global.firstBook == 1 && firstBook == 0:
-		firstBook = 1
-		Global.givenText = FileAccess.open("res://TextFiles/BookOrganization.txt", FileAccess.READ).get_line()
-		$Books.visible = true
-		self.visible = true
-		get_tree().paused = true
-		await get_tree().create_timer(6).timeout
-		await _run_quiz("Where should books be returned?", "Back to their proper shelves", "Leave them on the floor", true)
-		get_tree().paused = false
-		self.visible = false
-		$Books.visible = false
+	if Global.firstBook == 1 && not _was_shown("books"):
+		await _show_rule("books", "res://TextFiles/BookOrganization.txt", $Books,
+			"Where should books be returned?",
+			["Back to their proper shelves", "Leave them on the floor", "Throw them in the trash", "Hide them behind a shelf"], 0)
 
-	if Global.firstBackpack == 1 && firstBackpack == 0:
-		firstBackpack = 1
-		Global.givenText = FileAccess.open("res://TextFiles/PlaceBackBackPack.txt", FileAccess.READ).get_line()
-		$Backpack.visible = true
-		self.visible = true
-		get_tree().paused = true
-		await get_tree().create_timer(6).timeout
-		await _run_quiz("Where do backpacks belong?", "Stowed in the cubbies", "On the floor", true)
-		get_tree().paused = false
-		self.visible = false
-		$Backpack.visible = false
+	if Global.firstBackpack == 1 && not _was_shown("backpack"):
+		await _show_rule("backpack", "res://TextFiles/PlaceBackBackPack.txt", $Backpack,
+			"Where do backpacks belong?",
+			["Stowed in the cubbies", "On the floor", "Swing it around", "Leave it in the doorway"], 0)
 
-	if Global.firstFighting == 1 && firstFighting == 0:
-		firstFighting = 1
-		Global.givenText = FileAccess.open("res://TextFiles/NoFighting.txt", FileAccess.READ).get_line()
-		$Fighting.visible = true
-		self.visible = true
-		get_tree().paused = true
-		await get_tree().create_timer(6).timeout
-		await _run_quiz("What should you do instead of fighting?", "Keep the library peaceful", "Yell louder", true)
-		get_tree().paused = false
-		self.visible = false
-		$Fighting.visible = false
+	if Global.firstFighting == 1 && not _was_shown("fighting"):
+		await _show_rule("fighting", "res://TextFiles/NoFighting.txt", $Fighting,
+			"What should you do instead of fighting?",
+			["Keep the library peaceful", "Yell louder", "Push them first", "Keep fighting until you win"], 0)
 
-	if Global.firstNoise == 1 && firstNoise == 0:
-		firstNoise = 1
-		Global.givenText = FileAccess.open("res://TextFiles/NoLoudNoises.txt", FileAccess.READ).get_line()
-		$Noise.visible = true
-		self.visible = true
-		get_tree().paused = true
-		await get_tree().create_timer(6).timeout
-		await _run_quiz("How should you speak in the library?", "Use a quiet voice", "Talk loudly", true)
-		get_tree().paused = false
-		self.visible = false
-		$Noise.visible = false
+	if Global.firstNoise == 1 && not _was_shown("noise"):
+		await _show_rule("noise", "res://TextFiles/NoLoudNoises.txt", $Noise,
+			"How should you speak in the library?",
+			["Use a quiet voice", "Talk loudly", "Shout across the room", "Play music without headphones"], 0)
 
-	if Global.firstRunning == 1 && firstRunning == 0:
-		firstRunning = 1
-		Global.givenText = FileAccess.open("res://TextFiles/Running Around.txt", FileAccess.READ).get_line()
-		$Running.visible = true
-		self.visible = true
-		get_tree().paused = true
-		await get_tree().create_timer(6).timeout
-		await _run_quiz("Why shouldn't you run in the library?", "It can cause accidents", "It's not fun", true)
-		get_tree().paused = false
-		self.visible = false
-		$Running.visible = false
+	if Global.firstRunning == 1 && not _was_shown("running"):
+		await _show_rule("running", "res://TextFiles/Running Around.txt", $Running,
+			"Why shouldn't you run in the library?",
+			["It can cause accidents", "It's not fun", "Only run when nobody is looking", "Walking is too slow"], 0)
 
-	if Global.firstChairs == 1 && firstChairs == 0:
-		firstChairs = 1
-		Global.givenText = FileAccess.open("res://TextFiles/PushInChair.txt", FileAccess.READ).get_line()
-		$Chairs.visible = true
-		self.visible = true
-		get_tree().paused = true
-		await get_tree().create_timer(6).timeout
-		await _run_quiz("What should you do with chairs?", "Push them in when done", "Leave them pulled out", true)
-		get_tree().paused = false
-		self.visible = false
-		$Chairs.visible = false
+	if Global.firstChairs == 1 && not _was_shown("chairs"):
+		await _show_rule("chairs", "res://TextFiles/PushInChair.txt", $Chairs,
+			"What should you do with chairs?",
+			["Push them in when done", "Leave them pulled out", "Stack them up", "Kick them out of the way"], 0)
 
-	if Global.firstCheckout == 1 && firstCheckout == 0:
-		firstCheckout = 1
-		Global.givenText = FileAccess.open("res://TextFiles/Checkout.txt", FileAccess.READ).get_line()
-		$Checkout.visible = true
-		self.visible = true
-		get_tree().paused = true
-		await get_tree().create_timer(6).timeout
-		await _run_quiz("How do you properly borrow books?", "Check them out at the desk", "Take them without asking", true)
-		get_tree().paused = false
-		self.visible = false
-		$Checkout.visible = false
+	if Global.firstCheckout == 1 && not _was_shown("checkout"):
+		await _show_rule("checkout", "res://TextFiles/Checkout.txt", $Checkout,
+			"How do you properly borrow books?",
+			["Check them out at the desk", "Take them without asking", "Borrow them and never return", "Leave them on the desk"], 0)

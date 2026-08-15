@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://3c5w6dud362i"]
+[gd_scene load_steps=13 format=3 uid="uid://3c5w6dud362i"]
 
 [ext_resource type="Texture2D" uid="uid://f2o8qr7q02d4" path="res://Assets/UIAsets/Library_bg_menu.png" id="1_0x7qd"]
 [ext_resource type="Script" uid="uid://y6rj6ko2qkdo" path="res://Scripts/lvl_1.gd" id="1_7ldud"]
@@ -10,11 +10,12 @@
 [ext_resource type="Script" path="res://Scripts/bypasslvl_2.gd" id="7_qro0d"]
 [ext_resource type="Script" path="res://Scripts/bypasslvl_3.gd" id="8_6sf32"]
 [ext_resource type="Script" uid="uid://cjrploh2rjx0r" path="res://Scripts/back_to_menu.gd" id="10_br1yg"]
+[ext_resource type="AudioStream" uid="uid://dm1cqpr2nk8gr" path="res://Assets/Music/Level Select.mp3" id="11_music"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7nb8g"]
 texture = ExtResource("1_0x7qd")
 
-[node name="LevelSelect" type="Control" unique_id=72339143]
+[node name="LevelSelect" type="Control"]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -24,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qjufc")
 
-[node name="Panel" type="Panel" parent="." unique_id=1669252495]
+[node name="Panel" type="Panel" parent="."]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -34,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7nb8g")
 
-[node name="Lvl1" type="Button" parent="." unique_id=1432553029]
+[node name="Lvl1" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 9
@@ -48,7 +49,7 @@ theme_override_font_sizes/font_size = 40
 text = "Level 1"
 script = ExtResource("1_7ldud")
 
-[node name="Lvl2" type="Button" parent="." unique_id=567187661]
+[node name="Lvl2" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -64,7 +65,7 @@ theme_override_font_sizes/font_size = 40
 text = "Level 2"
 script = ExtResource("2_3mk76")
 
-[node name="Lvl3" type="Button" parent="." unique_id=1262215962]
+[node name="Lvl3" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -81,14 +82,14 @@ text = "Level 3
 "
 script = ExtResource("3_3lcxl")
 
-[node name="Alert" type="Control" parent="." unique_id=1426758829]
+[node name="Alert" type="Control" parent="."]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_3lcxl")
 
-[node name="ColorRect" type="ColorRect" parent="Alert" unique_id=2123874742]
+[node name="ColorRect" type="ColorRect" parent="Alert"]
 layout_mode = 0
 offset_left = 43.0
 offset_top = 58.0
@@ -96,7 +97,7 @@ offset_right = 1241.0
 offset_bottom = 636.0
 color = Color(0.297915, 0.112638, 0.032015, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Alert" unique_id=565973588]
+[node name="RichTextLabel" type="RichTextLabel" parent="Alert"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 85.0
@@ -105,44 +106,49 @@ offset_bottom = 586.0
 text = "Loading..."
 script = ExtResource("4_3mk76")
 
-[node name="BYPASSLVL2" type="Button" parent="." unique_id=1821826961]
+[node name="BYPASSLVL2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 472.0
-offset_right = 808.0
-offset_bottom = 40.0
+offset_left = 1064.0
+offset_right = 1167.0
+offset_bottom = 31.0
 text = "BYPASSLVL2
 "
 script = ExtResource("7_qro0d")
 
-[node name="BYPASSLVL3" type="Button" parent="." unique_id=1852437783]
+[node name="BYPASSLVL3" type="Button" parent="."]
 layout_mode = 0
-offset_left = 920.0
-offset_right = 1256.0
-offset_bottom = 40.0
+offset_left = 1176.0
+offset_right = 1279.0
+offset_bottom = 31.0
 text = "BYPASSLVL3
 "
 script = ExtResource("8_6sf32")
 
-[node name="TitleLabel" type="Label" parent="." unique_id=1135054447]
+[node name="TitleLabel" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -300.0
-offset_top = 40.0
-offset_right = 300.0
-offset_bottom = 120.0
+offset_left = -616.0
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = 91.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.95, 0.7, 1)
 theme_override_font_sizes/font_size = 60
 text = "Select Level"
 
-[node name="BackButton" type="Button" parent="." unique_id=1162190746]
+[node name="BackButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 160.0
-offset_bottom = 70.0
+offset_left = 1120.0
+offset_top = 40.0
+offset_right = 1256.0
+offset_bottom = 87.0
 theme_override_font_sizes/font_size = 28
 text = "Back"
 script = ExtResource("10_br1yg")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_music")
+autoplay = true

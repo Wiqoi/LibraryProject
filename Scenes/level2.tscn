@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bf6vjdjxetmjg"]
+[gd_scene load_steps=11 format=3 uid="uid://bf6vjdjxetmjg"]
 
 [ext_resource type="Script" uid="uid://dlnggh2aqol6f" path="res://Scripts/level_2.gd" id="1_onqnr"]
 [ext_resource type="PackedScene" uid="uid://bqsrvxdclic6h" path="res://Scenes/LibraryInterior.tscn" id="2_onqnr"]
@@ -9,72 +9,76 @@
 [ext_resource type="PackedScene" uid="uid://ct1cptfo2bun8" path="res://Scenes/EventFolders/book_drop_on_ground.tscn" id="9_vn2uo"]
 [ext_resource type="PackedScene" uid="uid://b8ocl76do627h" path="res://Scenes/EventFolders/food_drop_on_ground.tscn" id="10_mtqcm"]
 [ext_resource type="PackedScene" uid="uid://drunning001" path="res://Scenes/EventFolders/RunningAround.tscn" id="10_vn460"]
-[ext_resource type="AudioStream" uid="uid://cwn1digytoix8" path="res://Assets/Double-Rainbow-chosic.com_.mp3" id="11_mu7lp"]
+[ext_resource type="AudioStream" uid="uid://dxjvyojg3bnn8" path="res://Assets/Music/InGameMusic.mp3" id="11_mu7lp"]
 
-[node name="Game" type="Node2D" unique_id=1765984461]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_onqnr")
 
-[node name="GroundTilesNode" parent="." unique_id=687674457 instance=ExtResource("2_onqnr")]
+[node name="GroundTilesNode" parent="." instance=ExtResource("2_onqnr")]
 
-[node name="Player" parent="." unique_id=503890929 instance=ExtResource("3_vn460")]
+[node name="Player" parent="." instance=ExtResource("3_vn460")]
 unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1699181189]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
 script = ExtResource("4_r8hce")
 max_zoom = Vector2(4, 4)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1158420660]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_mu7lp")
+volume_db = -6.0
 autoplay = true
 
-[node name="AllEvents" type="Node2D" parent="." unique_id=922212023]
+[node name="AllEvents" type="Node2D" parent="."]
 
-[node name="Book" parent="AllEvents" unique_id=2014724475 instance=ExtResource("6_styii")]
-position = Vector2(-312, -64)
+[node name="Book" parent="AllEvents" instance=ExtResource("6_styii")]
+position = Vector2(-464, -24)
 
-[node name="Shouting1" parent="AllEvents" unique_id=1307418767 instance=ExtResource("9_mmf1u")]
-position = Vector2(-200, -100)
+[node name="Shouting1" parent="AllEvents" instance=ExtResource("9_mmf1u")]
+position = Vector2(-438, -280)
 
-[node name="Shouting2" parent="AllEvents" unique_id=365909162 instance=ExtResource("9_mmf1u")]
-position = Vector2(-150, -50)
+[node name="Shouting2" parent="AllEvents" instance=ExtResource("9_mmf1u")]
+position = Vector2(-388, -230)
 
-[node name="Shouting3" parent="AllEvents" unique_id=766947386 instance=ExtResource("9_mmf1u")]
-position = Vector2(-250, -30)
+[node name="Shouting3" parent="AllEvents" instance=ExtResource("9_mmf1u")]
+position = Vector2(-488, -210)
 
-[node name="Running1" parent="AllEvents" unique_id=545524855 instance=ExtResource("10_vn460")]
-position = Vector2(-100, -150)
+[node name="Running1" parent="AllEvents" instance=ExtResource("10_vn460")]
+position = Vector2(-248, 0)
+run_waypoints = [Vector2(0, 0), Vector2(50, -40), Vector2(100, -80)]
 
-[node name="Running2" parent="AllEvents" unique_id=1741691242 instance=ExtResource("10_vn460")]
-position = Vector2(-50, -80)
+[node name="Running2" parent="AllEvents" instance=ExtResource("10_vn460")]
+position = Vector2(-198, 70)
+run_waypoints = [Vector2(0, 0), Vector2(40, 30), Vector2(80, 0)]
 
-[node name="Running3" parent="AllEvents" unique_id=844935114 instance=ExtResource("10_vn460")]
-position = Vector2(-180, -120)
+[node name="Running3" parent="AllEvents" instance=ExtResource("10_vn460")]
+position = Vector2(-328, 30)
+run_waypoints = [Vector2(0, 0), Vector2(-60, 0), Vector2(-120, 0)]
 
-[node name="Book1" parent="AllEvents" unique_id=378253714 instance=ExtResource("9_vn2uo")]
-position = Vector2(-300, -180)
+[node name="Book1" parent="AllEvents" instance=ExtResource("9_vn2uo")]
+position = Vector2(-320, -244)
 
-[node name="Book2" parent="AllEvents" unique_id=2062432668 instance=ExtResource("9_vn2uo")]
-position = Vector2(-250, -200)
+[node name="Book2" parent="AllEvents" instance=ExtResource("9_vn2uo")]
+position = Vector2(-270, -264)
 
-[node name="Book3" parent="AllEvents" unique_id=2021902826 instance=ExtResource("9_vn2uo")]
-position = Vector2(-200, -170)
+[node name="Book3" parent="AllEvents" instance=ExtResource("9_vn2uo")]
+position = Vector2(-220, -234)
 
-[node name="Book4" parent="AllEvents" unique_id=698149067 instance=ExtResource("9_vn2uo")]
-position = Vector2(-280, -150)
+[node name="Book4" parent="AllEvents" instance=ExtResource("9_vn2uo")]
+position = Vector2(-300, -214)
 
-[node name="Book5" parent="AllEvents" unique_id=289083513 instance=ExtResource("9_vn2uo")]
-position = Vector2(-220, -140)
+[node name="Book5" parent="AllEvents" instance=ExtResource("9_vn2uo")]
+position = Vector2(-240, -204)
 
-[node name="Food1" parent="AllEvents" unique_id=42242497 instance=ExtResource("10_mtqcm")]
-position = Vector2(-150, -180)
+[node name="Food1" parent="AllEvents" instance=ExtResource("10_mtqcm")]
+position = Vector2(-92, -308)
 
-[node name="Food2" parent="AllEvents" unique_id=233246047 instance=ExtResource("10_mtqcm")]
-position = Vector2(-100, -160)
+[node name="Food2" parent="AllEvents" instance=ExtResource("10_mtqcm")]
+position = Vector2(-22, -320)
 
-[node name="Food3" parent="AllEvents" unique_id=1912138621 instance=ExtResource("10_mtqcm")]
-position = Vector2(-130, -140)
+[node name="Food3" parent="AllEvents" instance=ExtResource("10_mtqcm")]
+position = Vector2(-72, -268)
 
-[node name="Food4" parent="AllEvents" unique_id=423936425 instance=ExtResource("10_mtqcm")]
-position = Vector2(-170, -160)
+[node name="Food4" parent="AllEvents" instance=ExtResource("10_mtqcm")]
+position = Vector2(-112, -288)

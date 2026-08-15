@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://drunning001"]
+[gd_scene load_steps=17 format=3 uid="uid://drunning001"]
 
 [ext_resource type="Texture2D" uid="uid://c5sam3eusp50o" path="res://Assets/PlaceHold/2D Top Down Pixel Art Characters/010.png" id="1_kjmrn"]
 [ext_resource type="Script" uid="uid://cqrxe43nwb538" path="res://Scripts/running_around.gd" id="1_yvgya"]
@@ -37,6 +37,14 @@ region = Rect2(72, 0, 24, 32)
 atlas = ExtResource("3_yvgya")
 region = Rect2(0, 32, 24, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlk1"]
+atlas = ExtResource("1_kjmrn")
+region = Rect2(0, 32, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlk2"]
+atlas = ExtResource("1_kjmrn")
+region = Rect2(40, 32, 20, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_cqmd2"]
 animations = [{
 "frames": [{
@@ -66,12 +74,26 @@ animations = [{
 "loop": false,
 "name": &"Sanitize",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kq6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlk2")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvgya"]
 size = Vector2(16, 20)
 
-[node name="RunningAround" type="RigidBody2D" unique_id=545524855]
+[node name="RunningAround" type="RigidBody2D"]
 texture_filter = 1
 collision_mask = 3
 mass = 20.0
@@ -80,21 +102,21 @@ gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_yvgya")
 
-[node name="Collisions" type="CollisionShape2D" parent="." unique_id=374379964]
+[node name="Collisions" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_8skqp")
 
-[node name="StudentLook" type="AnimatedSprite2D" parent="." unique_id=379956204]
+[node name="StudentLook" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.5, 0)
 scale = Vector2(1.05, 1)
 sprite_frames = SubResource("SpriteFrames_cqmd2")
 animation = &"Idle"
 
-[node name="Area2D" type="Area2D" parent="." unique_id=793851960]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2017497404]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_yvgya")
 
-[node name="ObjectMarker" parent="." unique_id=443231696 instance=ExtResource("3_5crgr")]
+[node name="ObjectMarker" parent="." instance=ExtResource("3_5crgr")]
 position = Vector2(0, -42)
 scale = Vector2(3, 3)
 on_screen_offset = Vector2(0, -10)

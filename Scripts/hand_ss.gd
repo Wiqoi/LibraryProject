@@ -11,6 +11,7 @@ var interaction_elapsed: float = 0.0
 var animated_sprite: AnimatedSprite2D
 var is_mouse_hovering = false
 var done = 0
+var is_walking_away: bool = false
 
 func firsttime():
 	pass
@@ -18,8 +19,18 @@ func firsttime():
 func find_player() -> void:
 	player_node = Global.player_node
 
+func can_interact() -> bool:
+	return done == 0
+
+func marker_visible() -> bool:
+	return not Global.player_has_backpack
+
+func is_available() -> bool:
+	return can_interact() and not Global.player_has_backpack and not Global.is_interacting
+
 func _ready() -> void:
 	find_player()
+	add_to_group("interactables")
 
 	animated_sprite = $StudentLook
 
@@ -48,16 +59,16 @@ func _process(delta: float) -> void:
 
 	# Hide marker and block interaction while carrying a backpack
 	if has_node("ObjectMarker"):
-		$ObjectMarker.visible = not Global.player_has_backpack
+		$ObjectMarker.visible = marker_visible()
 
-	if Global.player_has_backpack:
+	if not can_interact() or Global.player_has_backpack:
 		return
 
 	if player_node != null:
 		var distance_to_player = global_position.distance_to(player_node.global_position)
 		var is_near_player = distance_to_player <= interaction_range
 
-		if is_near_player and is_mouse_hovering and Input.is_action_just_pressed("ui_interact") and done == 0:
+		if is_near_player and is_mouse_hovering and Input.is_action_just_pressed("ui_interact") and done == 0 and not Global.is_interacting:
 			start_interaction()
 
 func play_book_idle_animation() -> void:
@@ -69,6 +80,7 @@ func start_interaction() -> void:
 		return
 	is_organizing = true
 	interaction_elapsed = 0.0
+	Global.is_interacting = true
 
 	Global.score += 1
 	if Global.score < 0:
@@ -80,6 +92,7 @@ func start_interaction() -> void:
 func _complete_interaction() -> void:
 	is_organizing = false
 	interaction_elapsed = 0.0
+	Global.is_interacting = false
 	Global.interaction_finished.emit()
 	Global.task_completed.emit(global_position)
 

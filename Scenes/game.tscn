@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://kposr187swfu" path="res://Scripts/student_spawn_manager.gd" id="7_1l0tm"]
 [ext_resource type="PackedScene" uid="uid://cp88da254ptx5" path="res://Scenes/EventFolders/food_on_ground.tscn" id="9_h4fw4"]
 [ext_resource type="PackedScene" uid="uid://bmaeypeah1ebq" path="res://Scenes/fighting.tscn" id="10_ldgsr"]
-[ext_resource type="AudioStream" uid="uid://cwn1digytoix8" path="res://Assets/Double-Rainbow-chosic.com_.mp3" id="11_o5yvi"]
+[ext_resource type="AudioStream" path="res://Assets/Music/InGameMusic.mp3" id="11_o5yvi"]
 [ext_resource type="PackedScene" uid="uid://dhhnw0usf41g1" path="res://Scenes/Students/student_nav_mesh.tscn" id="12_rku1e"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ldgsr"]
@@ -60,4 +60,5 @@ position = Vector2(-72, -25)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_o5yvi")
+volume_db = -6.0
 autoplay = true

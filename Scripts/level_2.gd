@@ -3,6 +3,13 @@ extends Node2D
 func _ready():
 	Global.Objectives = "res://TextFiles/Level2Objectives.txt"
 	Global.events_done = 0
+	Global.books_done = 0
+	Global.shouting_done = 0
+	Global.running_done = 0
+	Global.food_done = 0
+	Global.objectives_done = [false, false, false, false]
+	Global.objectives_revealed = [true, true, true, true]
+	Global.level_transitioning = false
 	Global.events_total = $AllEvents.get_child_count()
 
 func _process(delta: float) -> void:

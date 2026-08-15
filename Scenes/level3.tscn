@@ -1,130 +1,65 @@
-[gd_scene format=3 uid="uid://bkjxucs3g4vej"]
+[gd_scene load_steps=9 format=3 uid="uid://bkjxucs3g4vej"]
 
 [ext_resource type="Script" uid="uid://03he4gplhk7e" path="res://Scripts/level_3.gd" id="1_h6p24"]
 [ext_resource type="PackedScene" uid="uid://daupokxccqh08" path="res://Scenes/CheckoutArea.tscn" id="2_h6p24"]
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="3_vwkqt"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="4_fpsp3"]
-[ext_resource type="PackedScene" uid="uid://qv6wklffk6mr" path="res://Scenes/Students/students.tscn" id="7_qia21"]
-[ext_resource type="PackedScene" uid="uid://dhhnw0usf41g1" path="res://Scenes/Students/student_nav_mesh.tscn" id="9_p2sx0"]
-[ext_resource type="AudioStream" uid="uid://cwn1digytoix8" path="res://Assets/Double-Rainbow-chosic.com_.mp3" id="11_3nkac"]
+[ext_resource type="AudioStream" uid="uid://dxjvyojg3bnn8" path="res://Assets/Music/InGameMusic.mp3" id="11_3nkac"]
 [ext_resource type="PackedScene" uid="uid://dcheckout001" path="res://Scenes/EventFolders/Checkout.tscn" id="12_fpsp3"]
-[ext_resource type="PackedScene" uid="uid://ct1cptfo2bun8" path="res://Scenes/EventFolders/book_drop_on_ground.tscn" id="12_vwkqt"]
-[ext_resource type="PackedScene" uid="uid://b8ocl76do627h" path="res://Scenes/EventFolders/food_drop_on_ground.tscn" id="13_fpsp3"]
 [ext_resource type="PackedScene" uid="uid://dpushchair001" path="res://Scenes/EventFolders/PushChair.tscn" id="13_wffsm"]
 [ext_resource type="PackedScene" uid="uid://7nkfm0qcoj05" path="res://Scenes/EventFolders/LetKidsLeave.tscn" id="14_dw3di"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_ldgsr"]
-vertices = PackedVector2Array(-60, -60, 500, -60, 500, 500, -60, 500)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-60, -60, 500, -60, 500, 500, -60, 500)])
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_o5yvi"]
-vertices = PackedVector2Array(-40, -40, 480, -40, 480, 480, -40, 480)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-40, -40, 480, -40, 480, 480, -40, 480)])
-
-[node name="Game2" type="Node2D" unique_id=1256619138]
+[node name="Game2" type="Node2D"]
 script = ExtResource("1_h6p24")
 
-[node name="GroundTilesNode" parent="." unique_id=1954850152 instance=ExtResource("2_h6p24")]
+[node name="GroundTilesNode" parent="." instance=ExtResource("2_h6p24")]
 
-[node name="Player" parent="." unique_id=1563432018 instance=ExtResource("3_vwkqt")]
+[node name="Player" parent="." instance=ExtResource("3_vwkqt")]
 unique_name_in_owner = true
-scale = Vector2(0.5, 0.5)
 position = Vector2(200, 200)
+scale = Vector2(0.5, 0.5)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=297266571]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
 script = ExtResource("4_fpsp3")
 max_zoom = Vector2(4, 4)
 
-[node name="Students" parent="." unique_id=761900302 instance=ExtResource("7_qia21")]
-
-[node name="StudentNavMesh" parent="." unique_id=1709644589 instance=ExtResource("9_p2sx0")]
-navigation_polygon = SubResource("NavigationPolygon_ldgsr")
-
-[node name="OtherAreasMesh" type="NavigationRegion2D" parent="StudentNavMesh" unique_id=748531341]
-position = Vector2(-1, 4)
-navigation_polygon = SubResource("NavigationPolygon_o5yvi")
-travel_cost = 5.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=405617385]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_3nkac")
+volume_db = -6.0
 autoplay = true
 
-[node name="AllEvents" type="Node2D" parent="." unique_id=910270313]
+[node name="AllEvents" type="Node2D" parent="."]
 
-[node name="Checkout1" parent="AllEvents" unique_id=767341690 instance=ExtResource("12_fpsp3")]
-position = Vector2(300, 380)
+[node name="Checkout1" parent="AllEvents" instance=ExtResource("12_fpsp3")]
+position = Vector2(358, 148)
 
-[node name="Checkout2" parent="AllEvents" unique_id=994601118 instance=ExtResource("12_fpsp3")]
-position = Vector2(330, 420)
+[node name="Checkout2" parent="AllEvents" instance=ExtResource("12_fpsp3")]
+position = Vector2(388, 188)
 
-[node name="Checkout3" parent="AllEvents" unique_id=1076260407 instance=ExtResource("12_fpsp3")]
-position = Vector2(280, 360)
+[node name="Checkout3" parent="AllEvents" instance=ExtResource("12_fpsp3")]
+position = Vector2(338, 128)
 
-[node name="Checkout4" parent="AllEvents" unique_id=1879025959 instance=ExtResource("12_fpsp3")]
-position = Vector2(370, 320)
+[node name="Checkout4" parent="AllEvents" instance=ExtResource("12_fpsp3")]
+position = Vector2(428, 88)
 
-[node name="PushChair1" parent="AllEvents" unique_id=1711573617 instance=ExtResource("13_wffsm")]
-position = Vector2(100, 370)
+[node name="PushChair1" parent="AllEvents" instance=ExtResource("13_wffsm")]
+position = Vector2(158, 138)
 
-[node name="PushChair2" parent="AllEvents" unique_id=19446340 instance=ExtResource("13_wffsm")]
-position = Vector2(140, 390)
+[node name="PushChair2" parent="AllEvents" instance=ExtResource("13_wffsm")]
+position = Vector2(198, 158)
 
-[node name="PushChair3" parent="AllEvents" unique_id=1592546251 instance=ExtResource("13_wffsm")]
-position = Vector2(160, 350)
+[node name="PushChair3" parent="AllEvents" instance=ExtResource("13_wffsm")]
+position = Vector2(218, 118)
 
-[node name="PushChair4" parent="AllEvents" unique_id=1498152242 instance=ExtResource("13_wffsm")]
-position = Vector2(180, 410)
+[node name="PushChair4" parent="AllEvents" instance=ExtResource("13_wffsm")]
+position = Vector2(238, 178)
 
-[node name="LetKidsLeave1" parent="AllEvents" unique_id=195485829 instance=ExtResource("14_dw3di")]
-position = Vector2(-30, 380)
+[node name="LetKidsLeave1" parent="AllEvents" instance=ExtResource("14_dw3di")]
+position = Vector2(28, 148)
 
-[node name="LetKidsLeave2" parent="AllEvents" unique_id=1069141604 instance=ExtResource("14_dw3di")]
-position = Vector2(0, 400)
+[node name="LetKidsLeave2" parent="AllEvents" instance=ExtResource("14_dw3di")]
+position = Vector2(58, 168)
 
-[node name="LetKidsLeave3" parent="AllEvents" unique_id=711983946 instance=ExtResource("14_dw3di")]
-position = Vector2(-50, 350)
-
-[node name="Book1" parent="AllEvents" unique_id=1503517270 instance=ExtResource("12_vwkqt")]
-position = Vector2(300, 200)
-
-[node name="Book2" parent="AllEvents" unique_id=1311586971 instance=ExtResource("12_vwkqt")]
-position = Vector2(350, 180)
-
-[node name="Book3" parent="AllEvents" unique_id=374657057 instance=ExtResource("12_vwkqt")]
-position = Vector2(280, 140)
-
-[node name="Book4" parent="AllEvents" unique_id=985742415 instance=ExtResource("12_vwkqt")]
-position = Vector2(320, 110)
-
-[node name="Book5" parent="AllEvents" unique_id=732877445 instance=ExtResource("12_vwkqt")]
-position = Vector2(380, 220)
-
-[node name="Food1" parent="AllEvents" unique_id=83135568 instance=ExtResource("13_fpsp3")]
-position = Vector2(120, 200)
-
-[node name="Food2" parent="AllEvents" unique_id=343175493 instance=ExtResource("13_fpsp3")]
-position = Vector2(160, 180)
-
-[node name="Food3" parent="AllEvents" unique_id=563890443 instance=ExtResource("13_fpsp3")]
-position = Vector2(150, 140)
-
-[node name="Food4" parent="AllEvents" unique_id=1415207798 instance=ExtResource("13_fpsp3")]
-position = Vector2(190, 220)
-
-[node name="Student1" parent="AllEvents" unique_id=1317360296 instance=ExtResource("7_qia21")]
-position = Vector2(80, 60)
-
-[node name="Student2" parent="AllEvents" unique_id=26731376 instance=ExtResource("7_qia21")]
-position = Vector2(400, 80)
-
-[node name="Student3" parent="AllEvents" unique_id=1978674143 instance=ExtResource("7_qia21")]
-position = Vector2(200, 50)
-
-[node name="Student4" parent="AllEvents" unique_id=1157146425 instance=ExtResource("7_qia21")]
-position = Vector2(420, 300)
-
-[node name="Student5" parent="AllEvents" unique_id=1347115323 instance=ExtResource("7_qia21")]
-position = Vector2(380, 400)
+[node name="LetKidsLeave3" parent="AllEvents" instance=ExtResource("14_dw3di")]
+position = Vector2(8, 118)

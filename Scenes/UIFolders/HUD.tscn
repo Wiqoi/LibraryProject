@@ -1,16 +1,30 @@
-[gd_scene format=3 uid="uid://bsbp7nmgsjuit"]
+[gd_scene load_steps=20 format=3 uid="uid://bsbp7nmgsjuit"]
 
 [ext_resource type="Script" uid="uid://dc1o3qrrs1jyg" path="res://Scripts/ObjectivesCloseOpen.gd" id="1_khrgo"]
 [ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="1_xqwax"]
 [ext_resource type="Script" uid="uid://cpjgb7cbh7xcr" path="res://Scripts/right.gd" id="2_vagh1"]
 [ext_resource type="Script" uid="uid://c5nu66km0vs5s" path="res://Scripts/menu_bar.gd" id="2_xqwax"]
 [ext_resource type="Script" uid="uid://cgbiuyvxleco3" path="res://Scripts/up.gd" id="3_xhb6w"]
+[ext_resource type="Texture2D" uid="uid://6tv4can7b4ly" path="res://Assets/GUI-HUDASSETS/UI_Flat_Frame01a.png" id="4_oqorx"]
 [ext_resource type="Script" uid="uid://bga1pqbjfedcn" path="res://Scripts/left.gd" id="4_xhb6w"]
 [ext_resource type="Script" uid="uid://ctkob60p5mcsd" path="res://Scripts/down.gd" id="5_ydgmi"]
 [ext_resource type="PackedScene" uid="uid://minimap001" path="res://Scenes/UIFolders/minimap.tscn" id="6_minimap"]
-[ext_resource type="Script" path="res://Scripts/InteractionBar.gd" id="9_6yr14"]
+[ext_resource type="Script" uid="uid://by5kn2wxsyf27" path="res://Scripts/InteractionBar.gd" id="9_6yr14"]
+[ext_resource type="Script" uid="uid://fbv4gw7hp0yc" path="res://Scripts/debug_finish.gd" id="10_dbg"]
+[ext_resource type="Texture2D" uid="uid://ds6s2ucrptois" path="res://Assets/GUI-HUDASSETS/UI_Flat_Button02a_1.png" id="10_dol0d"]
+[ext_resource type="Texture2D" uid="uid://drtyxuxxqy3jl" path="res://Assets/GUI-HUDASSETS/UI_Flat_Button02a_3.png" id="11_llluk"]
+[ext_resource type="Texture2D" uid="uid://fjpx7dyjpll" path="res://Assets/GUI-HUDASSETS/UI_Flat_ToggleOff03a.png" id="15_toggle_off"]
+[ext_resource type="Script" uid="uid://cj0k3ekc8u14" path="res://Scripts/hud_intro.gd" id="16_hud_intro"]
+[ext_resource type="Texture2D" uid="uid://j20lxgadflrf" path="res://Assets/GUI-HUDASSETS/Arrow.png" id="17_arrow"]
+[ext_resource type="Texture2D" uid="uid://b78lwmh6jqg2h" path="res://Assets/GUI-HUDASSETS/Settings Wheel.png" id="18_wheel"]
 
-[node name="Hud" type="Control" unique_id=899515702]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lu1dj"]
+texture = ExtResource("11_llluk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w3wpm"]
+texture = ExtResource("10_dol0d")
+
+[node name="Hud" type="Control"]
 texture_filter = 1
 layout_mode = 3
 anchor_left = -0.483
@@ -23,32 +37,53 @@ offset_right = 26.6
 offset_bottom = 25.7119
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("16_hud_intro")
 
-[node name="Button" type="Button" parent="." unique_id=1121760691]
+[node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 601.0
 offset_right = 103.0
 offset_bottom = 673.0
-text = "Options"
+theme_override_styles/hover = SubResource("StyleBoxTexture_lu1dj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w3wpm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_lu1dj")
 script = ExtResource("1_xqwax")
 
-[node name="ObjectiveBar" type="Control" parent="." unique_id=272791490]
+[node name="Wheel" type="TextureRect" parent="Button"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 7.0
+offset_right = 59.0
+offset_bottom = 55.0
+mouse_filter = 2
+texture = ExtResource("18_wheel")
+
+[node name="DebugFinish" type="Button" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 601.0
+offset_right = 230.0
+offset_bottom = 673.0
+text = "Debug Finish"
+script = ExtResource("10_dbg")
+
+[node name="ObjectiveBar" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 7.0
 offset_top = 1.0
 offset_right = 47.0
 offset_bottom = 41.0
 
-[node name="ColorRect" type="ColorRect" parent="ObjectiveBar" unique_id=33152754]
+[node name="ObjectiveList" type="TextureRect" parent="ObjectiveBar"]
 layout_mode = 0
 offset_left = 807.0
 offset_top = 61.0
 offset_right = 1207.0
 offset_bottom = 331.0
-color = Color(0.761432, 0.467646, 0.0859126, 1)
+mouse_filter = 2
 
-[node name="MenuBar" type="MenuBar" parent="ObjectiveBar" unique_id=979079211]
+[node name="MenuBar" type="MenuBar" parent="ObjectiveBar"]
 modulate = Color(0.849307, 0.868733, 0.971113, 1)
 self_modulate = Color(0.831515, 0.78216, 0.949573, 1)
 layout_mode = 0
@@ -58,113 +93,162 @@ offset_right = 1207.0
 offset_bottom = 329.0
 script = ExtResource("2_xqwax")
 
-[node name="OBJ label" type="RichTextLabel" parent="ObjectiveBar/MenuBar" unique_id=127492693]
+[node name="TextureRect" type="TextureRect" parent="ObjectiveBar/MenuBar"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -45.0
+offset_right = 409.0
+offset_bottom = 275.0
+texture = ExtResource("4_oqorx")
+
+[node name="OBJ label" type="RichTextLabel" parent="ObjectiveBar/MenuBar"]
 layout_mode = 0
 offset_top = -27.0
 offset_right = 414.0
 offset_bottom = -4.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Objectives:"
 fit_content = true
 
-[node name="Objective 1" type="RichTextLabel" parent="ObjectiveBar/MenuBar" unique_id=256107949]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -192.0
-offset_top = 4.0
-offset_right = 125.0
-offset_bottom = 44.0
-grow_horizontal = 2
-text = " - Clean Up the Sandwiches"
-fit_content = true
-
-[node name="Objective 2" type="RichTextLabel" parent="ObjectiveBar/MenuBar" unique_id=902798997]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -192.0
-offset_top = 28.0
-offset_right = 291.0
-offset_bottom = 68.0
-grow_horizontal = 2
-text = " - Clean Up the Sandwiches"
-fit_content = true
-
-[node name="Objective 3" type="RichTextLabel" parent="ObjectiveBar/MenuBar" unique_id=116235877]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -192.0
-offset_top = 52.0
-offset_right = 125.0
-offset_bottom = 92.0
-grow_horizontal = 2
-text = " - Clean Up the Sandwiches"
-fit_content = true
-
-[node name="Objective 4" type="RichTextLabel" parent="ObjectiveBar/MenuBar" unique_id=1752343440]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -192.0
-offset_top = 76.0
-offset_right = 125.0
-offset_bottom = 116.0
-grow_horizontal = 2
-text = " - Clean Up the Sandwiches"
-fit_content = true
-
-[node name="CheckButton" type="CheckButton" parent="ObjectiveBar" unique_id=2011829293]
+[node name="ObjectivesBox" type="VBoxContainer" parent="ObjectiveBar/MenuBar"]
 layout_mode = 0
-offset_left = 1097.0
-offset_top = 10.0
-offset_right = 1208.0
-offset_bottom = 83.0
-text = "Close
+offset_top = 8.0
+offset_right = 400.0
+offset_bottom = 268.0
 
-"
+[node name="Objective 1" type="RichTextLabel" parent="ObjectiveBar/MenuBar/ObjectivesBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = " - Clean Up the Sandwiches"
+fit_content = true
+autowrap_mode = 2
+
+[node name="Objective 2" type="RichTextLabel" parent="ObjectiveBar/MenuBar/ObjectivesBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = " - Clean Up the Sandwiches"
+fit_content = true
+autowrap_mode = 2
+
+[node name="Objective 3" type="RichTextLabel" parent="ObjectiveBar/MenuBar/ObjectivesBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = " - Clean Up the Sandwiches"
+fit_content = true
+autowrap_mode = 2
+
+[node name="Objective 4" type="RichTextLabel" parent="ObjectiveBar/MenuBar/ObjectivesBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = " - Clean Up the Sandwiches"
+fit_content = true
+autowrap_mode = 2
+
+[node name="ObjectiveToggle" type="TextureButton" parent="ObjectiveBar"]
+layout_mode = 0
+offset_left = 1144.0
+offset_top = 24.0
+offset_right = 1199.5
+offset_bottom = 60.5
+texture_normal = ExtResource("15_toggle_off")
+stretch_mode = 5
 script = ExtResource("1_khrgo")
 
-[node name="UserOnScreenControl" type="Node2D" parent="." unique_id=402630636]
+[node name="UserOnScreenControl" type="Node2D" parent="."]
 position = Vector2(10, 10)
 
-[node name="Right" type="Button" parent="UserOnScreenControl" unique_id=339404614]
+[node name="Right" type="Button" parent="UserOnScreenControl"]
 offset_left = 1006.0
 offset_top = 471.0
 offset_right = 1073.0
 offset_bottom = 535.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_lu1dj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w3wpm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_lu1dj")
 script = ExtResource("2_vagh1")
 metadata/_edit_use_anchors_ = true
 
-[node name="Up" type="Button" parent="UserOnScreenControl" unique_id=297445956]
+[node name="Arrow" type="TextureRect" parent="UserOnScreenControl/Right"]
+layout_mode = 0
+offset_left = 11.5
+offset_top = 6.0
+offset_right = 59.5
+offset_bottom = 54.0
+rotation = 1.5708
+pivot_offset = Vector2(24, 24)
+mouse_filter = 2
+texture = ExtResource("17_arrow")
+
+[node name="Up" type="Button" parent="UserOnScreenControl"]
 offset_left = 968.0
 offset_top = 404.0
 offset_right = 1035.0
 offset_bottom = 468.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_lu1dj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w3wpm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_lu1dj")
 script = ExtResource("3_xhb6w")
 metadata/_edit_use_anchors_ = true
 
-[node name="Left" type="Button" parent="UserOnScreenControl" unique_id=556775629]
+[node name="Arrow" type="TextureRect" parent="UserOnScreenControl/Up"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 56.0
+offset_bottom = 55.0
+pivot_offset = Vector2(24, 24)
+mouse_filter = 2
+texture = ExtResource("17_arrow")
+
+[node name="Left" type="Button" parent="UserOnScreenControl"]
 offset_left = 930.0
 offset_top = 471.0
 offset_right = 997.0
 offset_bottom = 535.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_lu1dj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w3wpm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_lu1dj")
 script = ExtResource("4_xhb6w")
 metadata/_edit_use_anchors_ = true
 
-[node name="Down" type="Button" parent="UserOnScreenControl" unique_id=1761122777]
+[node name="Arrow" type="TextureRect" parent="UserOnScreenControl/Left"]
+layout_mode = 0
+offset_left = 7.5
+offset_top = 9.0
+offset_right = 55.5
+offset_bottom = 57.0
+rotation = -1.5708
+pivot_offset = Vector2(24, 24)
+mouse_filter = 2
+texture = ExtResource("17_arrow")
+
+[node name="Down" type="Button" parent="UserOnScreenControl"]
 offset_left = 969.0
 offset_top = 538.0
 offset_right = 1036.0
 offset_bottom = 602.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_lu1dj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w3wpm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_lu1dj")
 script = ExtResource("5_ydgmi")
 metadata/_edit_use_anchors_ = true
 
-[node name="Minimap" parent="." unique_id=1878899355 instance=ExtResource("6_minimap")]
+[node name="Arrow" type="TextureRect" parent="UserOnScreenControl/Down"]
+layout_mode = 0
+offset_left = 10.5
+offset_top = 7.0
+offset_right = 58.5
+offset_bottom = 55.0
+rotation = 3.14159
+pivot_offset = Vector2(24, 24)
+mouse_filter = 2
+texture = ExtResource("17_arrow")
+
+[node name="Minimap" parent="." instance=ExtResource("6_minimap")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -175,7 +259,7 @@ offset_right = 329.0
 offset_bottom = 211.0
 grow_horizontal = 0
 
-[node name="InteractionBar" type="Control" parent="." unique_id=2137173161]
+[node name="InteractionBar" type="Control" parent="."]
 visible = false
 anchors_preset = 0
 offset_left = 310.0
@@ -184,13 +268,13 @@ offset_right = 710.0
 offset_bottom = 680.0
 script = ExtResource("9_6yr14")
 
-[node name="Background" type="ColorRect" parent="InteractionBar" unique_id=1799727350]
+[node name="Background" type="ColorRect" parent="InteractionBar"]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 60.0
 color = Color(0.133, 0.133, 0.133, 0.85)
 
-[node name="ActionLabel" type="Label" parent="InteractionBar" unique_id=1330183838]
+[node name="ActionLabel" type="Label" parent="InteractionBar"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 5.0
@@ -198,12 +282,10 @@ offset_right = 390.0
 offset_bottom = 30.0
 horizontal_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="InteractionBar" unique_id=1178101329]
+[node name="ProgressBar" type="ProgressBar" parent="InteractionBar"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 35.0
 offset_right = 390.0
 offset_bottom = 55.0
 show_percentage = false
-
-[connection signal="toggled" from="ObjectiveBar/CheckButton" to="ObjectiveBar/CheckButton" method="_on_toggled"]

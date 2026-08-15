@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dlj3ocoohgych"]
+[gd_scene load_steps=17 format=3 uid="uid://dlj3ocoohgych"]
 
 [ext_resource type="Texture2D" uid="uid://c5sam3eusp50o" path="res://Assets/PlaceHold/2D Top Down Pixel Art Characters/010.png" id="1_kjmrn"]
 [ext_resource type="Script" uid="uid://btjibr1prb3ho" path="res://Scenes/EventFolders/hand_sss.gd" id="1_yvgya"]
@@ -16,6 +16,14 @@ height = 28.0
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kq6h"]
 atlas = ExtResource("1_kjmrn")
 region = Rect2(20, 32, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlk1"]
+atlas = ExtResource("1_kjmrn")
+region = Rect2(0, 32, 20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlk2"]
+atlas = ExtResource("1_kjmrn")
+region = Rect2(40, 32, 20, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2dlqf"]
 atlas = ExtResource("3_yvgya")
@@ -65,6 +73,20 @@ animations = [{
 }],
 "loop": false,
 "name": &"Sanitize",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kq6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlk2")
+}],
+"loop": true,
+"name": &"Walk",
 "speed": 5.0
 }]
 

@@ -38,3 +38,32 @@ var Objectives = ""
 var events_done = 0
 var events_total = 0
 var player_has_backpack: bool = false
+var is_interacting: bool = false
+
+# Per-objective progress counters (Level 1)
+var sanitize_done: int = 0
+var sanitize_total: int = 10
+var cubby_done: int = 0
+var cubby_total: int = 5
+var fighting_done: int = 0
+var fighting_total: int = 1
+var enter_done: int = 0
+var enter_total: int = 1
+
+# Per-objective progress counters (Level 2)
+var books_done: int = 0
+var books_total: int = 6
+var shouting_done: int = 0
+var shouting_total: int = 3
+var running_done: int = 0
+var running_total: int = 3
+var food_done: int = 0
+var food_total: int = 4
+# Indexed by line in the objectives text file; true = objective complete
+var objectives_done: Array = [false, false, false, false]
+# Indexed by line; true = objective visible to the player (its events are available)
+var objectives_revealed: Array = [true, true, false, false]
+# True during the end-of-level cutscene (blocks level auto-transition and movement)
+var level_transitioning: bool = false
+# Which rule reminders have already been shown (persists across levels)
+var rules_shown: Dictionary = {}
