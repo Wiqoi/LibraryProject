@@ -64,19 +64,30 @@ func _physics_process(_delta: float) -> void:
 
 func update_animation():
 	var target_anim: String = "Idle"
-	
+
+	# Direction suffix based on movement (empty = idle)
+	var suffix := "idle"
 	if movement_dir != Vector2.ZERO:
-		# Determine the animation based on movement direction
 		if abs(movement_dir.y) > abs(movement_dir.x):
-			target_anim = "MoveUp" if movement_dir.y < 0 else "MoveDown"
+			suffix = "up" if movement_dir.y < 0 else "down"
 		else:
-			target_anim = "MoveRight" if movement_dir.x > 0 else "MoveLeft"
-	
+			suffix = "right" if movement_dir.x > 0 else "left"
+
+	if Global.player_has_backpack:
+		# Bag set: Bagidle / BagUp / BagDown / BagLeft / BagRight
+		target_anim = "Bag" + (suffix if suffix == "idle" else suffix.capitalize())
+	elif Global.player_has_book:
+		# Book set: Bookidle / Bookup / Bookdown / Bookleft / Bookright
+		target_anim = "Book" + suffix
+	else:
+		# Normal set: Idle / MoveUp / MoveDown / MoveLeft / MoveRight
+		target_anim = "Idle" if suffix == "idle" else "Move" + suffix.capitalize()
+
 	# Only change and play animation if it's different from current
 	if animations.animation != target_anim:
 		animations.animation = target_anim
 		animations.play()
-	
+
 	# Set the correct frame based on movement
 	if movement_dir != Vector2.ZERO:
 		animations.speed_scale = 1.0  # Normal speed for movement

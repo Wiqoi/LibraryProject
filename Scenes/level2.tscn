@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://bf6vjdjxetmjg"]
+[gd_scene load_steps=12 format=3 uid="uid://bf6vjdjxetmjg"]
 
 [ext_resource type="Script" uid="uid://dlnggh2aqol6f" path="res://Scripts/level_2.gd" id="1_onqnr"]
 [ext_resource type="PackedScene" uid="uid://bqsrvxdclic6h" path="res://Scenes/LibraryInterior.tscn" id="2_onqnr"]
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="3_vn460"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="4_r8hce"]
-[ext_resource type="PackedScene" uid="uid://c5ug0fs60c1pp" path="res://Scenes/EventFolders/MisplacedBook.tscn" id="6_styii"]
 [ext_resource type="PackedScene" uid="uid://dshouting001" path="res://Scenes/EventFolders/Shouting.tscn" id="9_mmf1u"]
 [ext_resource type="PackedScene" uid="uid://ct1cptfo2bun8" path="res://Scenes/EventFolders/book_drop_on_ground.tscn" id="9_vn2uo"]
 [ext_resource type="PackedScene" uid="uid://b8ocl76do627h" path="res://Scenes/EventFolders/food_drop_on_ground.tscn" id="10_mtqcm"]
 [ext_resource type="PackedScene" uid="uid://drunning001" path="res://Scenes/EventFolders/RunningAround.tscn" id="10_vn460"]
 [ext_resource type="AudioStream" uid="uid://dxjvyojg3bnn8" path="res://Assets/Music/InGameMusic.mp3" id="11_mu7lp"]
+[ext_resource type="Script" uid="uid://c38jhvoq8b0mn" path="res://Scripts/event_guide.gd" id="12_eg"]
+[ext_resource type="PackedScene" uid="uid://bq4oknamnjfc8" path="res://Scenes/EventFolders/Shelf.tscn" id="13_shelf"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_onqnr")
@@ -32,53 +33,68 @@ autoplay = true
 
 [node name="AllEvents" type="Node2D" parent="."]
 
-[node name="Book" parent="AllEvents" instance=ExtResource("6_styii")]
-position = Vector2(-464, -24)
-
 [node name="Shouting1" parent="AllEvents" instance=ExtResource("9_mmf1u")]
-position = Vector2(-438, -280)
+position = Vector2(-1048, -512)
 
 [node name="Shouting2" parent="AllEvents" instance=ExtResource("9_mmf1u")]
-position = Vector2(-388, -230)
+position = Vector2(-1008, -472)
 
 [node name="Shouting3" parent="AllEvents" instance=ExtResource("9_mmf1u")]
-position = Vector2(-488, -210)
+position = Vector2(-1064, -472)
 
 [node name="Running1" parent="AllEvents" instance=ExtResource("10_vn460")]
-position = Vector2(-248, 0)
+position = Vector2(-304, -528)
 run_waypoints = [Vector2(0, 0), Vector2(50, -40), Vector2(100, -80)]
 
 [node name="Running2" parent="AllEvents" instance=ExtResource("10_vn460")]
-position = Vector2(-198, 70)
-run_waypoints = [Vector2(0, 0), Vector2(40, 30), Vector2(80, 0)]
+position = Vector2(-1392, -224)
+run_waypoints = [Vector2(0, 0), Vector2(0, -380), Vector2(500, -380)]
 
 [node name="Running3" parent="AllEvents" instance=ExtResource("10_vn460")]
-position = Vector2(-328, 30)
-run_waypoints = [Vector2(0, 0), Vector2(-60, 0), Vector2(-120, 0)]
-
-[node name="Book1" parent="AllEvents" instance=ExtResource("9_vn2uo")]
-position = Vector2(-320, -244)
-
-[node name="Book2" parent="AllEvents" instance=ExtResource("9_vn2uo")]
-position = Vector2(-270, -264)
-
-[node name="Book3" parent="AllEvents" instance=ExtResource("9_vn2uo")]
-position = Vector2(-220, -234)
-
-[node name="Book4" parent="AllEvents" instance=ExtResource("9_vn2uo")]
-position = Vector2(-300, -214)
-
-[node name="Book5" parent="AllEvents" instance=ExtResource("9_vn2uo")]
-position = Vector2(-240, -204)
+position = Vector2(-416, 48)
+run_waypoints = [Vector2(0, 0), Vector2(-520, 0), Vector2(-520, -200)]
 
 [node name="Food1" parent="AllEvents" instance=ExtResource("10_mtqcm")]
-position = Vector2(-92, -308)
+position = Vector2(-216, -344)
 
 [node name="Food2" parent="AllEvents" instance=ExtResource("10_mtqcm")]
-position = Vector2(-22, -320)
+position = Vector2(-232, -424)
 
 [node name="Food3" parent="AllEvents" instance=ExtResource("10_mtqcm")]
-position = Vector2(-72, -268)
+position = Vector2(-312, -456)
 
 [node name="Food4" parent="AllEvents" instance=ExtResource("10_mtqcm")]
-position = Vector2(-112, -288)
+position = Vector2(-312, -312)
+
+[node name="Shelf1" parent="AllEvents" instance=ExtResource("13_shelf")]
+position = Vector2(-1137, -200)
+
+[node name="Shelf2" parent="AllEvents" instance=ExtResource("13_shelf")]
+position = Vector2(-753, -520)
+
+[node name="Shelf3" parent="AllEvents" instance=ExtResource("13_shelf")]
+position = Vector2(-1265, -72)
+
+[node name="Shelf4" parent="AllEvents" instance=ExtResource("13_shelf")]
+position = Vector2(-801, -200)
+
+[node name="Shelf5" parent="AllEvents" instance=ExtResource("13_shelf")]
+position = Vector2(-1297, -456)
+
+[node name="Book1" parent="." instance=ExtResource("9_vn2uo")]
+position = Vector2(-832, -248)
+
+[node name="Book2" parent="." instance=ExtResource("9_vn2uo")]
+position = Vector2(-1176, -8)
+
+[node name="Book3" parent="." instance=ExtResource("9_vn2uo")]
+position = Vector2(-992, 152)
+
+[node name="Book4" parent="." instance=ExtResource("9_vn2uo")]
+position = Vector2(-704, 48)
+
+[node name="Book5" parent="." instance=ExtResource("9_vn2uo")]
+position = Vector2(-464, -464)
+
+[node name="EventGuide" type="Node2D" parent="."]
+script = ExtResource("12_eg")

@@ -1,22 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkjxucs3g4vej"]
+[gd_scene load_steps=10 format=3 uid="uid://bkjxucs3g4vej"]
 
 [ext_resource type="Script" uid="uid://03he4gplhk7e" path="res://Scripts/level_3.gd" id="1_h6p24"]
-[ext_resource type="PackedScene" uid="uid://daupokxccqh08" path="res://Scenes/CheckoutArea.tscn" id="2_h6p24"]
+[ext_resource type="PackedScene" uid="uid://bqsrvxdclic6h" path="res://Scenes/LibraryInterior.tscn" id="2_h3ll2"]
 [ext_resource type="PackedScene" uid="uid://qkge5vvwfp1v" path="res://Scenes/player.tscn" id="3_vwkqt"]
 [ext_resource type="Script" uid="uid://c38evh7o04jd4" path="res://Scripts/Camera2dZoom.gd" id="4_fpsp3"]
 [ext_resource type="AudioStream" uid="uid://dxjvyojg3bnn8" path="res://Assets/Music/InGameMusic.mp3" id="11_3nkac"]
 [ext_resource type="PackedScene" uid="uid://dcheckout001" path="res://Scenes/EventFolders/Checkout.tscn" id="12_fpsp3"]
 [ext_resource type="PackedScene" uid="uid://dpushchair001" path="res://Scenes/EventFolders/PushChair.tscn" id="13_wffsm"]
 [ext_resource type="PackedScene" uid="uid://7nkfm0qcoj05" path="res://Scenes/EventFolders/LetKidsLeave.tscn" id="14_dw3di"]
+[ext_resource type="Script" uid="uid://c38jhvoq8b0mn" path="res://Scripts/event_guide.gd" id="15_eg"]
 
 [node name="Game2" type="Node2D"]
 script = ExtResource("1_h6p24")
 
-[node name="GroundTilesNode" parent="." instance=ExtResource("2_h6p24")]
+[node name="GroundTilesNode" parent="." instance=ExtResource("2_h3ll2")]
+position = Vector2(248, 168)
 
 [node name="Player" parent="." instance=ExtResource("3_vwkqt")]
 unique_name_in_owner = true
-position = Vector2(200, 200)
+position = Vector2(216, 216)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -32,34 +34,37 @@ autoplay = true
 [node name="AllEvents" type="Node2D" parent="."]
 
 [node name="Checkout1" parent="AllEvents" instance=ExtResource("12_fpsp3")]
-position = Vector2(358, 148)
+position = Vector2(-42, 196)
 
 [node name="Checkout2" parent="AllEvents" instance=ExtResource("12_fpsp3")]
-position = Vector2(388, 188)
+position = Vector2(-12, 236)
 
 [node name="Checkout3" parent="AllEvents" instance=ExtResource("12_fpsp3")]
-position = Vector2(338, 128)
+position = Vector2(-62, 176)
 
 [node name="Checkout4" parent="AllEvents" instance=ExtResource("12_fpsp3")]
-position = Vector2(428, 88)
+position = Vector2(28, 136)
 
 [node name="PushChair1" parent="AllEvents" instance=ExtResource("13_wffsm")]
-position = Vector2(158, 138)
+position = Vector2(-242, 186)
 
 [node name="PushChair2" parent="AllEvents" instance=ExtResource("13_wffsm")]
-position = Vector2(198, 158)
+position = Vector2(-202, 206)
 
 [node name="PushChair3" parent="AllEvents" instance=ExtResource("13_wffsm")]
-position = Vector2(218, 118)
+position = Vector2(-182, 166)
 
 [node name="PushChair4" parent="AllEvents" instance=ExtResource("13_wffsm")]
-position = Vector2(238, 178)
+position = Vector2(-162, 226)
 
 [node name="LetKidsLeave1" parent="AllEvents" instance=ExtResource("14_dw3di")]
-position = Vector2(28, 148)
+position = Vector2(-372, 196)
 
 [node name="LetKidsLeave2" parent="AllEvents" instance=ExtResource("14_dw3di")]
-position = Vector2(58, 168)
+position = Vector2(-342, 216)
 
 [node name="LetKidsLeave3" parent="AllEvents" instance=ExtResource("14_dw3di")]
-position = Vector2(8, 118)
+position = Vector2(-392, 166)
+
+[node name="EventGuide" type="Node2D" parent="."]
+script = ExtResource("15_eg")

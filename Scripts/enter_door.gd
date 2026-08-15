@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 		if has_node("ObjectMarker"):
 			$ObjectMarker.visible = gate_open
 
-		if gate_open and is_mouse_hovering and Input.is_action_just_pressed("ui_interact") and not Global.is_interacting and not Global.player_has_backpack:
+		if gate_open and is_mouse_hovering and (Input.is_action_just_pressed("ui_interact") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and not Global.is_interacting and not Global.player_has_backpack:
 			start_interaction()
 
 func start_interaction() -> void:
@@ -84,7 +84,7 @@ func _play_cutscene() -> void:
 	for kid in get_tree().get_nodes_in_group("kids"):
 		kid.start_walking()
 
-	# Slow fade to black, then back to the level select screen
+	# Slow fade to black, then on to the victory screen
 	# Parent the overlay to the current scene so it is freed on scene change
 	var layer = CanvasLayer.new()
 	layer.layer = 100
@@ -100,4 +100,4 @@ func _play_cutscene() -> void:
 	tween.tween_property(rect, "color:a", 1.0, 2.5)
 	tween.tween_interval(0.3)
 	await tween.finished
-	get_tree().change_scene_to_packed(load("res://Scenes/UIFolders/LevelSelect.tscn"))
+	get_tree().change_scene_to_packed(load("res://Scenes/UIFolders/VictoryScreen.tscn"))

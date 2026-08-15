@@ -1,5 +1,7 @@
 extends Node2D
 
+var _transitioning: bool = false
+
 func _ready():
 	Global.Objectives = "res://TextFiles/Level1Objectives.txt"
 	Global.events_done = 0
@@ -14,8 +16,11 @@ func _ready():
 	Global.events_total = Global.sanitize_total + Global.cubby_total + Global.fighting_total + Global.enter_total
 
 func _process(delta: float) -> void:
+	if _transitioning:
+		return
 	if not Global.level_transitioning and Global.events_done >= Global.events_total and Global.events_total > 0:
+		_transitioning = true
 		Global.lvl1done = 1
 		await get_tree().create_timer(0.5).timeout
-		var game_scene = load("res://Scenes/UIFolders/LevelSelect.tscn")
+		var game_scene = load("res://Scenes/UIFolders/VictoryScreen.tscn")
 		get_tree().change_scene_to_packed(game_scene)

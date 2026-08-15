@@ -1,6 +1,9 @@
 extends Area2D
+# Shelf item, mirroring the level-1 cubby: only interactable while the player
+# carries a book. Stowing the book completes the book event and triggers the
+# book rule quiz on the first placement.
 
-@export var interaction_text: String = "Stowing backpack..."
+@export var interaction_text: String = "Shelving book..."
 @export var interaction_duration: float = 3.5
 var is_organizing: bool = false
 var interaction_elapsed: float = 0.0
@@ -15,11 +18,10 @@ func _ready() -> void:
 
 	if has_node("ObjectMarker"):
 		$ObjectMarker.visible = false
-	if has_node("AnimatedSprite2D"):
-		$AnimatedSprite2D.play("Default")
+	$AnimatedSprite2D.play("NoBook")
 
 func is_available() -> bool:
-	return not done and Global.player_has_backpack and not Global.is_interacting
+	return not done and Global.player_has_book and not Global.is_interacting
 
 func _process(delta: float) -> void:
 	if is_organizing:
@@ -30,11 +32,11 @@ func _process(delta: float) -> void:
 			_complete_stow()
 		return
 
-	# Only show marker and allow interaction when player has a backpack
+	# Only show marker and allow interaction when the player carries a book
 	if has_node("ObjectMarker"):
-		$ObjectMarker.visible = Global.player_has_backpack and not done
+		$ObjectMarker.visible = Global.player_has_book and not done
 
-	if not done and Global.player_has_backpack:
+	if not done and Global.player_has_book:
 		if is_mouse_hovering and (Input.is_action_just_pressed("ui_interact") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and not Global.is_interacting:
 			start_stow()
 
@@ -53,22 +55,19 @@ func _complete_stow() -> void:
 	Global.is_interacting = false
 	Global.interaction_finished.emit()
 
-	# Remove backpack from player
-	var player = Global.player_node
-	if player and player.has_method("remove_backpack"):
-		player.remove_backpack()
+	# Clear the carried-book state (the player's Book* animations switch back)
+	Global.player_has_book = false
 
-	# Complete the objective
-	if Global.firstBackpack == 0:
-		Global.firstBackpack = 1
+	# Complete the book objective; the first placement triggers the rule quiz
+	if Global.firstBook == 0:
+		Global.firstBook = 1
 	Global.events_done += 1
-	Global.cubby_done += 1
-	if Global.cubby_done >= Global.cubby_total:
-		Global.objectives_done[1] = true
+	Global.books_done += 1
+	if Global.books_done >= Global.books_total:
+		Global.objectives_done[0] = true
 	Global.task_completed.emit(global_position)
 
-	# Hide marker and switch to filled animation
+	# Hide marker and switch the shelf to its filled state
 	if has_node("ObjectMarker"):
 		$ObjectMarker.visible = false
-	if has_node("AnimatedSprite2D"):
-		$AnimatedSprite2D.play("Bag inside")
+	$AnimatedSprite2D.play("HasBook")

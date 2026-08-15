@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bsbp7nmgsjuit"]
+[gd_scene load_steps=24 format=3 uid="uid://bsbp7nmgsjuit"]
 
 [ext_resource type="Script" uid="uid://dc1o3qrrs1jyg" path="res://Scripts/ObjectivesCloseOpen.gd" id="1_khrgo"]
 [ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="1_xqwax"]
@@ -16,13 +16,21 @@
 [ext_resource type="Texture2D" uid="uid://fjpx7dyjpll" path="res://Assets/GUI-HUDASSETS/UI_Flat_ToggleOff03a.png" id="15_toggle_off"]
 [ext_resource type="Script" uid="uid://cj0k3ekc8u14" path="res://Scripts/hud_intro.gd" id="16_hud_intro"]
 [ext_resource type="Texture2D" uid="uid://j20lxgadflrf" path="res://Assets/GUI-HUDASSETS/Arrow.png" id="17_arrow"]
+[ext_resource type="Texture2D" uid="uid://bdfrcfh06m8oj" path="res://Assets/GUI-HUDASSETS/InteractionBar.png" id="18_llluk"]
 [ext_resource type="Texture2D" uid="uid://b78lwmh6jqg2h" path="res://Assets/GUI-HUDASSETS/Settings Wheel.png" id="18_wheel"]
+[ext_resource type="Texture2D" uid="uid://ck4ewbyeg1mn4" path="res://Assets/GUI-HUDASSETS/TheRealBar.png" id="19_38f7l"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lu1dj"]
 texture = ExtResource("11_llluk")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w3wpm"]
 texture = ExtResource("10_dol0d")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_argla"]
+texture = ExtResource("19_38f7l")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3wpm"]
+bg_color = Color(0.695225, 0.278506, 0.235659, 1)
 
 [node name="Hud" type="Control"]
 texture_filter = 1
@@ -77,9 +85,9 @@ offset_bottom = 41.0
 
 [node name="ObjectiveList" type="TextureRect" parent="ObjectiveBar"]
 layout_mode = 0
-offset_left = 807.0
+offset_left = 752.0
 offset_top = 61.0
-offset_right = 1207.0
+offset_right = 1152.0
 offset_bottom = 331.0
 mouse_filter = 2
 
@@ -87,9 +95,9 @@ mouse_filter = 2
 modulate = Color(0.849307, 0.868733, 0.971113, 1)
 self_modulate = Color(0.831515, 0.78216, 0.949573, 1)
 layout_mode = 0
-offset_left = 807.0
+offset_left = 752.0
 offset_top = 61.0
-offset_right = 1207.0
+offset_right = 1152.0
 offset_bottom = 329.0
 script = ExtResource("2_xqwax")
 
@@ -150,9 +158,9 @@ autowrap_mode = 2
 
 [node name="ObjectiveToggle" type="TextureButton" parent="ObjectiveBar"]
 layout_mode = 0
-offset_left = 1144.0
+offset_left = 1089.0
 offset_top = 24.0
-offset_right = 1199.5
+offset_right = 1144.5
 offset_bottom = 60.5
 texture_normal = ExtResource("15_toggle_off")
 stretch_mode = 5
@@ -249,6 +257,7 @@ mouse_filter = 2
 texture = ExtResource("17_arrow")
 
 [node name="Minimap" parent="." instance=ExtResource("6_minimap")]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -260,21 +269,22 @@ offset_bottom = 211.0
 grow_horizontal = 0
 
 [node name="InteractionBar" type="Control" parent="."]
-visible = false
 anchors_preset = 0
-offset_left = 310.0
-offset_top = 620.0
-offset_right = 710.0
-offset_bottom = 680.0
+offset_left = 311.0
+offset_top = 601.0
+offset_right = 711.0
+offset_bottom = 661.0
 script = ExtResource("9_6yr14")
 
-[node name="Background" type="ColorRect" parent="InteractionBar"]
+[node name="TextureRect" type="TextureRect" parent="InteractionBar"]
 layout_mode = 0
-offset_right = 400.0
-offset_bottom = 60.0
-color = Color(0.133, 0.133, 0.133, 0.85)
+offset_top = -3.0
+offset_right = 401.0
+offset_bottom = 69.0
+texture = ExtResource("18_llluk")
 
 [node name="ActionLabel" type="Label" parent="InteractionBar"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 10.0
 offset_top = 5.0
@@ -285,7 +295,9 @@ horizontal_alignment = 1
 [node name="ProgressBar" type="ProgressBar" parent="InteractionBar"]
 layout_mode = 0
 offset_left = 10.0
-offset_top = 35.0
+offset_top = 43.0
 offset_right = 390.0
-offset_bottom = 55.0
+offset_bottom = 57.0
+theme_override_styles/background = SubResource("StyleBoxTexture_argla")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w3wpm")
 show_percentage = false

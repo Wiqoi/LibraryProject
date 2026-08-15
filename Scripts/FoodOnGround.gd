@@ -40,7 +40,7 @@ func play_book_idle_animation() -> void:
 		animated_sprite.play("BookIdle")
 
 func is_available() -> bool:
-	return not is_organizing and not Global.player_has_backpack and not Global.is_interacting
+	return not is_organizing and not Global.player_has_backpack and not Global.player_has_book and not Global.is_interacting
 
 func _process(delta: float) -> void:
 	if is_organizing:
@@ -51,18 +51,18 @@ func _process(delta: float) -> void:
 			_complete_interaction()
 		return
 
-	# Hide marker and block interaction while carrying a backpack
+	# Hide marker and block interaction while carrying a backpack or a book
 	if has_node("ObjectMarker"):
-		$ObjectMarker.visible = not Global.player_has_backpack
+		$ObjectMarker.visible = not Global.player_has_backpack and not Global.player_has_book
 
-	if Global.player_has_backpack:
+	if Global.player_has_backpack or Global.player_has_book:
 		return
 
 	if player_node != null:
 		var distance_to_player = global_position.distance_to(player_node.global_position)
 		var is_near_player = distance_to_player <= interaction_range
 
-		if is_near_player and is_mouse_hovering and Input.is_action_just_pressed("ui_interact") and not Global.is_interacting:
+		if is_near_player and is_mouse_hovering and (Input.is_action_just_pressed("ui_interact") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and not Global.is_interacting:
 			start_interaction()
 
 func start_interaction() -> void:

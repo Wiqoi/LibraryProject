@@ -38,6 +38,7 @@ var Objectives = ""
 var events_done = 0
 var events_total = 0
 var player_has_backpack: bool = false
+var player_has_book: bool = false
 var is_interacting: bool = false
 
 # Per-objective progress counters (Level 1)
@@ -52,7 +53,7 @@ var enter_total: int = 1
 
 # Per-objective progress counters (Level 2)
 var books_done: int = 0
-var books_total: int = 6
+var books_total: int = 5
 var shouting_done: int = 0
 var shouting_total: int = 3
 var running_done: int = 0

@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://bq4oknamnjfc8"]
+
+[ext_resource type="Script" uid="uid://d1u276kyu1a6w" path="res://Scripts/shelf_item.gd" id="1_shelf"]
+[ext_resource type="Texture2D" uid="uid://cs27xohjdvppo" path="res://Assets/PlaceHold/Modern_Interiors_Free_v2.2/Modern tiles_Free/Interiors_free/16x16/Interiors_free_16x16.png" id="2_shelf"]
+[ext_resource type="Texture2D" uid="uid://5b75lfedmg0l" path="res://Assets/EventFolder/BookshelfEmpty.png" id="3_okd60"]
+[ext_resource type="Texture2D" uid="uid://cam36erfu0ken" path="res://Assets/EventFolder/Books.png" id="3_shelf"]
+[ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="4_shelf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71qh4"]
+atlas = ExtResource("2_shelf")
+region = Rect2(224, 1088, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5xre"]
+atlas = ExtResource("3_okd60")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okd60"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71qh4")
+}],
+"loop": true,
+"name": &"HasBook",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5xre")
+}],
+"loop": true,
+"name": &"NoBook",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_book"]
+atlas = ExtResource("3_shelf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shelf"]
+size = Vector2(40, 40)
+
+[node name="Shelf" type="Area2D"]
+script = ExtResource("1_shelf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_okd60")
+animation = &"NoBook"
+
+[node name="BookOnShelf" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -8)
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_book")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_shelf")
+
+[node name="ObjectMarker" parent="." instance=ExtResource("4_shelf")]
+position = Vector2(0, -42)
+scale = Vector2(3, 3)
+
+[node name="SolidBody" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SolidBody"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_shelf")

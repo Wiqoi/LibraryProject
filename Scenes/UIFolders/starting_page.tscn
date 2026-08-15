@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://28vujj2q88w7"]
+[gd_scene load_steps=14 format=3 uid="uid://28vujj2q88w7"]
 
 [ext_resource type="Script" uid="uid://ddx6efkqqahc1" path="res://Scripts/starting_page.gd" id="1_8h5le"]
 [ext_resource type="Texture2D" uid="uid://biyw64ud7felm" path="res://Assets/UIAsets/Library_bg.png" id="1_dujba"]
@@ -10,6 +10,16 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8h5le"]
 texture = ExtResource("1_dujba")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_menu_hover"]
+texture = ExtResource("3_xaxdf")
+region_rect = Rect2(20.2307, 667.769, 434.564, 103.359)
+modulate_color = Color(0.75, 0.75, 0.75, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_menu_pressed"]
+texture = ExtResource("3_xaxdf")
+region_rect = Rect2(20.2307, 667.769, 434.564, 103.359)
+modulate_color = Color(0.55, 0.55, 0.55, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q4x4n"]
 texture = ExtResource("3_xaxdf")
@@ -74,8 +84,8 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 46
-theme_override_styles/hover = SubResource("StyleBoxTexture_q4x4n")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_q4x4n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_menu_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_menu_pressed")
 theme_override_styles/normal = SubResource("StyleBoxTexture_q4x4n")
 text = "Start Game"
 script = ExtResource("3_t7jmd")
@@ -96,8 +106,8 @@ size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 46
-theme_override_styles/hover = SubResource("StyleBoxTexture_q4x4n")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_q4x4n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_menu_hover")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_menu_pressed")
 theme_override_styles/normal = SubResource("StyleBoxTexture_p4as7")
 text = "Quit Game"
 script = ExtResource("5_50rtn")

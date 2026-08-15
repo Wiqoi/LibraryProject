@@ -23,10 +23,10 @@ func can_interact() -> bool:
 	return done == 0
 
 func marker_visible() -> bool:
-	return not Global.player_has_backpack
+	return not Global.player_has_backpack and not Global.player_has_book
 
 func is_available() -> bool:
-	return can_interact() and not Global.player_has_backpack and not Global.is_interacting
+	return can_interact() and not Global.player_has_backpack and not Global.player_has_book and not Global.is_interacting
 
 func _ready() -> void:
 	find_player()
@@ -61,14 +61,14 @@ func _process(delta: float) -> void:
 	if has_node("ObjectMarker"):
 		$ObjectMarker.visible = marker_visible()
 
-	if not can_interact() or Global.player_has_backpack:
+	if not can_interact() or Global.player_has_backpack or Global.player_has_book:
 		return
 
 	if player_node != null:
 		var distance_to_player = global_position.distance_to(player_node.global_position)
 		var is_near_player = distance_to_player <= interaction_range
 
-		if is_near_player and is_mouse_hovering and Input.is_action_just_pressed("ui_interact") and done == 0 and not Global.is_interacting:
+		if is_near_player and is_mouse_hovering and (Input.is_action_just_pressed("ui_interact") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and done == 0 and not Global.is_interacting:
 			start_interaction()
 
 func play_book_idle_animation() -> void:

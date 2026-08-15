@@ -111,8 +111,8 @@ func _run_quiz(question: String, answers: Array, correct_index: int) -> void:
 func _process(delta: float) -> void:
 	if Global.first_food == 1 && not _was_shown("food"):
 		await _show_rule("food", "res://TextFiles/CollectFood.txt", $Food,
-			"What should you do with food in the library?",
-			["Clean it up and throw it away", "Leave it for someone else", "Hide it under a chair", "Feed it to the librarian"], 0)
+			"Should food be allowed in the library?",
+			["Food should not be in the library", "Yes, food is fine anywhere", "Only if it is wrapped", "Food keeps the library cozy"], 0)
 
 	if Global.firstS == 1 && not _was_shown("sanitize"):
 		await _show_rule("sanitize", "res://TextFiles/SanitizeHands.txt", $Sanitize,
