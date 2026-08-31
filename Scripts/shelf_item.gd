@@ -4,7 +4,7 @@ extends Area2D
 # book rule quiz on the first placement.
 
 @export var interaction_text: String = "Shelving book..."
-@export var interaction_duration: float = 3.5
+@export var interaction_duration: float = 1.75
 var is_organizing: bool = false
 var interaction_elapsed: float = 0.0
 var is_mouse_hovering: bool = false

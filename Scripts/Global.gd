@@ -32,6 +32,7 @@ var firstNoise = 0
 var firstRunning = 0
 var firstChairs = 0
 var firstCheckout = 0
+var firstLineup = 0
 var firstEnter = 0
 var firstLeave = 0
 var Objectives = ""

@@ -15,3 +15,5 @@ LibraryProject.pck
 LibraryProject.png
 LibraryProject.png.import
 LibraryProject.wasm
+# Godot editor crash leftovers
+*.tmp

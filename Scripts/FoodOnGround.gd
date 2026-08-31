@@ -3,7 +3,7 @@ extends CharacterBody2D
 var player_node: CharacterBody2D = null
 @export var interaction_range: float = 100.0
 @export var interaction_text: String = "Cleaning up food..."
-@export var interaction_duration: float = 3.5
+@export var interaction_duration: float = 1.75
 @export var map_min: Vector2 = Vector2(-800, -800)
 @export var map_max: Vector2 = Vector2(800, 800)
 var is_organizing: bool = false

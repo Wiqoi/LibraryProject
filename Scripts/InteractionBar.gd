@@ -1,6 +1,6 @@
 extends Control
 
-@export var fill_duration: float = 3.5
+@export var fill_duration: float = 1.75
 
 const CELEBRATION_SCENE = preload("res://Scenes/EventFolders/CelebrationEffect.tscn")
 

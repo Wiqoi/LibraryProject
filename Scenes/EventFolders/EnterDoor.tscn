@@ -1,8 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://enterdoor01"]
+[gd_scene load_steps=9 format=3 uid="uid://enterdoor01"]
 
 [ext_resource type="Script" uid="uid://d3kspo6f3m5w2" path="res://Scripts/enter_door.gd" id="1_ed"]
-[ext_resource type="Texture2D" uid="uid://d073d47lott2l" path="res://Assets/MapAssets/Placeholders.png" id="2_ed"]
+[ext_resource type="Texture2D" uid="uid://bg0s17vvvrigj" path="res://Assets/Button.png" id="2_jjmid"]
 [ext_resource type="PackedScene" uid="uid://dannavf646uva" path="res://Scenes/object_marker.tscn" id="3_ed"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jupph"]
+atlas = ExtResource("2_jjmid")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd0ti"]
+atlas = ExtResource("2_jjmid")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sljd4"]
+atlas = ExtResource("2_jjmid")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ftwb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jupph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd0ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sljd4")
+}],
+"loop": false,
+"name": &"ButtonDoor",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ed"]
 size = Vector2(48, 48)
@@ -10,9 +39,10 @@ size = Vector2(48, 48)
 [node name="EnterDoor" type="Area2D"]
 script = ExtResource("1_ed")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_ed")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_8ftwb")
+animation = &"ButtonDoor"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ed")

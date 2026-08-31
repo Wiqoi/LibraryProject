@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var interaction_text: String = "Stowing backpack..."
-@export var interaction_duration: float = 3.5
+@export var interaction_duration: float = 1.75
 var is_organizing: bool = false
 var interaction_elapsed: float = 0.0
 var is_mouse_hovering: bool = false

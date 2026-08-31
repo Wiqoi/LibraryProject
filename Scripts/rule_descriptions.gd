@@ -8,6 +8,7 @@ var _quiz_answered: bool = false
 var _quiz_picked: int = 0
 var _quiz_buttons: Array = []
 var _base_positions: Dictionary = {}
+var _showing: bool = false
 
 
 func _ready() -> void:
@@ -58,15 +59,18 @@ func _drop_out_page(nodes: Array) -> Tween:
 
 
 func _show_rule(key: String, text_file: String, poster: Control, question: String, answers: Array, correct_index: int) -> void:
+	_showing = true
 	_mark_shown(key)
 	Global.givenText = FileAccess.open(text_file, FileAccess.READ).get_line()
-	poster.visible = true
+	if poster != null:
+		poster.visible = true
 	$QuizPanel.visible = true
 	self.visible = true
 	get_tree().paused = true
 
 	# Poster, text panel and quiz all swing down at the same time.
-	_swing_down(poster)
+	if poster != null:
+		_swing_down(poster)
 	_swing_down($ColorRect)
 	_swing_down($RichTextLabel)
 	_swing_down($QuizPanel)
@@ -74,15 +78,19 @@ func _show_rule(key: String, text_file: String, poster: Control, question: Strin
 	await _run_quiz(question, answers, correct_index)
 
 	# Drop the whole rule page down below the screen.
-	var page: Array = [poster, $ColorRect, $RichTextLabel, $QuizPanel]
+	var page: Array = [$ColorRect, $RichTextLabel, $QuizPanel]
+	if poster != null:
+		page.append(poster)
 	await _drop_out_page(page).finished
 
 	get_tree().paused = false
 	self.visible = false
-	poster.visible = false
+	if poster != null:
+		poster.visible = false
 	$QuizPanel.visible = false
 	for node in page:
 		node.position = _get_base(node)
+	_showing = false
 
 
 func _run_quiz(question: String, answers: Array, correct_index: int) -> void:
@@ -109,6 +117,11 @@ func _run_quiz(question: String, answers: Array, correct_index: int) -> void:
 
 
 func _process(delta: float) -> void:
+	# Only one rule page at a time; _show_rule suspends mid-await, and _process
+	# re-enters every frame, so block overlapping shows.
+	if _showing:
+		return
+
 	if Global.first_food == 1 && not _was_shown("food"):
 		await _show_rule("food", "res://TextFiles/CollectFood.txt", $Food,
 			"Should food be allowed in the library?",
@@ -153,3 +166,13 @@ func _process(delta: float) -> void:
 		await _show_rule("checkout", "res://TextFiles/Checkout.txt", $Checkout,
 			"How do you properly borrow books?",
 			["Check them out at the desk", "Take them without asking", "Borrow them and never return", "Leave them on the desk"], 0)
+
+	if Global.firstLineup == 1 && not _was_shown("lineup"):
+		await _show_rule("lineup", "res://TextFiles/LineUp.txt", null,
+			"How should kids wait for checkout?",
+			["Line up quietly", "Push to the front", "Shout for attention", "Sit on the desk"], 0)
+
+	if Global.firstLeave == 1 && not _was_shown("leave"):
+		await _show_rule("leave", "res://TextFiles/LetKidsLeave.txt", null,
+			"How should kids leave the library?",
+			["Quietly and calmly", "Run out yelling", "Leave a mess behind", "Never leave"], 0)

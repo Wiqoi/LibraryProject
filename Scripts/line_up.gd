@@ -15,6 +15,7 @@ func _ready() -> void:
 	interaction_text = "Telling kids to line up..."
 
 func firsttime():
+	Global.firstLineup = 1
 	Global.events_done += 1
 	Global.lineup_done += 1
 	if Global.lineup_done >= Global.lineup_total:

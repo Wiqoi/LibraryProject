@@ -1,13 +1,15 @@
 extends Area2D
 
 @export var interaction_text: String = "Letting kids enter..."
-@export var interaction_duration: float = 3.5
+@export var interaction_duration: float = 1.75
 var is_organizing: bool = false
 var interaction_elapsed: float = 0.0
 var is_mouse_hovering: bool = false
 var done: bool = false
 var cutscene_started: bool = false
 var gate_open: bool = false
+
+@onready var door_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	add_to_group("interactables")
@@ -16,6 +18,14 @@ func _ready() -> void:
 	mouse_exited.connect(func(): is_mouse_hovering = false)
 	if has_node("ObjectMarker"):
 		$ObjectMarker.visible = false
+	# Door idles on the first frame until pressed
+	door_sprite.frame = 0
+	door_sprite.animation_finished.connect(_on_door_animation_finished)
+
+func _on_door_animation_finished() -> void:
+	# ButtonDoor runs once (loop = false), then snaps back to frame 0
+	door_sprite.stop()
+	door_sprite.frame = 0
 
 func _enter_gate_open() -> bool:
 	return Global.sanitize_done >= Global.sanitize_total and Global.cubby_done >= Global.cubby_total and Global.fighting_done >= Global.fighting_total
@@ -56,6 +66,9 @@ func start_interaction() -> void:
 	interaction_elapsed = 0.0
 	Global.is_interacting = true
 	Global.interaction_started.emit(interaction_text)
+
+	# Run the button-door animation once at ~5 fps while the interaction runs
+	door_sprite.play("ButtonDoor")
 
 func _complete_interaction() -> void:
 	is_organizing = false
