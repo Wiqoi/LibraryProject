@@ -84,6 +84,10 @@ func _process(_delta: float) -> void:
 	if not _logger_attached or _logger == null:
 		return
 	if not EngineDebugger.is_active():
+		## Exported builds have no debugger channel, so nothing would ever
+		## drain the logger queue. Discard it to avoid unbounded growth.
+		if _logger.has_pending():
+			_logger.drain()
 		return
 	if _pending_outbound.is_empty():
 		if not _logger.has_pending():

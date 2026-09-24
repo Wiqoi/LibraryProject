@@ -21,12 +21,32 @@ func main(){
 	if err!=nil{
 		log.Fatalf("Failed to resolve dist path: %v", err)
 	}
-	if _, err:=os.Stat(distPath); os.IsNotExist(err){
-		log.Fatalf("Dist folder not found at %s. Did you run 'npm run build'?", distPath)
+	findEntry:=func(dir string) string{
+		for _, name:=range []string{"index.html", "LibraryProject.html"}{
+			if _, err:=os.Stat(filepath.Join(dir, name)); err==nil{
+				return name
+			}
+		}
+		return ""
+	}
+	// The web export may live next to the server or in an ./export folder.
+	entry:=findEntry(distPath)
+	if entry==""{
+		exportDir:=filepath.Join(distPath, "export")
+		if e:=findEntry(exportDir); e!=""{
+			distPath=exportDir
+			entry=e
+		}
+	}
+	if entry==""{
+		log.Fatalf("No web export found in %s. Did you export the Web build?", distPath)
 	}
 	app.Use("/", func(c *fiber.Ctx) error{
 		requestPath:=c.Path()
 		fullPath:=filepath.Join(distPath, requestPath)
+		if rel, err:=filepath.Rel(distPath, fullPath); err!=nil||rel==".."||strings.HasPrefix(rel, ".."+string(os.PathSeparator)){
+			return c.Next()
+		}
 		if info, err:=os.Stat(fullPath); err==nil&&!info.IsDir(){
 			ext:=strings.ToLower(filepath.Ext(fullPath))
 			switch ext{
@@ -48,7 +68,7 @@ func main(){
 			return c.Next()
 		}
 		c.Set("Cache-Control", "no-cache, no-store, must-revalidate")
-		return c.SendFile(filepath.Join(distPath, "LibraryProject.html"))
+		return c.SendFile(filepath.Join(distPath, entry))
 	})
 	port:=os.Getenv("PORT")
 	if port==""{

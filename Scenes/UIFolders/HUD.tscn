@@ -276,7 +276,7 @@ show_percentage = false
 [node name="DebugMenu" type="Panel" parent="."]
 visible = false
 process_mode = 3
-z_index = 5000
+z_index = 4096
 layout_mode = 0
 offset_left = 372.0
 offset_top = 115.0

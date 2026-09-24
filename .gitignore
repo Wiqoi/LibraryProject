@@ -17,3 +17,5 @@ LibraryProject.png.import
 LibraryProject.wasm
 # Godot editor crash leftovers
 *.tmp
+godot_runtime
+export

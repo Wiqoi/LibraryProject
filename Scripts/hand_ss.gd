@@ -29,6 +29,7 @@ func is_available() -> bool:
 func _ready() -> void:
 	find_player()
 	add_to_group("interactables")
+	linear_damp = 10.0
 
 	animated_sprite = $StudentLook
 
@@ -42,11 +43,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(self.linear_velocity != Vector2(0,0)):
-		await get_tree().create_timer(0.1).timeout
-		self.linear_velocity -= Vector2(0.1,0.1)
-		self.linear_velocity = Vector2(max(0, self.linear_velocity.x),max(0, self.linear_velocity.y))
-
 	if is_organizing:
 		interaction_elapsed += delta
 		var ratio = min(interaction_elapsed / interaction_duration, 1.0)

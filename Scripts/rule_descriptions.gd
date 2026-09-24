@@ -32,6 +32,24 @@ func _on_answer(picked: int) -> void:
 	_quiz_picked = picked
 
 
+func _input(event: InputEvent) -> void:
+	# Keyboard fallback so the quiz is always answerable (1-4 or A-D),
+	# even if mouse input is unavailable (e.g. some web builds).
+	if not visible or not $QuizPanel.visible:
+		return
+	if not (event is InputEventKey) or not event.pressed or event.echo:
+		return
+	var idx := -1
+	match event.keycode:
+		KEY_1, KEY_KP_1, KEY_A: idx = 0
+		KEY_2, KEY_KP_2, KEY_B: idx = 1
+		KEY_3, KEY_KP_3, KEY_C: idx = 2
+		KEY_4, KEY_KP_4, KEY_D: idx = 3
+	if idx >= 0 and idx < _quiz_buttons.size() and not _quiz_buttons[idx].disabled:
+		_on_answer(idx)
+		get_viewport().set_input_as_handled()
+
+
 func _process(_delta: float) -> void:
 	if _showing or Global.pending_rules.is_empty():
 		return
@@ -44,7 +62,8 @@ func _show_rule(key: String) -> void:
 	_showing = true
 	var rule: Dictionary = RULES[key]
 	var poster := _poster_for(key)
-	Global.givenText = FileAccess.open(rule.file, FileAccess.READ).get_line()
+	var f := FileAccess.open(rule.file, FileAccess.READ)
+	Global.givenText = f.get_line() if f != null else ""
 	if poster:
 		poster.visible = true
 	$QuizPanel.visible = true
@@ -84,10 +103,17 @@ func _run_quiz(question: String, answers: Array) -> int:
 	var attempts := 0
 	while true:
 		_quiz_answered = false
+		# Fail-safe: never leave the game paused waiting forever. If the
+		# player does not answer within the limit, auto-resolve the quiz.
+		var wait_start := Time.get_ticks_msec()
 		while not _quiz_answered:
 			await get_tree().process_frame
+			if Time.get_ticks_msec() - wait_start > 45000:
+				return attempts + 1
 		attempts += 1
 		if _quiz_picked == correct_button:
+			return attempts
+		if _quiz_picked < 0 or _quiz_picked >= _quiz_buttons.size():
 			return attempts
 		_quiz_buttons[_quiz_picked].modulate = Color.RED
 		_quiz_buttons[_quiz_picked].disabled = true

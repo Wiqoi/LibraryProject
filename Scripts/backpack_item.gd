@@ -12,6 +12,7 @@ var done: bool = false
 func _ready() -> void:
 	player_node = Global.player_node
 	add_to_group("interactables")
+	linear_damp = 10.0
 
 	var area = $Area2D
 	area.mouse_entered.connect(func(): is_mouse_hovering = true)
@@ -22,11 +23,6 @@ func is_available() -> bool:
 	return not done and not Global.player_has_backpack and not Global.is_interacting
 
 func _process(delta: float) -> void:
-	if self.linear_velocity != Vector2(0, 0):
-		await get_tree().create_timer(0.1).timeout
-		self.linear_velocity -= Vector2(0.1, 0.1)
-		self.linear_velocity = Vector2(max(0, self.linear_velocity.x), max(0, self.linear_velocity.y))
-
 	if is_organizing:
 		interaction_elapsed += delta
 		var ratio = min(interaction_elapsed / interaction_duration, 1.0)
